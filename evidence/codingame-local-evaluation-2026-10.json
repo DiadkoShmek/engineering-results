@@ -1,0 +1,51 @@
+{
+  "schema": "public-ai-engineering-case-v1",
+  "published_on": "2026-10-21",
+  "kind": "retrospective_local_evaluation_extract",
+  "scope": "Own archived local experiments; no new match runs for this publication. Not an independent attestation or an AI-model benchmark.",
+  "experiments": [
+    {
+      "candidate": "V79",
+      "baseline": "V74",
+      "candidate_source_sha256": "5c17db6b1b209f69943e08caf2b10f6e8b8844de6d58ad6b7bfbf77b2b526604",
+      "baseline_source_sha256": "715c0e110d94feb6f25cce33a4fe726382799d513f93deed6b409c821907b508",
+      "source_receipt_sha256": "a57220cc1cfcbc2873c9cc79617b734fa823156146f564f254b2092765c1d33d",
+      "planned_games": 16,
+      "completed_games": 8,
+      "wins": 2,
+      "required_wins": 11,
+      "seeds_completed": "1700910..1700913, both seats",
+      "stopped_early": true,
+      "reserve_opened": false,
+      "max_warm_response_us": 14369,
+      "promoted": false,
+      "official_submission": false,
+      "verdict": "REJECTED"
+    },
+    {
+      "candidate": "V89b",
+      "baseline": "V73",
+      "recorded_at": "2026-10-07T02:27:18.925844+00:00",
+      "candidate_source_sha256": "ba87268220dc98c9595c050dc370bc7152de1f339f3395a7c5b7a959df360a04",
+      "baseline_source_sha256": "3d1046b798f27a233348bc1a7cf8a763fa175271b69ad98fc53923239ba0d576",
+      "source_receipt_sha256": "3d687678dd29ee546cfa81f63a8df7fbfd5b22946882f839daff3c21baacf56a",
+      "completed_games": 400,
+      "wins": 221,
+      "win_rate": 0.5525,
+      "incomplete": 0,
+      "unique_seeds": 200,
+      "seeds": "1790000..1790199, both seats",
+      "guard_wall_ms": 50,
+      "cpu_timing_games": 40,
+      "max_turn_cpu_ms": 22.5,
+      "guard_off_identical_transcripts": [40, 40],
+      "degraded_2ms": {"completed_legally": 20, "games": 20, "wins": 1},
+      "physics_cases_passed": 512,
+      "criteria_changed_after_prior_failures": true,
+      "official_submission": false,
+      "verdict": "CONDITIONAL_LOCAL_CANDIDATE_NOT_SUBMITTED"
+    }
+  ],
+  "unmeasured": ["full development time", "total token and compute cost", "human intervention count", "autonomy percentage"],
+  "reproducibility": "Candidate code, referee and full traces are not included. This extract alone cannot reproduce matches; original receipt hashes alone do not independently verify their contents."
+}

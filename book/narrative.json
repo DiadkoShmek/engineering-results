@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "author": "DiadkoShmek",
+  "chapters": [
+    {
+      "key": "filesdrop",
+      "title": "FilesDrop",
+      "record_ids": [
+        "filesdrop-api-fixes-2026-10-21"
+      ],
+      "report": "reports/filesdrop-2026-10.md",
+      "uk": {
+        "problem": "Я почав із двох різних порушень життєвого циклу: невдале видалення зникало з наступної партії cleanup, а deadline не припиняв очікування DNS. У першому випадку важлива не сама помилка диска, а втрата можливості повторити роботу. У другому - межа між очікуванням запиту та системним resolver.",
+        "decision": "Я зберіг невдалі елементи для наступного проходу й відділив успішні видалення. Контрприклад на 501 файл показав, що одна постійна відмова може блокувати наступну партію. Для URL-upload сигнал скасування обмежує очікування, зберігаючи перевірки адрес та redirect-поведінки.",
+        "proof": "Регресії спершу падали на базі. У збереженому локальному прогоні пройшли 236 тестів у 12 API suites. Тимчасові файли та DNS/HTTP doubles перевіряли потрібні переходи стану, не поведінку production-сервісу.",
+        "lesson": "Cleanup має зберігати можливість повторення. Скасування очікування не означає зупинку системної операції.",
+        "boundaries": {
+          "filesdrop-api-fixes-2026-10-21": "Злиті API-виправлення з локальними регресійними перевірками. Розгортання у робочому середовищі, перевірка живого сервісу чи оплата цим записом не підтверджені."
+        }
+      },
+      "en": {
+        "problem": "I started from two lifecycle failures: failed deletion could disappear from the next cleanup batch, and a deadline did not end waiting for DNS. The first problem was loss of retryable work; the second was the boundary between request waiting and the native resolver.",
+        "decision": "I retained failed items for another pass and committed successful deletions separately. A 501-file counterexample exposed starvation behind one persistent failure. For URL uploads, cancellation ends request waiting while retaining address validation and redirect behavior.",
+        "proof": "The regressions first failed on the base. The saved local run passed 236 tests across 12 API suites. Temporary files and DNS/HTTP doubles exercised the intended transitions, rather than a production deployment.",
+        "lesson": "Cleanup must preserve retryability. Cancelling a wait does not imply stopping the underlying system operation."
+      }
+    },
+    {
+      "key": "prime",
+      "title": "Prime Intellect",
+      "record_ids": [
+        "prime-intellect-verifiers-2026-10-24"
+      ],
+      "report": "reports/prime-intellect-2026-10.md",
+      "uk": {
+        "problem": "Я досліджував, як конфігурація моделі й клієнта успадковує загальні sampling-параметри. Інший учасник уже подав початковий issue. Моя задача полягала в тому, щоб перетворити опис на перевірюваний контракт і зрозумілий відтворювач.",
+        "decision": "Я запропонував межу на рівні явного model/client override. Мейнтейнер обрав точнішу межу клієнта: інша модель на тому самому сервері зберігає спільні параметри, а окремий клієнт отримує власні. Це інша реалізація й дещо інший контракт, а не merge мого патчу.",
+        "proof": "Матриця моєї пропозиції перейшла від 11 failing і 7 passing сценаріїв до 18 passing. Це число сценаріїв, не кількість дефектів. Публічна відповідь мейнтейнера окремо визнає роль відтворення й дослідження. Живе inference або навчання я цими тестами не підтверджував.",
+        "lesson": "Корисний внесок може змінити рішення мейнтейнера, навіть коли власний patch не стає прийнятим кодом.",
+        "boundaries": {
+          "prime-intellect-verifiers-2026-10-24": "Мейнтейнер відзначив наше відтворення й дослідження. Наш патч замінено, а не злито; початкову проблему зареєстрував інший учасник. Працевлаштування або оплата не заявляються."
+        }
+      },
+      "en": {
+        "problem": "I investigated how model and client configuration inherit shared sampling parameters. Another contributor had already opened the original issue. My role was to turn that report into an executable contract and a clear reproducer.",
+        "decision": "I proposed a boundary around explicit model/client overrides. The maintainer instead chose the client boundary: another model on the same server retains shared parameters, while a separate client gets its own. This is a different implementation and a refined contract, not a merge of my patch.",
+        "proof": "My proposed-contract matrix moved from 11 failing and seven passing scenarios to 18 passing. Those are scenarios, not distinct defects. The maintainer separately credited the reproduction and investigation. These tests did not establish live inference or training behavior.",
+        "lesson": "A contribution can shape a maintainer decision even when the proposed patch is not the accepted code."
+      }
+    },
+    {
+      "key": "m7",
+      "title": "M7 MCP",
+      "record_ids": [
+        "m7-audit-release-2026-10-29"
+      ],
+      "report": "reports/m7-2026-10.md",
+      "uk": {
+        "problem": "Я перевіряв конкретний snapshot MCP-сервера: переходи фаз, повторні виклики, збереження стану та передачу роботи. Аудит вимагав відділити дефект контракту від помилки мого спостереження та від обмеження середовища.",
+        "decision": "Я сформував відтворювані спостереження з причиною, входом і межею висновку. Мейнтейнери створили власний реєстр проблем і реалізували перший maintenance release. Їхні записи не є взаємно-однозначною копією груп мого аудиту.",
+        "proof": "Оригінальний публічний PDF збережено без переписування під пізніший реліз. Focused follow-up на зафіксованому commit пройшов 168 тестів і SDK stdio-перевірку, але зберіг три незакриті error-path сценарії. Це не повний повторний аудит.",
+        "lesson": "Аудит має залишати перевірюваний маршрут до помилки та не приховувати те, чого наступний реліз ще не довів.",
+        "boundaries": {
+          "m7-audit-release-2026-10-29": "Публічне відзначення перевірки й класифікації проблем та випуск мейнтейнерами релізу з виправленнями. Групи аудиту та їхні записи реєстру не взаємозамінні. Прицільна повторна перевірка зберегла незакриті сценарії помилок; живі моделі й IDE не перевірялися."
+        }
+      },
+      "en": {
+        "problem": "I reviewed a specific MCP-server snapshot: phase transitions, repeated calls, state persistence and handoff. The audit required separating contract defects from observer mistakes and environment limitations.",
+        "decision": "I documented reproducible observations with inputs, causes and limits. Maintainers built their own issue registry and implemented the first maintenance release. Their registry entries are not a one-to-one copy of the audit groups.",
+        "proof": "The original public PDF is retained unchanged rather than rewritten around a later release. A focused follow-up on a pinned commit passed 168 tests and an SDK stdio check while retaining three unresolved error paths. It was not a complete reaudit.",
+        "lesson": "An audit should leave a checkable route to each failure and retain what a later release has not established."
+      }
+    },
+    {
+      "key": "braintrust",
+      "title": "Braintrust SDK JavaScript",
+      "record_ids": [
+        "braintrust-streaming-utf8-2026-11-02"
+      ],
+      "report": "reports/braintrust-2026-11.md",
+      "uk": {
+        "problem": "Проблема виникала на межі чанків логування: багатобайтовий UTF-8 символ може бути розділений між двома порціями байтів. Коректний текст не повинен залежати від того, як транспорт розбив потік.",
+        "decision": "Я зберіг стан decoder між читаннями й відділив завершення потоку від проміжного чанка. Перевірка кожної byte boundary перетворила загальний опис пошкоджених символів на точний інваріант: різні розбиття того самого потоку дають той самий текст.",
+        "proof": "Початковий focused прогін мав шість відмов і 13 passing controls. Пов’язані suites пройшли 178 тестів на обох перевірених версіях Node. Це локальні перевірки визначених шляхів, не повний monorepo, browser чи реальний provider end-to-end.",
+        "lesson": "Межа чанка належить транспорту. Стан текстового decoder має належати всьому логічному потоку.",
+        "boundaries": {
+          "braintrust-streaming-utf8-2026-11-02": "Злите виправлення потокового логування UTF-8 з локальними регресіями. Повний монорепозиторій, браузер і наскрізний сценарій із реальним провайдером не перевірялися."
+        }
+      },
+      "en": {
+        "problem": "The failure occurred at logging chunk boundaries: a multibyte UTF-8 character can span two byte chunks. Correct text should not depend on how a transport partitions its stream.",
+        "decision": "I retained decoder state between reads and separated final flushing from intermediate chunks. Testing every byte boundary made the invariant concrete: different partitions of one byte stream must produce the same text.",
+        "proof": "The first focused run had six failures and 13 passing controls. Related suites passed 178 tests on both tested Node versions. These are local checks of selected paths, not the entire monorepo, browser execution or a real-provider end-to-end test.",
+        "lesson": "Chunk boundaries belong to the transport. Decoder state must belong to the complete logical stream."
+      }
+    },
+    {
+      "key": "kraft",
+      "title": "Kraft",
+      "record_ids": [
+        "kraft-skill-refresh-2026-11-02"
+      ],
+      "report": "reports/kraft-2026-11.md",
+      "uk": {
+        "problem": "Повторний user-scope init бачив уже наявну MCP-реєстрацію й завершувався раніше, ніж оновлював skills. Команда виглядала повторюваною, але її друга частина фактично не виконувалася.",
+        "decision": "Я розділив успішний стан уже наявної реєстрації та справжню помилку subprocess. Перший дозволяє перейти до оновлення skills; друга має зупинити процес до записів. Це виправлення порядку дій, без виклику живого агента.",
+        "proof": "Focused suite пройшов 16 тестів. Репозиторні ci-checks та mutation checks перевіряли розрізнення гілок. Claude subprocess був test double; користувацькі конфігурації й зовнішній агент у цих перевірках не змінювалися.",
+        "lesson": "Повторний init має повторювати корисну роботу, а не плутати idempotent стан із відмовою.",
+        "boundaries": {
+          "kraft-skill-refresh-2026-11-02": "Злите виправлення повторної користувацької ініціалізації. У тестах підпроцес Claude замінено імітацією: без живих викликів агента чи змін користувацьких конфігурацій."
+        }
+      },
+      "en": {
+        "problem": "Repeated user-scope initialization detected an existing MCP registration and returned before refreshing skills. The command appeared repeatable, but its second responsibility was skipped.",
+        "decision": "I separated a successfully existing registration from a genuine subprocess failure. The former allows skill refresh to proceed; the latter must stop before writes. The change repairs control flow without invoking a live agent.",
+        "proof": "The focused suite passed 16 tests. Repository ci-checks and mutation checks exercised the distinction between branches. The Claude subprocess was a test double; those checks did not change user configuration or call an external agent.",
+        "lesson": "Repeated initialization should repeat useful work rather than mistake an idempotent state for failure."
+      }
+    },
+    {
+      "key": "tensordict",
+      "title": "PyTorch TensorDict",
+      "record_ids": [
+        "tensordict-partial-checkpoint-2026-11-01"
+      ],
+      "report": "reports/tensordict-2026-11.md",
+      "uk": {
+        "problem": "Частковий checkpoint у вкладеному TensorDictParams міг відмовити навіть із strict=False. Я перевіряв не лише пропущений ключ, а й вкладені пропуски, assignment і pre-hooks - поведінку, на яку вже покладаються користувачі PyTorch.",
+        "decision": "Я запропонував loader fix і differential controls проти native nn.Module. Мейнтейнер обрав менший owner-level крок: делегувати власному loader PyTorch замість підтримки копії. Публічний credit стосується попереднього fix, report і thorough tests.",
+        "proof": "Наш кандидат мав 44 failing сценарії та чотири passing controls на базі; focused suites після нього дали 251 pass і два CUDA skips. Ці числа не описують фінальну реалізацію мейнтейнера. Її прийняття фіксує окремий upstream PR.",
+        "lesson": "Коли контракт уже належить нижчому шару, делегування може бути сильнішим за точнішу копію.",
+        "boundaries": {
+          "tensordict-partial-checkpoint-2026-11-01": "Мейнтейнер відзначив попереднє виправлення, звіт і ретельні тести. Наш PR #3426 замінено, не злито; менша прийнята реалізація належить мейнтейнеру."
+        }
+      },
+      "en": {
+        "problem": "A partial checkpoint in a nested TensorDictParams could fail despite strict=False. I examined missing keys, nesting, assignment and pre-hooks: behavior that PyTorch users already rely on.",
+        "decision": "I proposed a loader repair and differential controls against native nn.Module. The maintainer chose a smaller owner-level change: delegate to PyTorch rather than maintain a copy. The public credit covers the earlier fix, report and thorough tests.",
+        "proof": "Our candidate had 44 failing scenarios and four passing controls on the base; its focused suites then passed 251 tests with two CUDA skips. Those counts do not describe the maintainer implementation, whose acceptance is recorded by a separate upstream PR.",
+        "lesson": "When a lower layer already owns the contract, delegation can be stronger than a more accurate copy."
+      }
+    },
+    {
+      "key": "blackjax",
+      "title": "BlackJAX",
+      "record_ids": [
+        "blackjax-barker-stability-2026-11-02"
+      ],
+      "report": "reports/blackjax-2026-11.md",
+      "uk": {
+        "problem": "Barker MCMC міг відхилити крок до області вищої ймовірності через переповнення проміжного exp. Кінцевий log-expression лишався математично скінченним, але прямий порядок обчислення втрачав його.",
+        "decision": "Я замінив нестабільний log(1+exp(x)) на стандартний softplus. Важливий доказ - не просто відсутність inf, а правильна proposal probability відносно незалежного обчислення густини. Звичайні значення залишилися контрольними випадками.",
+        "proof": "Незалежне обчислення NumPy на 768 CPU-кроках знаходило 142 розбіжності на базовій версії й нуль після зміни; всі 384 звичайні контрольні випадки проходили й раніше. Повний набір тестів не запускався; незмінений збій CI GIST відтворено на базовій та зміненій версіях. Роботу на GPU/TPU та приріст швидкодії не заявлено.",
+        "lesson": "Стабілізувати треба проміжний розрахунок, зберігши математичну величину та контрольні режими.",
+        "boundaries": {
+          "blackjax-barker-stability-2026-11-02": "Злите виправлення чисельної стабільності Barker MCMC з порівняльними перевірками на CPU. Повний набір тестів не запускався; незмінений збій CI GIST відтворено на точних базовій і зміненій версіях. Роботу на GPU/TPU та приріст швидкодії не заявлено."
+        }
+      },
+      "en": {
+        "problem": "Barker MCMC could reject an improving move because an intermediate exp overflowed. The final log expression remained mathematically finite, but direct evaluation lost it.",
+        "decision": "I replaced unstable log(1+exp(x)) evaluation with standard softplus. The important proof was not merely absence of inf, but the correct proposal probability against an independent density calculation. Ordinary inputs remained controls.",
+        "proof": "Across 768 CPU steps, the NumPy oracle found 142 base mismatches and none after the change; all 384 ordinary controls already passed. The full suite was not run. An unchanged GIST CI failure was reproduced on base and head; no GPU, TPU or speed-up is claimed.",
+        "lesson": "Stabilize the intermediate computation while preserving the mathematical quantity and control regimes."
+      }
+    },
+    {
+      "key": "tvm",
+      "title": "Apache TVM-FFI",
+      "record_ids": [
+        "tvm-ffi-structural-bytes-2026-11-02"
+      ],
+      "report": "reports/tvm-ffi-2026-11.md",
+      "uk": {
+        "problem": "Рівні короткі byte-значення з inline та heap storage отримували різні structural hashes. Це порушувало очікування StructuralKey cache lookup і native map deduplication. Мій patch виправляв обидва шляхи структурного hashing.",
+        "decision": "Мейнтейнер публічно пов’язав нашу пропозицію з наступним PR та обрав інший шар: короткий moved std::string одразу створює inline String/Bytes. Набори змінених файлів різні; прямого перенесення мого патчу у порівняних diff не виявлено.",
+        "proof": "Зіставлено нативні стани PR, chronology, коміти та diff. Constructor-side fix прибирає producer path, який використовував початковий reproducer. Наступну реалізацію та всі explicit external-heap випадки для цього запису повторно не виконували.",
+        "lesson": "Відтворення може привести до іншого виправлення. Superseded та merged - різні зовнішні наслідки.",
+        "boundaries": {
+          "tvm-ffi-structural-bytes-2026-11-02": "Мейнтейнер змінив конструктор короткого std::string rvalue, а не переніс наш патч хешування. Наш PR не злито; заміна лишалася OPEN. Її повну поведінку й усі сценарії з явним зберіганням у купі для цього запису повторно не виконували."
+        }
+      },
+      "en": {
+        "problem": "Equal short byte values with inline and heap storage received different structural hashes, violating expectations of StructuralKey cache lookup and native map deduplication. My proposed patch repaired both hashing paths.",
+        "decision": "The maintainer publicly linked the proposal to a successor and chose another layer: a short moved std::string directly constructs inline String/Bytes. The changed file sets are disjoint; no direct patch transplant was found in the inspected diffs.",
+        "proof": "Native PR states, chronology, commits and diffs were compared. The constructor-side change removes the producer path used by the original reproducer. The successor and all explicit external-heap cases were not runtime-retested for this record.",
+        "lesson": "A reproduction can lead to another repair. Superseded and merged are different external outcomes."
+      }
+    },
+    {
+      "key": "codingame",
+      "title": "CodinGame - Mad Pod Racing",
+      "record_ids": [
+        "codingame-mad-pod-racing-2026-10-21"
+      ],
+      "report": null,
+      "uk": {
+        "problem": "Я будував рішення для безперервної арени, де локальна перемога не гарантує зовнішнього місця. Для розбору збережено дві історії: швидке відхилення гіпотези й умовний локальний кандидат після зміни критеріїв.",
+        "decision": "V79 зупинено після 2 перемог у восьми завершених іграх: потрібна межа вже стала недосяжною. V89b дав 221/400, але критерії змінювалися після попередніх відмов, тому я не прирівнюю це до чистої незалежної перемоги чи поданої версії.",
+        "proof": "Зовнішній league snapshot має окреме публічне джерело та датований screenshot. Локальна витяжка не містить candidate code, referee і повних traces; самі hashes не дозволяють повторити матчі чи незалежно засвідчити їхній вміст.",
+        "lesson": "Стоп-критерій захищає від доведення бажаного результату. Локальний експеримент і зовнішня арена мають різні одиниці доказу.",
+        "boundaries": {
+          "codingame-mad-pod-racing-2026-10-21": "Датований зріз місця в лізі, не фінальний результат турніру й не найкраще місце за весь час."
+        }
+      },
+      "en": {
+        "problem": "I developed a bot for a continuous arena, where a local win does not establish an external rank. The record preserves two experiments: early rejection of a hypothesis and a conditional local candidate after criteria changed.",
+        "decision": "V79 stopped after two wins in eight completed games because the required threshold was no longer reachable. V89b recorded 221/400, but criteria changed after earlier failures, so I do not treat it as an independent clean win or an officially submitted version.",
+        "proof": "The external league snapshot has its own public source and dated screenshot. The local extract omits candidate code, referee and full traces; hashes alone cannot reproduce the matches or independently attest to their contents.",
+        "lesson": "A stopping rule protects against proving a desired outcome. Local experiments and external arenas have different units of evidence."
+      }
+    },
+    {
+      "key": "zoria",
+      "title": "Zoria 2026 / UA SKILLS",
+      "record_ids": [
+        "zoria-2026-preliminary-2026-10-19",
+        "zoria-2026-prize-winner-observed-2026-10-27"
+      ],
+      "report": null,
+      "uk": {
+        "problem": "Цей кейс зберігає дві часові точки одного турніру. Попередня таблиця другого етапу та пізніше оголошення організатора описують різні рівні завершеності. Я не додаю їх як два незалежні турнірні результати.",
+        "decision": "Моя інженерна роль полягала в розробці й перевірці власного ігрового рішення та збереженні меж зовнішнього доказу. Інженерний розбір коду ще не опубліковано, тому книга не підміняє його припущеннями про алгоритм чи автономність.",
+        "proof": "Попередня таблиця не включала R3. Пізніше організатор назвав обліковий запис серед призерів. Дата перевірки оголошення не є датою його публікації; точне фінальне місце й виплата цим записом не встановлені.",
+        "lesson": "Історія повинна зберігати попередній стан, не перетворюючи його на ще одну перемогу.",
+        "boundaries": {
+          "zoria-2026-preliminary-2026-10-19": "Публічна таблиця не враховує епізод R3; цей запис не встановлює фінального місця, нагороди або виплати.",
+          "zoria-2026-prize-winner-observed-2026-10-27": "Організатор називає цей обліковий запис серед п’яти призерів. Запис не встановлює точного фінального місця, кількості ранжованих учасників або виплати."
+        }
+      },
+      "en": {
+        "problem": "This case retains two observations of one tournament. A preliminary second-stage table and a later organizer announcement describe different levels of completion. I do not count them as independent tournament outcomes.",
+        "decision": "My engineering role was development and validation of my bot and preservation of external evidence boundaries. A code-level engineering report is not yet public, so this book does not invent algorithm or autonomy claims.",
+        "proof": "The preliminary table excluded R3. The organizer later named the account among prize winners. The date the announcement was checked is not its publication date; exact final placement and payment are not established here.",
+        "lesson": "History should retain a preliminary state without turning it into another victory."
+      }
+    }
+  ]
+}

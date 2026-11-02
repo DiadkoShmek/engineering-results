@@ -1,0 +1,225 @@
+{
+  "schema_version": 2,
+  "records": [
+    {
+      "id": "codingame-mad-pod-racing-2026-10-21",
+      "competition": "CodinGame · Mad Pod Racing",
+      "format": "continuous_arena",
+      "status": "snapshot",
+      "account": "Architect.",
+      "league": "Legend",
+      "rank": 86,
+      "rank_scope": "Legend League",
+      "participants": 1657,
+      "as_of": "2026-10-21",
+      "observed_at": "2026-10-20T22:06:15.975Z",
+      "display_timezone": "Europe/Helsinki",
+      "source_url": "https://www.codingame.com/multiplayer/bot-programming/mad-pod-racing",
+      "profile_url": "https://www.codingame.com/profile/effff781bd270b96c3fddbba39a29b4a7099847",
+      "evidence": {
+        "path": "evidence/codingame-2026-10-21.jpg",
+        "sha256": "98ef2618d3be4dfe2caa78419479f90d61e49bfbcec72e1b399881f527f569ef"
+      },
+      "boundary": "Dated league ranking snapshot, not a final tournament result or an all-time best.",
+      "category": "competition"
+    },
+    {
+      "id": "zoria-2026-preliminary-2026-10-19",
+      "competition": "Zoria 2026",
+      "format": "tournament",
+      "status": "preliminary",
+      "account": "diadkoshmek",
+      "rank": 5,
+      "rank_scope": "overall preliminary score of second-stage participants",
+      "participants": 9,
+      "as_of": "2026-10-19",
+      "checked_at": "2026-10-20T22:06:05.463Z",
+      "display_timezone": "Europe/Helsinki",
+      "source_url": "https://zoria.net/news/#19102026-попередній-підсумок-другого-етапу",
+      "expected_final_at": "2026-10-21T18:00:00Z",
+      "boundary": "Public table excludes episode R3; no final placement, award or payment claimed.",
+      "category": "competition"
+    },
+    {
+      "id": "zoria-2026-prize-winner-observed-2026-10-27",
+      "competition": "Zoria 2026",
+      "organizer": "UA SKILLS",
+      "format": "tournament",
+      "status": "final",
+      "result": "prize_winner",
+      "account": "diadkoshmek",
+      "as_of": "2026-10-27",
+      "date_basis": "date organizer announcement was checked; not the announcement publication date",
+      "display_timezone": "Europe/Helsinki",
+      "source_url": "https://ua.linkedin.com/company/ua-skills",
+      "boundary": "Organizer names this account among five prize winners. This record does not establish an exact final rank, a ranked participant count or payment.",
+      "category": "competition"
+    },
+    {
+      "id": "filesdrop-api-fixes-2026-10-21",
+      "category": "upstream_contribution",
+      "project": "FilesDrop",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-10-21",
+      "source_url": "https://github.com/AndreyBegma/FilesDrop/pull/32",
+      "contribution_merged": true,
+      "merge_commit_sha": "10c96acb9d05abac183a28d0da98ae18c03080fd",
+      "implementation_by": "DiadkoShmek with Codex assistance",
+      "report_path": "reports/filesdrop-2026-10.md",
+      "boundary": "Merged API fixes with local regression coverage; no production deployment, live service test or payment claimed."
+    },
+    {
+      "id": "prime-intellect-verifiers-2026-10-24",
+      "category": "upstream_contribution",
+      "project": "Prime Intellect · Verifiers / prime-rl",
+      "format": "open_source",
+      "status": "incorporated_in_maintainer_fix",
+      "as_of": "2026-10-24",
+      "source_url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2925#issuecomment-6385135636",
+      "contribution_url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2925",
+      "contribution_merged": false,
+      "original_issue_author": "rasdani",
+      "implementation_by": "maintainers",
+      "upstream_fixes": [
+        {
+          "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2973",
+          "merged": true,
+          "merged_at": "2026-10-24T14:12:59Z",
+          "merge_commit_sha": "9f0f03ae4733e949e371ec80d3c95d945dfecff6"
+        },
+        {
+          "url": "https://github.com/PrimeIntellect-ai/prime-rl/pull/4243",
+          "merged": true,
+          "merged_at": "2026-10-24T14:20:30Z",
+          "merge_commit_sha": "e2841b7a893cf78676c4abc64822781426155ce0"
+        }
+      ],
+      "report_path": "reports/prime-intellect-2026-10.md",
+      "boundary": "Maintainer credits our reproduction and investigation. Our proposed patch was superseded, not merged; the original issue was filed by another contributor. No employment or payment claimed."
+    },
+    {
+      "id": "m7-audit-release-2026-10-29",
+      "category": "external_audit",
+      "project": "M7 MCP",
+      "format": "technical_audit",
+      "status": "credited_in_release",
+      "as_of": "2026-10-29",
+      "source_url": "https://github.com/DukeDeSouth/m7-mcp-oss/releases/tag/v3.18.1",
+      "release": "v3.18.1",
+      "release_commit": "6625fce7e07b4e5ba99fe0572b05a3d6c7b96ca0",
+      "audit_source_commit": "72a7640700dbd7cebc0d57eabe8253989af084ba",
+      "implementation_by": "maintainers",
+      "report_path": "reports/m7-2026-10.md",
+      "evidence": {
+        "path": "reports/m7/deep-scan-m7.pdf",
+        "sha256": "96da7269305ad886e22a2847e2614adacb6d9239b3b7e7ca6755385ba4a4b9b4",
+        "pages": 36,
+        "language": "ru"
+      },
+      "follow_up": {
+        "as_of": "2026-10-29",
+        "focused_tests_passed": 168,
+        "full_reaudit": false,
+        "all_issues_closed": false
+      },
+      "boundary": "Public review/triage attribution and maintainer maintenance release. Audit groups and maintainer registry entries are not interchangeable. Focused follow-up retained unresolved error paths; no live model or IDE evaluation."
+    },
+    {
+      "id": "braintrust-streaming-utf8-2026-11-02",
+      "category": "upstream_contribution",
+      "project": "Braintrust SDK JavaScript",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-02",
+      "source_url": "https://github.com/braintrustdata/braintrust-sdk-javascript/pull/2701",
+      "contribution_merged": true,
+      "merged_at": "2026-11-02T11:37:30Z",
+      "merge_commit_sha": "27181871510a46d294b7fc96d1d76496443a8a20",
+      "merged_by": "lforst",
+      "implementation_by": "DiadkoShmek with Codex assistance",
+      "report_path": "reports/braintrust-2026-11.md",
+      "boundary": "Merged streaming UTF-8 logging fix with local regression coverage; no full monorepo, browser or real-provider end-to-end claim."
+    },
+    {
+      "id": "kraft-skill-refresh-2026-11-02",
+      "category": "upstream_contribution",
+      "project": "Kraft",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-02",
+      "source_url": "https://github.com/itsOmidKarami/kraft/pull/1227",
+      "contribution_merged": true,
+      "merged_at": "2026-11-02T12:08:30Z",
+      "merge_commit_sha": "ae8813d02015bfeddeea92d26bfc7ca1f85ef53d",
+      "merged_by": "itsOmidKarami",
+      "implementation_by": "DiadkoShmek with Codex assistance",
+      "report_path": "reports/kraft-2026-11.md",
+      "boundary": "Merged repeatable user-scope initialization fix. Tests used a Claude subprocess double, without live agent calls or user-configuration changes."
+    },
+    {
+      "id": "tensordict-partial-checkpoint-2026-11-01",
+      "category": "upstream_contribution",
+      "project": "PyTorch TensorDict",
+      "format": "open_source",
+      "status": "incorporated_in_maintainer_fix",
+      "as_of": "2026-11-01",
+      "source_url": "https://github.com/pytorch/tensordict/pull/3427",
+      "contribution_url": "https://github.com/pytorch/tensordict/pull/3426",
+      "contribution_merged": false,
+      "implementation_by": "maintainers",
+      "upstream_fixes": [
+        {
+          "url": "https://github.com/pytorch/tensordict/pull/3427",
+          "merged": true,
+          "merged_at": "2026-11-01T20:58:16Z",
+          "merge_commit_sha": "cd3eeaa6d48bf7674082cbaff64aa2074f2017d5",
+          "merged_by": "peterdsharpe"
+        }
+      ],
+      "acknowledgement_url": "https://github.com/pytorch/tensordict/pull/3426#issuecomment-6563347852",
+      "report_path": "reports/tensordict-2026-11.md",
+      "boundary": "Maintainer credits the earlier proposed fix, report and thorough tests. Our PR #3426 was superseded, not merged; the smaller accepted implementation is the maintainer's."
+    },
+    {
+      "id": "blackjax-barker-stability-2026-11-02",
+      "category": "upstream_contribution",
+      "project": "BlackJAX",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-02",
+      "source_url": "https://github.com/blackjax-devs/blackjax/pull/1068",
+      "contribution_merged": true,
+      "merged_at": "2026-11-02T14:43:52Z",
+      "merge_commit_sha": "211e1e0cf74d2f87cb7e290d01617c8b9ded4b34",
+      "merged_by": "junpenglao",
+      "implementation_by": "DiadkoShmek with Codex assistance",
+      "report_path": "reports/blackjax-2026-11.md",
+      "boundary": "Merged Barker MCMC numerical-stability fix with CPU differential checks. Full suite not run; unchanged GIST CI failure reproduced on exact base and head. No GPU/TPU or performance claim."
+    },
+    {
+      "id": "tvm-ffi-structural-bytes-2026-11-02",
+      "category": "upstream_contribution",
+      "project": "Apache TVM-FFI",
+      "format": "open_source",
+      "status": "superseded_by_open_maintainer_fix",
+      "as_of": "2026-11-02",
+      "source_url": "https://github.com/apache/tvm-ffi/pull/897#issuecomment-6588300834",
+      "contribution_url": "https://github.com/apache/tvm-ffi/pull/897",
+      "contribution_merged": false,
+      "implementation_by": "maintainer tqchen",
+      "our_contribution": "Original finding, proposed structural-hash fix and consumer regressions",
+      "upstream_fixes": [
+        {
+          "url": "https://github.com/apache/tvm-ffi/pull/898",
+          "state": "OPEN",
+          "merged": false,
+          "observed_head": "333005e8aa024965bd328b1a1be1b1c3366c9995"
+        }
+      ],
+      "attribution": "Maintainer explicitly linked the replacement when closing our PR as superseded. The successor body and commit trailers did not name our account at this observation.",
+      "report_path": "reports/tvm-ffi-2026-11.md",
+      "boundary": "Maintainer changed the short std::string rvalue construction path rather than transplanting our hashing patch. Our PR was not merged; the successor was open. Its full behavior and all external-heap cases were not runtime-retested for this record."
+    }
+  ]
+}
