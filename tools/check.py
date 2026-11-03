@@ -52,9 +52,20 @@ def run():
     covered = [rid for c in narrative['chapters'] for rid in c['record_ids']]
     assert sorted(covered) == sorted(r['id'] for r in records), 'chapter coverage or double count'
     assert all(c['uk'] and c['en'] for c in narrative['chapters'])
-    pending = next(r for r in records if r['status'] == 'superseded_by_open_maintainer_fix')
-    corrupt = copy.deepcopy(records)
-    next(r for r in corrupt if r['id'] == pending['id'])['upstream_fixes'][0]['merged'] = True
+    # Keep this schema control independent of whether any real replacement
+    # is still open: a journal with no pending outcomes is valid.
+    pending = {
+        'id': 'pending-merge-validation-control',
+        'category': 'upstream_contribution',
+        'status': 'superseded_by_open_maintainer_fix',
+        'as_of': records[0]['as_of'],
+        'source_url': records[0]['source_url'],
+        'contribution_merged': False,
+        'upstream_fixes': [{'state': 'OPEN', 'merged': False}],
+    }
+    validate(records + [pending])
+    corrupt = copy.deepcopy(records + [pending])
+    corrupt[-1]['upstream_fixes'][0]['merged'] = True
     try:
         validate(corrupt)
     except AssertionError:

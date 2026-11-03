@@ -164,6 +164,29 @@
       }
     },
     {
+      "key": "tensorly",
+      "title": "TensorLy",
+      "record_ids": [
+        "tensorly-single-factor-khatri-rao-2026-11-02"
+      ],
+      "report": "reports/tensorly-2026-11.md",
+      "uk": {
+        "problem": "Добуток Khatri-Rao з одним множником повертав матрицю до застосування ваг стовпців і маски рядків. Такий шлях можливий і після skip_matrix; він мовчки порушував контракт операції та міг впливати на зважені CP-градієнти.",
+        "decision": "В обох реалізаціях tenalg додано застосування weights і mask перед поверненням єдиного множника. Після рев’ю JeanKossaifi додані тести скорочено до одного компактного прикладу з буквальним очікуваним результатом. Мейнтейнер прийняв наш PR без заміни реалізації власним виправленням.",
+        "proof": "Прямокутна матриця [[1,2,3],[4,5,6]], ваги [2,0,-1] і маска [0,2] мають дати [[0,0,0],[16,0,-12]]. Регресія падає на точній базовій версії в чотирьох режимах NumPy/PyTorch та core/einsum і виявляє окреме вилучення ваг або маски. Обидва відповідні модулі перед поданням пройшли по 70 тестів у кожному режимі; Black перевірив 156 файлів. Нових runtime-перевірок під час запису merge не виконували.",
+        "lesson": "Один добре підібраний приклад може перевіряти обидва обов’язкові множники без великої сітки майже однакових тестів. Вимоги мейнтейнера до простоти стали частиною прийнятого рішення.",
+        "boundaries": {
+          "tensorly-single-factor-khatri-rao-2026-11-02": "Наш PR злитий. Компактну регресію й два відповідні модулі перевірено на CPU з NumPy/PyTorch та core/einsum: по 70 тестів у кожному режимі. Повний репозиторій, GPU та решту матриці backend/version не запускали; попередню велику oracle-кампанію після скорочення тестів не повторювали."
+        }
+      },
+      "en": {
+        "problem": "A single-factor Khatri-Rao product returned its matrix before applying optional column weights and a row mask. The same path can remain after skip_matrix, silently violating the operation contract and affecting weighted CP gradients.",
+        "decision": "Both tenalg implementations now apply weights and mask before returning the single factor. Following JeanKossaifi’s review, added coverage was reduced to one compact regression with literal expected values. The maintainer merged our PR rather than replacing it with a different implementation.",
+        "proof": "For matrix [[1,2,3],[4,5,6]], weights [2,0,-1] and mask [0,2], the expected output is [[0,0,0],[16,0,-12]]. The regression fails on the exact base across NumPy/PyTorch and core/einsum and catches independently dropping weights or mask. Before submission, both relevant modules passed 70 tests in each mode; Black checked 156 files. No runtime tests were repeated merely to record the merge.",
+        "lesson": "One carefully chosen example can cover both required multipliers without a grid of near-duplicate tests. The maintainer’s request for simpler coverage became part of the accepted contribution."
+      }
+    },
+    {
       "key": "tvm",
       "title": "Apache TVM-FFI",
       "record_ids": [
@@ -172,16 +195,16 @@
       "report": "reports/tvm-ffi-2026-11.md",
       "uk": {
         "problem": "Рівні короткі byte-значення з inline та heap storage отримували різні structural hashes. Це порушувало очікування StructuralKey cache lookup і native map deduplication. Мій patch виправляв обидва шляхи структурного hashing.",
-        "decision": "Мейнтейнер публічно пов’язав нашу пропозицію з наступним PR та обрав інший шар: короткий moved std::string одразу створює inline String/Bytes. Набори змінених файлів різні; прямого перенесення мого патчу у порівняних diff не виявлено.",
+        "decision": "Мейнтейнер публічно пов’язав нашу пропозицію з наступним PR та обрав інший шар: короткий moved std::string одразу створює inline String/Bytes. Набори змінених файлів різні; прямого перенесення мого патчу у порівняних diff не виявлено. Наступний PR #898 злитий 02.11.2026 о 22:16:16 UTC; наша пропозиція лишається superseded.",
         "proof": "Зіставлено нативні стани PR, chronology, коміти та diff. Constructor-side fix прибирає producer path, який використовував початковий reproducer. Наступну реалізацію та всі explicit external-heap випадки для цього запису повторно не виконували.",
         "lesson": "Відтворення може привести до іншого виправлення. Superseded та merged - різні зовнішні наслідки.",
         "boundaries": {
-          "tvm-ffi-structural-bytes-2026-11-02": "Мейнтейнер змінив конструктор короткого std::string rvalue, а не переніс наш патч хешування. Наш PR не злито; заміна лишалася OPEN. Її повну поведінку й усі сценарії з явним зберіганням у купі для цього запису повторно не виконували."
+          "tvm-ffi-structural-bytes-2026-11-02": "Мейнтейнерська заміна #898 злита; наш #897 не злито. Виправлення змінює конструктор короткого std::string rvalue, а не переносить наш патч хешування. Повну поведінку заміни й усі сценарії явного heap storage тут повторно не виконували."
         }
       },
       "en": {
         "problem": "Equal short byte values with inline and heap storage received different structural hashes, violating expectations of StructuralKey cache lookup and native map deduplication. My proposed patch repaired both hashing paths.",
-        "decision": "The maintainer publicly linked the proposal to a successor and chose another layer: a short moved std::string directly constructs inline String/Bytes. The changed file sets are disjoint; no direct patch transplant was found in the inspected diffs.",
+        "decision": "The maintainer publicly linked the proposal to a successor and chose another layer: a short moved std::string directly constructs inline String/Bytes. The changed file sets are disjoint; no direct patch transplant was found in the inspected diffs. Successor PR #898 merged on 2 November 2026 at 22:16:16 UTC; our proposal remains superseded.",
         "proof": "Native PR states, chronology, commits and diffs were compared. The constructor-side change removes the producer path used by the original reproducer. The successor and all explicit external-heap cases were not runtime-retested for this record.",
         "lesson": "A reproduction can lead to another repair. Superseded and merged are different external outcomes."
       }

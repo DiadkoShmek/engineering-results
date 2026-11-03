@@ -1,11 +1,11 @@
 # External results
 
-<!-- generated; ledger-sha256:e40835983abddcb4f400bee44e4cc486d16165b97cbd06d7a4c54051cc01cd07; narrative-sha256:ca3bca8162d1d591bcc6ec4b662c919ea5c69935a179ff4abb19424c8f67b5f3 -->
+<!-- generated; ledger-sha256:d2c8bb73569e37f0cc505043599767a7864c81e4bf3a8fbeec0a1cd98e4b55e0; narrative-sha256:8a9400ca1b73408b9191ccd9487018bdb338c08754cab9eeea67c69908c24d65 -->
 
 
-**2026-11-02 UTC**
+**2026-11-03 UTC**
 
-4 directly merged PRs; 2 contributions incorporated into merged maintainer fixes; 1 replacement still OPEN; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+5 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
 
 [Українська](RESULTS.md) · [English](RESULTS.en.md) · [JSON](results.json)
 
@@ -18,7 +18,8 @@
 | 2026-11-02 | [Kraft](reports/kraft-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/itsOmidKarami/kraft/pull/1227) |
 | 2026-11-01 | [PyTorch TensorDict](reports/tensordict-2026-11.md#english-summary) | Incorporated into a merged maintainer fix | [Public source](https://github.com/pytorch/tensordict/pull/3427) |
 | 2026-11-02 | [BlackJAX](reports/blackjax-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/blackjax-devs/blackjax/pull/1068) |
-| 2026-11-02 | [Apache TVM-FFI](reports/tvm-ffi-2026-11.md#english-summary) | Superseded; replacement OPEN | [Public source](https://github.com/apache/tvm-ffi/pull/897#issuecomment-6588300834) |
+| 2026-11-03 | [TensorLy](reports/tensorly-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/tensorly/tensorly/pull/695) |
+| 2026-11-03 | [Apache TVM-FFI](reports/tvm-ffi-2026-11.md#english-summary) | Incorporated into a merged maintainer fix | [Public source](https://github.com/apache/tvm-ffi/pull/898) |
 | 2026-10-21 | [CodinGame - Mad Pod Racing](RESULTS.en.md#zoria-2026--підсумок-ua-skills) | Dated arena snapshot | [Public source](https://www.codingame.com/multiplayer/bot-programming/mad-pod-racing) |
 | 2026-10-19 | [Zoria 2026 / UA SKILLS](RESULTS.en.md#zoria-2026--підсумок-ua-skills) | Historical preliminary result | [Public source](https://zoria.net/news/#19102026-попередній-підсумок-другого-етапу) |
 | 2026-10-27 | [Zoria 2026 / UA SKILLS](RESULTS.en.md#zoria-2026--підсумок-ua-skills) | Season prize winner; exact rank not established | [Public source](https://ua.linkedin.com/company/ua-skills) |

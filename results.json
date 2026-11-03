@@ -202,9 +202,9 @@
       "category": "upstream_contribution",
       "project": "Apache TVM-FFI",
       "format": "open_source",
-      "status": "superseded_by_open_maintainer_fix",
-      "as_of": "2026-11-02",
-      "source_url": "https://github.com/apache/tvm-ffi/pull/897#issuecomment-6588300834",
+      "status": "incorporated_in_maintainer_fix",
+      "as_of": "2026-11-03",
+      "source_url": "https://github.com/apache/tvm-ffi/pull/898",
       "contribution_url": "https://github.com/apache/tvm-ffi/pull/897",
       "contribution_merged": false,
       "implementation_by": "maintainer tqchen",
@@ -212,14 +212,42 @@
       "upstream_fixes": [
         {
           "url": "https://github.com/apache/tvm-ffi/pull/898",
-          "state": "OPEN",
-          "merged": false,
-          "observed_head": "333005e8aa024965bd328b1a1be1b1c3366c9995"
+          "state": "MERGED",
+          "merged": true,
+          "observed_head": "333005e8aa024965bd328b1a1be1b1c3366c9995",
+          "merged_at": "2026-11-02T22:16:16Z",
+          "merge_commit_sha": "18afa9c8ac90467b635171d208000ef5992471e4",
+          "merged_by": "tqchen"
         }
       ],
-      "attribution": "Maintainer explicitly linked the replacement when closing our PR as superseded. The successor body and commit trailers did not name our account at this observation.",
+      "attribution": "Maintainer publicly linked our original PR to the replacement when closing it as superseded; the replacement subsequently merged.",
       "report_path": "reports/tvm-ffi-2026-11.md",
-      "boundary": "Maintainer changed the short std::string rvalue construction path rather than transplanting our hashing patch. Our PR was not merged; the successor was open. Its full behavior and all external-heap cases were not runtime-retested for this record."
+      "boundary": "Our PR #897 was superseded, not merged. The publicly linked maintainer replacement #898 merged, changing short moved-string construction instead of transplanting our hashing patch. The replacement and all explicit external-heap scenarios were not runtime-retested for this record.",
+      "previous_observation": {
+        "as_of": "2026-11-02",
+        "status": "superseded_by_open_maintainer_fix",
+        "successor_state": "OPEN",
+        "successor_head": "333005e8aa024965bd328b1a1be1b1c3366c9995"
+      },
+      "acknowledgement_url": "https://github.com/apache/tvm-ffi/pull/897#issuecomment-6588300834"
+    },
+    {
+      "id": "tensorly-single-factor-khatri-rao-2026-11-02",
+      "category": "upstream_contribution",
+      "project": "TensorLy",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-03",
+      "date_basis": "UTC date merge was verified; merge itself occurred on 2 November UTC",
+      "source_url": "https://github.com/tensorly/tensorly/pull/695",
+      "contribution_merged": true,
+      "merged_at": "2026-11-02T23:54:45Z",
+      "merge_commit_sha": "cdde62fa67b2a7424ed292223de3a049967733fe",
+      "merged_by": "JeanKossaifi",
+      "contributor": "DiadkoShmek",
+      "acknowledgement_url": "https://github.com/tensorly/tensorly/pull/695#issuecomment-6591551013",
+      "report_path": "reports/tensorly-2026-11.md",
+      "boundary": "Our PR merged. The compact regression and two relevant modules were checked on CPU with NumPy/PyTorch and core/einsum (70 tests per run). The full repository, GPU and remaining backend/version matrix were not run; the earlier large oracle campaign was not repeated for the test-only revision."
     }
   ]
 }

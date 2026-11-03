@@ -1,13 +1,13 @@
 # External results
 
-<!-- generated; ledger-sha256:e40835983abddcb4f400bee44e4cc486d16165b97cbd06d7a4c54051cc01cd07; narrative-sha256:ca3bca8162d1d591bcc6ec4b662c919ea5c69935a179ff4abb19424c8f67b5f3 -->
+<!-- generated; ledger-sha256:d2c8bb73569e37f0cc505043599767a7864c81e4bf3a8fbeec0a1cd98e4b55e0; narrative-sha256:8a9400ca1b73408b9191ccd9487018bdb338c08754cab9eeea67c69908c24d65 -->
 
 
 Engineering outcomes tied to external evidence. A separate casebook for code, investigation, audits and arenas, keeping each kind of result distinct.
 
-4 directly merged PRs; 2 contributions incorporated into merged maintainer fixes; 1 replacement still OPEN; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+5 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
 
-**2026-11-02 UTC** · [Українська](README.md) · [English](README.en.md)
+**2026-11-03 UTC** · [Українська](README.md) · [English](README.en.md)
 
 ## The book
 
@@ -19,7 +19,7 @@ Engineering outcomes tied to external evidence. A separate casebook for code, in
 
 ## What the statuses mean
 
-Merged means our PR was merged. Incorporated means a contribution to an accepted maintainer solution, not a merge of our patch. TVM-FFI remains an open maintainer replacement. Audits and competitions are separate; three competition records describe two events.
+Merged means our PR was merged. Incorporated means a contribution to an accepted maintainer solution, not a merge of our patch. Open maintainer replacements are recorded as pending. Audits and competitions are separate; three competition records describe two events.
 
 ## How to append a result
 

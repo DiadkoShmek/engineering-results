@@ -44,11 +44,17 @@ def counts(records):
 def summary(records, lang):
     c = counts(records)
     if lang == 'uk':
-        return (f"{c['direct']} власні PR merged; {c['incorporated']} внески у merged fixes мейнтейнерів; "
-                f"{c['pending']} заміна ще OPEN; {c['audits']} аудит. "
-                f"{c['competition_records']} часові записи про {c['arenas']} арени/події, без подвійного підрахунку Zoria.")
-    return (f"{c['direct']} directly merged PRs; {c['incorporated']} contributions incorporated into merged maintainer fixes; "
-            f"{c['pending']} replacement still OPEN; {c['audits']} audit. "
+        parts = [f"Власні злиті PR: {c['direct']}", f"внески у злиті рішення мейнтейнерів: {c['incorporated']}"]
+        if c['pending']:
+            parts.append(f"відкриті мейнтейнерські заміни: {c['pending']}")
+        parts.append(f"технічні аудити: {c['audits']}")
+        return ('; '.join(parts) + '. ' +
+                f"Змагання: часових записів {c['competition_records']}, подій {c['arenas']}; Zoria враховано один раз.")
+    parts = [f"{c['direct']} directly merged PRs", f"{c['incorporated']} contributions incorporated into merged maintainer fixes"]
+    if c['pending']:
+        parts.append(f"{c['pending']} replacement still OPEN")
+    parts.append(f"{c['audits']} audit")
+    return ('; '.join(parts) + '. ' +
             f"{c['competition_records']} observations across {c['arenas']} arenas/events, with Zoria counted once.")
 
 
@@ -138,8 +144,8 @@ def markdowns(ledger, narrative):
                   '[Українська Markdown](book/uk/BOOK.md) · [English Markdown](book/en/BOOK.md)',
                   (('[Журнал результатів](RESULTS.md) · [Детальні двомовні кейси](reports/README.md) · [Інженерні кейси](ENGINEERING.md)') if lang=='uk' else '[Results](RESULTS.en.md) · [Detailed bilingual cases](reports/README.md) · [Engineering](ENGINEERING.md)'),
                   '## '+('Що означають статуси' if lang=='uk' else 'What the statuses mean'),
-                  ('Merged означає злиття власного PR. Incorporated означає внесок у прийняте рішення мейнтейнера, не merge власного patch. TVM-FFI - ще відкрита мейнтейнерська заміна. Аудит і змагання обліковуються окремо; три competition records описують дві події.' if lang=='uk' else
-                   'Merged means our PR was merged. Incorporated means a contribution to an accepted maintainer solution, not a merge of our patch. TVM-FFI remains an open maintainer replacement. Audits and competitions are separate; three competition records describe two events.'),
+                  ('Merged означає злиття власного PR. Incorporated означає внесок у прийняте рішення мейнтейнера, не merge власного patch. Відкриті мейнтейнерські заміни обліковуються як незавершені. Аудит і змагання обліковуються окремо; три competition records описують дві події.' if lang=='uk' else
+                   'Merged means our PR was merged. Incorporated means a contribution to an accepted maintainer solution, not a merge of our patch. Open maintainer replacements are recorded as pending. Audits and competitions are separate; three competition records describe two events.'),
                   '## '+('Як додати результат' if lang=='uk' else 'How to append a result'),
                   ('1. Додайте датований запис і первинне публічне джерело до [results.json](results.json).\n2. Додайте двомовний кейс у reports/ та розділ у [book/narrative.json](book/narrative.json).\n3. Запустіть `python tools/build.py` (потрібні requirements.txt і шрифти DejaVu).\n4. Запустіть `python tools/check.py` офлайн; перед публікацією огляньте нові сторінки PDF.' if lang=='uk' else '1. Add a dated record and primary public source to [results.json](results.json).\n2. Add a bilingual case in reports/ and a chapter in [book/narrative.json](book/narrative.json).\n3. Run `python tools/build.py` (requires requirements.txt and DejaVu fonts).\n4. Run `python tools/check.py` offline; inspect newly rendered PDF pages before publishing.'),
                   ('[Схема журналу та правила доповнення](SCHEMA.md)' if lang=='uk' else '[Ledger schema and append contract](SCHEMA.md)'), '## '+('Джерела та відтворюваність' if lang=='uk' else 'Sources and reproducibility'),
@@ -201,7 +207,7 @@ def pdfs(ledger,narrative):
         P=lambda text,style='body':Paragraph(escape(text),st[style])
         story += [Spacer(1,24*mm),P('ІНЖЕНЕРНА КНИГА' if uk else 'ENGINEERING CASEBOOK','label'),P(title,'cover'),P('Код. Дослідження. Зовнішній наслідок.' if uk else 'Code. Investigation. External consequence.','head'),P('DiadkoShmek','body'),Spacer(1,12*mm),P(summary(records,lang)),P('Датований запис із публічними першоджерелами.' if uk else 'A dated record with public primary sources.','small'),PageBreak()]
         story += [P('Зміст' if uk else 'Contents','chapter')]
-        toc=TableOfContents();toc.levelStyles=[ParagraphStyle('TOC',fontName='Sans',fontSize=9,leading=14,textColor=ink,leftIndent=0,firstLineIndent=0,spaceBefore=8)];toc.dotsMinLevel=0;story += [toc,PageBreak()]
+        toc=TableOfContents();toc.levelStyles=[ParagraphStyle('TOC',fontName='Sans',fontSize=9,leading=14,textColor=ink,leftIndent=0,firstLineIndent=0,spaceBefore=4)];toc.dotsMinLevel=0;story += [toc,PageBreak()]
         intro=P('Роль, метод і одиниця доказу' if uk else 'Role, method and units of evidence','chapter');intro.toc_key='method';story.append(intro)
         md=(ROOT/f'book/{lang}/BOOK.md').read_text();role=md.split('## '+('Роль і доказ' if uk else 'Role and evidence'))[1].split('## ')[0].strip().split('\n\n')[0]
         story += [P(role),P(summary(records,lang)),Provenance(lang),P('Локальний тест перевіряє механізм. Upstream merge або credit підтверджує зовнішній наслідок. Жоден із них сам собою не доводить повний CI, adoption чи оплату.' if uk else 'A local test verifies a mechanism. An upstream merge or credit records an external outcome. Neither alone establishes complete CI, adoption or payment.'),P('Дати мають UTC-прив’язку. Для історичних зрізів збережені початкові часові поля; дата перевірки оголошення може відрізнятися від дати публікації.' if uk else 'Dates are stated against UTC. Original timestamp fields remain for historical snapshots; the date an announcement was checked may differ from publication.'),PageBreak()]

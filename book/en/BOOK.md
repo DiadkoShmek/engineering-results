@@ -1,15 +1,15 @@
 # External results
 
-<!-- generated; ledger-sha256:e40835983abddcb4f400bee44e4cc486d16165b97cbd06d7a4c54051cc01cd07; narrative-sha256:ca3bca8162d1d591bcc6ec4b662c919ea5c69935a179ff4abb19424c8f67b5f3 -->
+<!-- generated; ledger-sha256:d2c8bb73569e37f0cc505043599767a7864c81e4bf3a8fbeec0a1cd98e4b55e0; narrative-sha256:8a9400ca1b73408b9191ccd9487018bdb338c08754cab9eeea67c69908c24d65 -->
 
 
-DiadkoShmek · 2026-11-02 UTC
+DiadkoShmek · 2026-11-03 UTC
 
 ## Role and evidence
 
 I investigate failures, define contracts and verify consequences. AI tools assist research, implementation and checking; I set direction, take responsibility for engineering decisions and authorize external actions. This book does not measure autonomy percentages or rank AI models.
 
-4 directly merged PRs; 2 contributions incorporated into merged maintainer fixes; 1 replacement still OPEN; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+5 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
 
 Every status and date below comes from results.json. A local PASS, external credit and a merge are different claims. The preliminary and final Zoria records belong to one event.
 
@@ -29,11 +29,13 @@ Every status and date below comes from results.json. A local PASS, external cred
 
 7. [BlackJAX](#case-blackjax)
 
-8. [Apache TVM-FFI](#case-tvm)
+8. [TensorLy](#case-tensorly)
 
-9. [CodinGame - Mad Pod Racing](#case-codingame)
+9. [Apache TVM-FFI](#case-tvm)
 
-10. [Zoria 2026 / UA SKILLS](#case-zoria)
+10. [CodinGame - Mad Pod Racing](#case-codingame)
+
+11. [Zoria 2026 / UA SKILLS](#case-zoria)
 
 <a id="case-filesdrop"></a>
 
@@ -241,13 +243,43 @@ Stabilize the intermediate computation while preserving the mathematical quantit
 
 [Повний кейс / Full report](../../reports/blackjax-2026-11.md)
 
+<a id="case-tensorly"></a>
+
+## 08. TensorLy
+
+**2026-11-03 · Direct PR merged · 2026-11-02T23:54:45Z**
+
+Our PR merged. The compact regression and two relevant modules were checked on CPU with NumPy/PyTorch and core/einsum (70 tests per run). The full repository, GPU and remaining backend/version matrix were not run; the earlier large oracle campaign was not repeated for the test-only revision.
+
+### Problem
+
+A single-factor Khatri-Rao product returned its matrix before applying optional column weights and a row mask. The same path can remain after skip_matrix, silently violating the operation contract and affecting weighted CP gradients.
+
+### My decision and the external choice
+
+Both tenalg implementations now apply weights and mask before returning the single factor. Following JeanKossaifi’s review, added coverage was reduced to one compact regression with literal expected values. The maintainer merged our PR rather than replacing it with a different implementation.
+
+### Validation and limits
+
+For matrix [[1,2,3],[4,5,6]], weights [2,0,-1] and mask [0,2], the expected output is [[0,0,0],[16,0,-12]]. The regression fails on the exact base across NumPy/PyTorch and core/einsum and catches independently dropping weights or mask. Before submission, both relevant modules passed 70 tests in each mode; Black checked 156 files. No runtime tests were repeated merely to record the merge.
+
+### What I carry forward
+
+One carefully chosen example can cover both required multipliers without a grid of near-duplicate tests. The maintainer’s request for simpler coverage became part of the accepted contribution.
+
+- [Primary source](https://github.com/tensorly/tensorly/pull/695)
+
+- [Acknowledgement](https://github.com/tensorly/tensorly/pull/695#issuecomment-6591551013)
+
+[Повний кейс / Full report](../../reports/tensorly-2026-11.md)
+
 <a id="case-tvm"></a>
 
-## 08. Apache TVM-FFI
+## 09. Apache TVM-FFI
 
-**2026-11-02 · Superseded; replacement OPEN**
+**2026-11-03 · Incorporated into a merged maintainer fix**
 
-Maintainer changed the short std::string rvalue construction path rather than transplanting our hashing patch. Our PR was not merged; the successor was open. Its full behavior and all external-heap cases were not runtime-retested for this record.
+Our PR #897 was superseded, not merged. The publicly linked maintainer replacement #898 merged, changing short moved-string construction instead of transplanting our hashing patch. The replacement and all explicit external-heap scenarios were not runtime-retested for this record.
 
 ### Problem
 
@@ -255,7 +287,7 @@ Equal short byte values with inline and heap storage received different structur
 
 ### My decision and the external choice
 
-The maintainer publicly linked the proposal to a successor and chose another layer: a short moved std::string directly constructs inline String/Bytes. The changed file sets are disjoint; no direct patch transplant was found in the inspected diffs.
+The maintainer publicly linked the proposal to a successor and chose another layer: a short moved std::string directly constructs inline String/Bytes. The changed file sets are disjoint; no direct patch transplant was found in the inspected diffs. Successor PR #898 merged on 2 November 2026 at 22:16:16 UTC; our proposal remains superseded.
 
 ### Validation and limits
 
@@ -265,17 +297,17 @@ Native PR states, chronology, commits and diffs were compared. The constructor-s
 
 A reproduction can lead to another repair. Superseded and merged are different external outcomes.
 
-- [Primary source](https://github.com/apache/tvm-ffi/pull/897#issuecomment-6588300834)
+- [Primary source](https://github.com/apache/tvm-ffi/pull/898)
 
 - [Our proposal](https://github.com/apache/tvm-ffi/pull/897)
 
-- [Maintainer implementation](https://github.com/apache/tvm-ffi/pull/898)
+- [Acknowledgement](https://github.com/apache/tvm-ffi/pull/897#issuecomment-6588300834)
 
 [Повний кейс / Full report](../../reports/tvm-ffi-2026-11.md)
 
 <a id="case-codingame"></a>
 
-## 09. CodinGame - Mad Pod Racing
+## 10. CodinGame - Mad Pod Racing
 
 **2026-10-21 (Europe/Helsinki) · Dated arena snapshot · UTC 2026-10-20T22:06:15.975Z · 86/1657 (Legend League)**
 
@@ -303,7 +335,7 @@ A stopping rule protects against proving a desired outcome. Local experiments an
 
 <a id="case-zoria"></a>
 
-## 10. Zoria 2026 / UA SKILLS
+## 11. Zoria 2026 / UA SKILLS
 
 **2026-10-19 (Europe/Helsinki) · Historical preliminary result · UTC 2026-10-20T22:06:05.463Z · 5/9 (overall preliminary score of second-stage participants)**
 

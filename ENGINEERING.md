@@ -4,6 +4,8 @@ AI-assisted engineering: проблема, рішення, перевірка т
 
 ## Прийняті виправлення
 
+- **[TensorLy](reports/tensorly-2026-11.md):** weights і mask для single-factor Khatri-Rao; компактна регресія після рев’ю. Наш #695 merged.
+
 - **[BlackJAX](reports/blackjax-2026-11.md):** стабільні proposal probabilities у Barker MCMC; NumPy density oracle й CPU JIT-перевірки. Наш #1068 merged.
 
 - **[Braintrust](reports/braintrust-2026-11.md):** streaming UTF-8 decoder; регресії всіх byte boundaries. Наш #2701 merged.
@@ -15,7 +17,7 @@ AI-assisted engineering: проблема, рішення, перевірка т
 - **[Prime Intellect](reports/prime-intellect-2026-10.md):** відтворення сформувало виправлення ізоляції агентів у Verifiers і prime-rl. Наш patch superseded.
 - **[TensorDict](reports/tensordict-2026-11.md):** partial checkpoints, differential controls і тести; мейнтейнер обрав менший fix через власний loader PyTorch. Наш #3426 superseded; #3427 merged із credit.
 
-- **[Apache TVM-FFI](reports/tvm-ffi-2026-11.md):** structural-hash finding; мейнтейнер замінив #897 constructor-level #898, який ще OPEN.
+- **[Apache TVM-FFI](reports/tvm-ffi-2026-11.md):** structural-hash finding; мейнтейнер замінив #897 constructor-level #898, який злитий; наш #897 superseded.
 
 ## M7 MCP · аудит
 
