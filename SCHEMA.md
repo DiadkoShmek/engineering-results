@@ -1,6 +1,6 @@
 # Ledger and append contract
 
-`results.json` owns status, dates, primary URLs, authorship disposition and evidence identity. `book/narrative.json` owns bilingual engineering narrative and references record IDs. Generated Markdown/PDF outputs are not the source of either.
+`results.json` owns status, dates, primary URLs, authorship disposition and evidence identity. `book/narrative.json` owns bilingual engineering narrative and references record IDs. `pr-status.json` owns a dated, fully paginated inventory of authored PRs in other owners' repositories. Generated Markdown/PDF outputs are not the source of any of these three inputs.
 
 Each record needs a stable unique `id`, `category`, `format`, `status`, `as_of`, `source_url`, and a truthful `boundary`. Use `project` for engineering cases or `competition` for events. Add `report_path` when a detailed report exists.
 
@@ -19,3 +19,9 @@ Evidence uses a relative repository `path` and SHA-256. Keep an original attache
 To append: add the record, public detailed bilingual report, and narrative chapter/reference. Run `python tools/build.py`, then `python tools/check.py`. The latter validates state invariants, a deliberately corrupted pending-merge control, chapter coverage, local links/anchors, evidence hashes and a bounded privacy scan. It is offline and cannot certify live upstream status or all CI. Visually inspect new PDF pages after a meaningful content/layout change.
 
 PDF builds require Python 3.12+, `requirements.txt`, and DejaVu fonts (`DEJAVU_DIR` can select the font directory). The check uses the Python standard library. Keep final QA manifests outside this public repository using `--manifest`.
+
+## PR snapshot
+
+Keep `pr-status.json` separate from accepted-result records. OPEN and CLOSED rows never become direct merges without a merge timestamp and merge commit. A closed superseded proposal may also be an incorporated outcome in `results.json`; that does not change the PR state. Own-repository PRs are explicitly excluded from the external denominator. Every merged row must correspond one-for-one to a direct-merge ledger record; the validator compares identities and commits, not just totals.
+
+All rows and generated counts are dated. Selected review signals carry their own checked-at timestamps; they do not certify the other PRs' CI or forecast a merge. Refresh the complete API inventory, append newly confirmed outcomes and narratives, then rebuild both languages. Featured submitted cases must still be OPEN. The offline check rejects inconsistent counts, an invented merge, stale source hashes and mismatches between the merge ledger and PR inventory.

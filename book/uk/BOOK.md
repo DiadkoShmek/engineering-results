@@ -1,6 +1,6 @@
 # Зовнішні результати
 
-<!-- generated; ledger-sha256:d2c8bb73569e37f0cc505043599767a7864c81e4bf3a8fbeec0a1cd98e4b55e0; narrative-sha256:8a9400ca1b73408b9191ccd9487018bdb338c08754cab9eeea67c69908c24d65 -->
+<!-- generated; ledger-sha256:058a7555629bfd81711ad1d17116129dae10d4d7c0072677fad26d726c2518a0; narrative-sha256:277c042ef3361f96f8b39f7059144f1f8b86b2d7b2c85b499ca7ec70ae8ba8fc; pr-status-sha256:9be991bd07354f27b3ef82af7dde97f66621bb2294ce1ca819babf93962a1563 -->
 
 
 DiadkoShmek · 2026-11-03 UTC
@@ -9,37 +9,71 @@ DiadkoShmek · 2026-11-03 UTC
 
 Я досліджую дефект, визначаю контракт і перевіряю наслідок. AI-інструменти допомагають із пошуком, реалізацією та перевіркою; я задаю напрям, відповідаю за інженерне рішення й погоджую зовнішні дії. Ця книга не вимірює відсоток автономності чи перевагу однієї моделі.
 
-Власні злиті PR: 5; внески у злиті рішення мейнтейнерів: 3; технічні аудити: 1. Змагання: часових записів 3, подій 2; Zoria враховано один раз.
+Власні злиті PR: 6; внески у злиті рішення мейнтейнерів: 3; технічні аудити: 1. Змагання: часових записів 3, подій 2; Zoria враховано один раз.
+
+Публічні PR у чужих репозиторіях: 79 подано; 6 злитих, 68 відкритих, 5 закритих без merge. Зріз GitHub: 2026-11-03 17:33 UTC. Власна та приватна активність виключені.
+
+[Повний стан PR](../../PR_STATUS.md)
 
 Усі статуси й дати нижче походять із results.json. Локальний PASS, зовнішній credit і merge - різні твердження. Попередній та фінальний записи Zoria належать одній події.
 
 ## Зміст
 
-1. [FilesDrop](#case-filesdrop)
+1. [ONNX IR](#case-onnx-ir)
 
-2. [Prime Intellect](#case-prime)
+2. [FilesDrop](#case-filesdrop)
 
-3. [M7 MCP](#case-m7)
+3. [Prime Intellect](#case-prime)
 
-4. [Braintrust SDK JavaScript](#case-braintrust)
+4. [M7 MCP](#case-m7)
 
-5. [Kraft](#case-kraft)
+5. [Braintrust SDK JavaScript](#case-braintrust)
 
-6. [PyTorch TensorDict](#case-tensordict)
+6. [Kraft](#case-kraft)
 
-7. [BlackJAX](#case-blackjax)
+7. [PyTorch TensorDict](#case-tensordict)
 
-8. [TensorLy](#case-tensorly)
+8. [BlackJAX](#case-blackjax)
 
-9. [Apache TVM-FFI](#case-tvm)
+9. [TensorLy](#case-tensorly)
 
-10. [CodinGame - Mad Pod Racing](#case-codingame)
+10. [Apache TVM-FFI](#case-tvm)
 
-11. [Zoria 2026 / UA SKILLS](#case-zoria)
+11. [CodinGame - Mad Pod Racing](#case-codingame)
+
+12. [Zoria 2026 / UA SKILLS](#case-zoria)
+
+<a id="case-onnx-ir"></a>
+
+## 01. ONNX IR
+
+**2026-11-03 · Власний PR merged · UTC 2026-11-03T17:33:18.542858Z · 2026-11-03T16:40:54Z**
+
+Наш PR #521 злитий у main. Збережені focused CPU-перевірки не підміняють повну матрицю nox, Python, Torch або GPU. Оновлення журналу підтверджує merge, а не повторний запуск усіх тестів чи production-використання.
+
+### Проблема
+
+У графі y = Relu(x), z = Identity(y) обидва імені y та z є публічними виходами. Усунення Identity перейменовувало перший вихід на z, залишаючи два z. Запит за початковим іменем y ставав недійсним, хоча локальна форма графа могла пройти перевірку.
+
+### Моє рішення та зовнішній вибір
+
+Identity зберігається, коли його вхід уже є публічним виходом або належить зовнішньому графу. Другий випадок захищає захоплені батьківські значення від перейменування та перенесення у виходи підграфа. Безпечні внутрішні aliases і далі усуваються.
+
+### Перевірка й обмеження
+
+В описі поданого PR зафіксовано 28 focused tests і 9 subtests, перевірки іменованих виходів через ONNX ReferenceEvaluator та ONNX Runtime CPU і NumPy oracle. До подання AI-рев’ю перевірило ще 23 сценарії та виявило потребу захистити власність батьківського значення. Для оновлення книги runtime-тести не повторювалися; merge commit і час звірено безпосередньо з GitHub.
+
+### Що переношу далі
+
+Оптимізація графа має зберігати публічні імена та власність значень, а не лише числовий результат усередині графа.
+
+- [Першоджерело](https://github.com/onnx/ir-py/pull/521)
+
+[Повний кейс / Full report](../../reports/onnx-ir-2026-11.md)
 
 <a id="case-filesdrop"></a>
 
-## 01. FilesDrop
+## 02. FilesDrop
 
 **2026-10-21 · Власний PR merged**
 
@@ -67,7 +101,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-prime"></a>
 
-## 02. Prime Intellect
+## 03. Prime Intellect
 
 **2026-10-24 · Внесок у merged fix мейнтейнера**
 
@@ -101,7 +135,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-m7"></a>
 
-## 03. M7 MCP
+## 04. M7 MCP
 
 **2026-10-29 · Аудит відзначено в релізі**
 
@@ -129,7 +163,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-braintrust"></a>
 
-## 04. Braintrust SDK JavaScript
+## 05. Braintrust SDK JavaScript
 
 **2026-11-02 · Власний PR merged · 2026-11-02T11:37:30Z**
 
@@ -157,7 +191,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-kraft"></a>
 
-## 05. Kraft
+## 06. Kraft
 
 **2026-11-02 · Власний PR merged · 2026-11-02T12:08:30Z**
 
@@ -185,7 +219,7 @@ Focused suite пройшов 16 тестів. Репозиторні ci-checks �
 
 <a id="case-tensordict"></a>
 
-## 06. PyTorch TensorDict
+## 07. PyTorch TensorDict
 
 **2026-11-01 · Внесок у merged fix мейнтейнера**
 
@@ -217,7 +251,7 @@ Focused suite пройшов 16 тестів. Репозиторні ci-checks �
 
 <a id="case-blackjax"></a>
 
-## 07. BlackJAX
+## 08. BlackJAX
 
 **2026-11-02 · Власний PR merged · 2026-11-02T14:43:52Z**
 
@@ -245,7 +279,7 @@ Barker MCMC міг відхилити крок до області вищої й
 
 <a id="case-tensorly"></a>
 
-## 08. TensorLy
+## 09. TensorLy
 
 **2026-11-03 · Власний PR merged · 2026-11-02T23:54:45Z**
 
@@ -275,7 +309,7 @@ Barker MCMC міг відхилити крок до області вищої й
 
 <a id="case-tvm"></a>
 
-## 09. Apache TVM-FFI
+## 10. Apache TVM-FFI
 
 **2026-11-03 · Внесок у merged fix мейнтейнера**
 
@@ -307,7 +341,7 @@ Barker MCMC міг відхилити крок до області вищої й
 
 <a id="case-codingame"></a>
 
-## 10. CodinGame - Mad Pod Racing
+## 11. CodinGame - Mad Pod Racing
 
 **2026-10-21 (Europe/Helsinki) · Датований зріз арени · UTC 2026-10-20T22:06:15.975Z · 86/1657 (Legend League)**
 
@@ -335,7 +369,7 @@ V79 зупинено після 2 перемог у восьми заверше�
 
 <a id="case-zoria"></a>
 
-## 11. Zoria 2026 / UA SKILLS
+## 12. Zoria 2026 / UA SKILLS
 
 **2026-10-19 (Europe/Helsinki) · Історичний попередній результат · UTC 2026-10-20T22:06:05.463Z · 5/9 (загальний попередній підсумок учасників другого етапу)**
 

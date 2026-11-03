@@ -4,6 +4,8 @@
 
 | Кейс | Зовнішній наслідок | Звіт |
 |---|---|---|
+| ONNX IR | Власний fix публічних output aliases merged | [Українською](onnx-ir-2026-11.md) · [English](onnx-ir-2026-11.md#english-summary) |
+| Triton | Поданий PR #12611; OPEN, без merge | [Українською](triton-2026-11.md) · [English](triton-2026-11.md#english-summary) |
 | TensorLy | Власний single-factor Khatri-Rao fix merged | [Українською](tensorly-2026-11.md) · [English](tensorly-2026-11.md#english-summary) |
 | BlackJAX | Власний Barker MCMC numerical-stability fix merged | [Українською](blackjax-2026-11.md) · [English](blackjax-2026-11.md#english-summary) |
 | Braintrust | Власний streaming UTF-8 fix merged | [Українською](braintrust-2026-11.md) · [English](braintrust-2026-11.md#english-summary) |

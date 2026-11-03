@@ -3,6 +3,29 @@
   "author": "DiadkoShmek",
   "chapters": [
     {
+      "key": "onnx-ir",
+      "title": "ONNX IR",
+      "record_ids": [
+        "onnx-ir-output-aliases-2026-11-03"
+      ],
+      "report": "reports/onnx-ir-2026-11.md",
+      "uk": {
+        "problem": "У графі y = Relu(x), z = Identity(y) обидва імені y та z є публічними виходами. Усунення Identity перейменовувало перший вихід на z, залишаючи два z. Запит за початковим іменем y ставав недійсним, хоча локальна форма графа могла пройти перевірку.",
+        "decision": "Identity зберігається, коли його вхід уже є публічним виходом або належить зовнішньому графу. Другий випадок захищає захоплені батьківські значення від перейменування та перенесення у виходи підграфа. Безпечні внутрішні aliases і далі усуваються.",
+        "proof": "В описі поданого PR зафіксовано 28 focused tests і 9 subtests, перевірки іменованих виходів через ONNX ReferenceEvaluator та ONNX Runtime CPU і NumPy oracle. До подання AI-рев’ю перевірило ще 23 сценарії та виявило потребу захистити власність батьківського значення. Для оновлення книги runtime-тести не повторювалися; merge commit і час звірено безпосередньо з GitHub.",
+        "lesson": "Оптимізація графа має зберігати публічні імена та власність значень, а не лише числовий результат усередині графа.",
+        "boundaries": {
+          "onnx-ir-output-aliases-2026-11-03": "Наш PR #521 злитий у main. Збережені focused CPU-перевірки не підміняють повну матрицю nox, Python, Torch або GPU. Оновлення журналу підтверджує merge, а не повторний запуск усіх тестів чи production-використання."
+        }
+      },
+      "en": {
+        "problem": "In y = Relu(x), z = Identity(y), both y and z are public outputs. Eliminating the Identity renamed the first output to z, leaving two z outputs. Requests for the original y name then became invalid even though local graph checks could pass.",
+        "decision": "Retain an output Identity when its input is already a public output or belongs to an outer graph. The latter guard prevents captured parent values from being renamed or adopted as direct subgraph outputs. Safe internal aliases can still be eliminated.",
+        "proof": "The submitted PR records 28 focused tests and nine subtests, named-output checks through ONNX ReferenceEvaluator and ONNX Runtime CPU, and a NumPy oracle. Prepublication AI review checked 23 additional cases and exposed the need to protect parent-value ownership. Runtime tests were not repeated for this book refresh; GitHub supplied the merge commit and timestamp.",
+        "lesson": "Graph optimization must preserve public names and value ownership as well as numerical results."
+      }
+    },
+    {
       "key": "filesdrop",
       "title": "FilesDrop",
       "record_ids": [

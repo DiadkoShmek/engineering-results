@@ -4,6 +4,8 @@ AI-assisted engineering: проблема, рішення, перевірка т
 
 ## Прийняті виправлення
 
+- **[ONNX IR](reports/onnx-ir-2026-11.md):** збереження публічних output names і ownership під час усунення Identity; наш #521 merged 03.11.2026.
+
 - **[TensorLy](reports/tensorly-2026-11.md):** weights і mask для single-factor Khatri-Rao; компактна регресія після рев’ю. Наш #695 merged.
 
 - **[BlackJAX](reports/blackjax-2026-11.md):** стабільні proposal probabilities у Barker MCMC; NumPy density oracle й CPU JIT-перевірки. Наш #1068 merged.
@@ -28,9 +30,14 @@ AI-assisted engineering: проблема, рішення, перевірка т
 - **[CodinGame · Mad Pod Racing](reports/codingame-2026-10.md):** відхилена гіпотеза після 2/8; умовний результат 221/400; зовнішня арена окремо.
 - **Zoria / UA SKILLS:** призер сезону. [Оголошення та історія](RESULTS.md#zoria-2026--підсумок-ua-skills); інженерний розбір ще не опублікований.
 
-## Review-stage · 02.11.2026
+## Review-stage · 03.11.2026 UTC
 
-[Semantic Kernel #14701](https://github.com/microsoft/semantic-kernel/pull/14701): cleanup native generators; `eavanvalkenburg` APPROVED. PR OPEN, не merged; до завершених результатів не зарахований.
+- **[Triton #12611](reports/triton-2026-11.md):** оцінка вартості CUDA f32 sin/cos під час rematerialization. Поданий, OPEN; до merged-результатів не зарахований.
+- **[ONNX #8734](https://github.com/onnx/onnx/pull/8734):** точний integer Range shape inference; APPROVED, але OPEN.
+- **[Semantic Kernel #14701](https://github.com/microsoft/semantic-kernel/pull/14701):** cleanup native generators; APPROVED, але OPEN.
+- **[Docling Core #953](https://github.com/docling-project/docling-core/pull/953):** references скопійованих comments; Mergify чекає двох approving reviews.
+
+[Повний датований стан PR](PR_STATUS.md) · [English](PR_STATUS.en.md). Схвалення та локальні тести не є merge.
 
 ## Як читати
 

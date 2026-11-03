@@ -1,16 +1,21 @@
 # External results
 
-<!-- generated; ledger-sha256:d2c8bb73569e37f0cc505043599767a7864c81e4bf3a8fbeec0a1cd98e4b55e0; narrative-sha256:8a9400ca1b73408b9191ccd9487018bdb338c08754cab9eeea67c69908c24d65 -->
+<!-- generated; ledger-sha256:058a7555629bfd81711ad1d17116129dae10d4d7c0072677fad26d726c2518a0; narrative-sha256:277c042ef3361f96f8b39f7059144f1f8b86b2d7b2c85b499ca7ec70ae8ba8fc; pr-status-sha256:9be991bd07354f27b3ef82af7dde97f66621bb2294ce1ca819babf93962a1563 -->
 
 
 **2026-11-03 UTC**
 
-5 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+6 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+
+Public PRs in other owners' repositories: 79 submitted; 6 merged, 68 open, 5 closed without merge. GitHub snapshot: 2026-11-03 17:33 UTC. Own-repository and private activity is excluded.
+
+[Complete PR status](PR_STATUS.en.md)
 
 [Українська](RESULTS.md) · [English](RESULTS.en.md) · [JSON](results.json)
 
 | Record date / source basis | Case | Outcome | Source |
 |---|---|---|---|
+| 2026-11-03 | [ONNX IR](reports/onnx-ir-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/onnx/ir-py/pull/521) |
 | 2026-10-21 | [FilesDrop](reports/filesdrop-2026-10.md#english-summary) | Direct PR merged | [Public source](https://github.com/AndreyBegma/FilesDrop/pull/32) |
 | 2026-10-24 | [Prime Intellect](reports/prime-intellect-2026-10.md#english-summary) | Incorporated into a merged maintainer fix | [Public source](https://github.com/PrimeIntellect-ai/verifiers/pull/2925#issuecomment-6385135636) |
 | 2026-10-29 | [M7 MCP](reports/m7-2026-10.md#english-summary) | Audit credited in release | [Public source](https://github.com/DukeDeSouth/m7-mcp-oss/releases/tag/v3.18.1) |

@@ -1,6 +1,6 @@
 # External results
 
-<!-- generated; ledger-sha256:d2c8bb73569e37f0cc505043599767a7864c81e4bf3a8fbeec0a1cd98e4b55e0; narrative-sha256:8a9400ca1b73408b9191ccd9487018bdb338c08754cab9eeea67c69908c24d65 -->
+<!-- generated; ledger-sha256:058a7555629bfd81711ad1d17116129dae10d4d7c0072677fad26d726c2518a0; narrative-sha256:277c042ef3361f96f8b39f7059144f1f8b86b2d7b2c85b499ca7ec70ae8ba8fc; pr-status-sha256:9be991bd07354f27b3ef82af7dde97f66621bb2294ce1ca819babf93962a1563 -->
 
 
 DiadkoShmek · 2026-11-03 UTC
@@ -9,37 +9,71 @@ DiadkoShmek · 2026-11-03 UTC
 
 I investigate failures, define contracts and verify consequences. AI tools assist research, implementation and checking; I set direction, take responsibility for engineering decisions and authorize external actions. This book does not measure autonomy percentages or rank AI models.
 
-5 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+6 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+
+Public PRs in other owners' repositories: 79 submitted; 6 merged, 68 open, 5 closed without merge. GitHub snapshot: 2026-11-03 17:33 UTC. Own-repository and private activity is excluded.
+
+[Complete PR status](../../PR_STATUS.en.md)
 
 Every status and date below comes from results.json. A local PASS, external credit and a merge are different claims. The preliminary and final Zoria records belong to one event.
 
 ## Contents
 
-1. [FilesDrop](#case-filesdrop)
+1. [ONNX IR](#case-onnx-ir)
 
-2. [Prime Intellect](#case-prime)
+2. [FilesDrop](#case-filesdrop)
 
-3. [M7 MCP](#case-m7)
+3. [Prime Intellect](#case-prime)
 
-4. [Braintrust SDK JavaScript](#case-braintrust)
+4. [M7 MCP](#case-m7)
 
-5. [Kraft](#case-kraft)
+5. [Braintrust SDK JavaScript](#case-braintrust)
 
-6. [PyTorch TensorDict](#case-tensordict)
+6. [Kraft](#case-kraft)
 
-7. [BlackJAX](#case-blackjax)
+7. [PyTorch TensorDict](#case-tensordict)
 
-8. [TensorLy](#case-tensorly)
+8. [BlackJAX](#case-blackjax)
 
-9. [Apache TVM-FFI](#case-tvm)
+9. [TensorLy](#case-tensorly)
 
-10. [CodinGame - Mad Pod Racing](#case-codingame)
+10. [Apache TVM-FFI](#case-tvm)
 
-11. [Zoria 2026 / UA SKILLS](#case-zoria)
+11. [CodinGame - Mad Pod Racing](#case-codingame)
+
+12. [Zoria 2026 / UA SKILLS](#case-zoria)
+
+<a id="case-onnx-ir"></a>
+
+## 01. ONNX IR
+
+**2026-11-03 · Direct PR merged · UTC 2026-11-03T17:33:18.542858Z · 2026-11-03T16:40:54Z**
+
+Merged public-output alias preservation fix. Previously recorded focused CPU checks cover named outputs and ownership; they were not rerun for this journal refresh. The full nox/Python/Torch/GPU matrix and production deployment are not established.
+
+### Problem
+
+In y = Relu(x), z = Identity(y), both y and z are public outputs. Eliminating the Identity renamed the first output to z, leaving two z outputs. Requests for the original y name then became invalid even though local graph checks could pass.
+
+### My decision and the external choice
+
+Retain an output Identity when its input is already a public output or belongs to an outer graph. The latter guard prevents captured parent values from being renamed or adopted as direct subgraph outputs. Safe internal aliases can still be eliminated.
+
+### Validation and limits
+
+The submitted PR records 28 focused tests and nine subtests, named-output checks through ONNX ReferenceEvaluator and ONNX Runtime CPU, and a NumPy oracle. Prepublication AI review checked 23 additional cases and exposed the need to protect parent-value ownership. Runtime tests were not repeated for this book refresh; GitHub supplied the merge commit and timestamp.
+
+### What I carry forward
+
+Graph optimization must preserve public names and value ownership as well as numerical results.
+
+- [Primary source](https://github.com/onnx/ir-py/pull/521)
+
+[Повний кейс / Full report](../../reports/onnx-ir-2026-11.md)
 
 <a id="case-filesdrop"></a>
 
-## 01. FilesDrop
+## 02. FilesDrop
 
 **2026-10-21 · Direct PR merged**
 
@@ -67,7 +101,7 @@ Cleanup must preserve retryability. Cancelling a wait does not imply stopping th
 
 <a id="case-prime"></a>
 
-## 02. Prime Intellect
+## 03. Prime Intellect
 
 **2026-10-24 · Incorporated into a merged maintainer fix**
 
@@ -101,7 +135,7 @@ A contribution can shape a maintainer decision even when the proposed patch is n
 
 <a id="case-m7"></a>
 
-## 03. M7 MCP
+## 04. M7 MCP
 
 **2026-10-29 · Audit credited in release**
 
@@ -129,7 +163,7 @@ An audit should leave a checkable route to each failure and retain what a later 
 
 <a id="case-braintrust"></a>
 
-## 04. Braintrust SDK JavaScript
+## 05. Braintrust SDK JavaScript
 
 **2026-11-02 · Direct PR merged · 2026-11-02T11:37:30Z**
 
@@ -157,7 +191,7 @@ Chunk boundaries belong to the transport. Decoder state must belong to the compl
 
 <a id="case-kraft"></a>
 
-## 05. Kraft
+## 06. Kraft
 
 **2026-11-02 · Direct PR merged · 2026-11-02T12:08:30Z**
 
@@ -185,7 +219,7 @@ Repeated initialization should repeat useful work rather than mistake an idempot
 
 <a id="case-tensordict"></a>
 
-## 06. PyTorch TensorDict
+## 07. PyTorch TensorDict
 
 **2026-11-01 · Incorporated into a merged maintainer fix**
 
@@ -217,7 +251,7 @@ When a lower layer already owns the contract, delegation can be stronger than a 
 
 <a id="case-blackjax"></a>
 
-## 07. BlackJAX
+## 08. BlackJAX
 
 **2026-11-02 · Direct PR merged · 2026-11-02T14:43:52Z**
 
@@ -245,7 +279,7 @@ Stabilize the intermediate computation while preserving the mathematical quantit
 
 <a id="case-tensorly"></a>
 
-## 08. TensorLy
+## 09. TensorLy
 
 **2026-11-03 · Direct PR merged · 2026-11-02T23:54:45Z**
 
@@ -275,7 +309,7 @@ One carefully chosen example can cover both required multipliers without a grid 
 
 <a id="case-tvm"></a>
 
-## 09. Apache TVM-FFI
+## 10. Apache TVM-FFI
 
 **2026-11-03 · Incorporated into a merged maintainer fix**
 
@@ -307,7 +341,7 @@ A reproduction can lead to another repair. Superseded and merged are different e
 
 <a id="case-codingame"></a>
 
-## 10. CodinGame - Mad Pod Racing
+## 11. CodinGame - Mad Pod Racing
 
 **2026-10-21 (Europe/Helsinki) · Dated arena snapshot · UTC 2026-10-20T22:06:15.975Z · 86/1657 (Legend League)**
 
@@ -335,7 +369,7 @@ A stopping rule protects against proving a desired outcome. Local experiments an
 
 <a id="case-zoria"></a>
 
-## 11. Zoria 2026 / UA SKILLS
+## 12. Zoria 2026 / UA SKILLS
 
 **2026-10-19 (Europe/Helsinki) · Historical preliminary result · UTC 2026-10-20T22:06:05.463Z · 5/9 (overall preliminary score of second-stage participants)**
 

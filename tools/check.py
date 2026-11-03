@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 import re
 import sys
-from datetime import date
+from datetime import date, datetime
 
 # The normal documented CLI must not manufacture bytecode artifacts.
 sys.dont_write_bytecode = True
@@ -44,11 +44,48 @@ def validate(records):
             assert hashlib.sha256(data).hexdigest() == evidence['sha256'], evidence['path']
 
 
+def validate_pr_snapshot(snapshot):
+    assert snapshot['pagination_complete'] is True
+    datetime.fromisoformat(snapshot['observed_at'].replace('Z', '+00:00'))
+    rows = snapshot['pull_requests']
+    assert len(rows) == len({r['url'] for r in rows}), 'duplicate PR'
+    for r in rows:
+        assert r['state'] in {'OPEN', 'CLOSED', 'MERGED'}
+        assert r['repository'].split('/')[0].lower() != snapshot['account'].lower()
+        assert r['repository_visibility'] == 'PUBLIC', 'private repository in public inventory'
+        assert r['url'] == f"https://github.com/{r['repository']}/pull/{r['number']}"
+        assert (r['merged_at'] is not None) == (r['state'] == 'MERGED'), 'merge timestamp/state mismatch'
+        if r['state'] == 'MERGED':
+            assert re.fullmatch('[a-f0-9]{40}', r['merge_commit_sha'] or ''), 'merge commit missing'
+        else:
+            assert r['merge_commit_sha'] is None, 'unmerged PR claims a merge commit'
+    expected = {'total': len(rows), 'merged': sum(r['state'] == 'MERGED' for r in rows),
+                'open': sum(r['state'] == 'OPEN' for r in rows),
+                'closed_unmerged': sum(r['state'] == 'CLOSED' for r in rows)}
+    assert snapshot['counts'] == expected, 'PR totals disagree with rows'
+    for item in snapshot.get('featured_submissions', []):
+        assert any(r['url'] == item['url'] and r['state'] == 'OPEN' for r in rows), 'featured submission is no longer open'
+
+
 def run():
     from build import counts
     ledger = json.loads((ROOT/'results.json').read_text())
     narrative = json.loads((ROOT/'book/narrative.json').read_text())
     records = ledger['records']; validate(records)
+    snapshot = json.loads((ROOT/'pr-status.json').read_text())
+    validate_pr_snapshot(snapshot)
+    merged = {r['url']: r['merge_commit_sha'] for r in snapshot['pull_requests'] if r['state'] == 'MERGED'}
+    recorded = {r['source_url']: r['merge_commit_sha'] for r in records if r['status'] == 'merged'}
+    assert merged == recorded, 'book and live merge snapshot disagree'
+    corrupt_snapshot = copy.deepcopy(snapshot)
+    row = next(r for r in corrupt_snapshot['pull_requests'] if r['state'] == 'OPEN')
+    row['state'] = 'MERGED'
+    try:
+        validate_pr_snapshot(corrupt_snapshot)
+    except AssertionError:
+        pass
+    else:
+        raise AssertionError('open PR promoted to merge without evidence')
     covered = [rid for c in narrative['chapters'] for rid in c['record_ids']]
     assert sorted(covered) == sorted(r['id'] for r in records), 'chapter coverage or double count'
     assert all(c['uk'] and c['en'] for c in narrative['chapters'])
@@ -75,11 +112,14 @@ def run():
     competition = [r for r in records if r['category'] == 'competition']
     assert counts(records)['arenas'] == len({r['competition'] for r in competition})
     sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
-    ledger_sha = sha(ROOT/'results.json'); narrative_sha = sha(ROOT/'book/narrative.json')
+    ledger_sha = sha(ROOT/'results.json'); narrative_sha = sha(ROOT/'book/narrative.json'); snapshot_sha = sha(ROOT/'pr-status.json')
     generated = ['README.md','README.en.md','RESULTS.md','RESULTS.en.md','book/uk/BOOK.md','book/en/BOOK.md']
     for name in generated:
         text=(ROOT/name).read_text()
         assert 'ledger-sha256:'+ledger_sha in text and 'narrative-sha256:'+narrative_sha in text, 'stale '+name
+        assert 'pr-status-sha256:'+snapshot_sha in text, 'stale PR statistics '+name
+    for name in ['PR_STATUS.md', 'PR_STATUS.en.md']:
+        assert 'pr-status-sha256:'+snapshot_sha in (ROOT/name).read_text(), 'stale '+name
     files = list(public_files(ROOT))
     links=0
     for path in (p for p in files if p.suffix == '.md'):
@@ -110,8 +150,9 @@ def run():
     books=list((ROOT/'book/pdf').glob('*.pdf'));assert len(books)==2
     for path in books:
         assert path.read_bytes().startswith(b'%PDF-') and ledger_sha.encode() in path.read_bytes(), 'PDF ledger identity '+path.name
+        assert narrative_sha.encode() in path.read_bytes() and snapshot_sha.encode() in path.read_bytes(), 'PDF source identity '+path.name
     assert not (ROOT/'house').exists() and not (ROOT/'engineering-results-qa').exists(), 'private/unwanted tree'
-    return {'status':'PASS','records':len(records),'chapters':len(narrative['chapters']),'counts':counts(records),'local_links_checked':links,'negative_pending_merge_control':'rejected','ledger_sha256':ledger_sha,'files_sha256':{str(p.relative_to(ROOT)):sha(p) for p in files}}
+    return {'status':'PASS','records':len(records),'chapters':len(narrative['chapters']),'counts':counts(records),'pr_counts':snapshot['counts'],'local_links_checked':links,'negative_pending_merge_control':'rejected','negative_unproven_pr_merge_control':'rejected','ledger_sha256':ledger_sha,'files_sha256':{str(p.relative_to(ROOT)):sha(p) for p in files}}
 
 
 if __name__=='__main__':

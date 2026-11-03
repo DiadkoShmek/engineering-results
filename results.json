@@ -248,6 +248,22 @@
       "acknowledgement_url": "https://github.com/tensorly/tensorly/pull/695#issuecomment-6591551013",
       "report_path": "reports/tensorly-2026-11.md",
       "boundary": "Our PR merged. The compact regression and two relevant modules were checked on CPU with NumPy/PyTorch and core/einsum (70 tests per run). The full repository, GPU and remaining backend/version matrix were not run; the earlier large oracle campaign was not repeated for the test-only revision."
+    },
+    {
+      "id": "onnx-ir-output-aliases-2026-11-03",
+      "category": "upstream_contribution",
+      "project": "ONNX IR",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-03",
+      "merged_at": "2026-11-03T16:40:54Z",
+      "checked_at": "2026-11-03T17:33:18.542858Z",
+      "source_url": "https://github.com/onnx/ir-py/pull/521",
+      "contribution_merged": true,
+      "merge_commit_sha": "8dd310a29ebce88081d2b5e3b90db84720a48d19",
+      "implementation_by": "DiadkoShmek with Codex assistance",
+      "report_path": "reports/onnx-ir-2026-11.md",
+      "boundary": "Merged public-output alias preservation fix. Previously recorded focused CPU checks cover named outputs and ownership; they were not rerun for this journal refresh. The full nox/Python/Torch/GPU matrix and production deployment are not established."
     }
   ]
 }
