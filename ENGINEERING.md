@@ -4,6 +4,9 @@ AI-assisted engineering: проблема, рішення, перевірка т
 
 ## Прийняті виправлення
 
+- **[Microsoft Semantic Kernel](reports/semantic-kernel-2026-11.md):** завершення sync/async native generators після закриття streaming invocation; #14701 merged 04.11.2026.
+- **[Redis Python client](reports/redis-monitor-2026-11.md):** повернення MONITOR connection до пулу після невдалого context entry; #4550 merged 04.11.2026.
+
 - **[ONNX Range](reports/onnx-range-2026-11.md):** точна довжина integer Range без переповнення знакової різниці; наш #8734 merged 04.11.2026.
 
 - **[ONNX IR](reports/onnx-ir-2026-11.md):** збереження публічних output names і ownership під час усунення Identity; наш #521 merged 03.11.2026.
@@ -35,14 +38,14 @@ AI-assisted engineering: проблема, рішення, перевірка т
 ## Review-stage · 03.11.2026 UTC
 
 - **[Triton #12611](reports/triton-2026-11.md):** оцінка вартості CUDA f32 sin/cos під час rematerialization. Поданий, OPEN; до merged-результатів не зарахований.
-- **[Semantic Kernel #14701](https://github.com/microsoft/semantic-kernel/pull/14701):** cleanup native generators; APPROVED, але OPEN.
+- **[Semantic Kernel #14701](reports/semantic-kernel-2026-11.md):** історично APPROVED; merge підтверджено 04.11.2026 о 14:46:53 UTC.
 - **[Docling Core #953](https://github.com/docling-project/docling-core/pull/953):** references скопійованих comments; Mergify чекає двох approving reviews.
 
 [Повний датований стан PR](PR_STATUS.md) · [English](PR_STATUS.en.md). Схвалення та локальні тести не є merge.
 
 ## Як читати
 
-Ігровий бот приймає рішення в матчі. AI-агент розробки досліджує, пише код і тестує. Людина визначає напрям і погоджує зовнішні дії.
+Ігровий бот приймає рішення в матчі. AI-агент розробки досліджує, пише код і тестує. Людина визначає напрям, володіє поданням, погоджує зовнішні дії й відповідає за супровід.
 
 Це не контрольований порівняльний бенчмарк AI-моделей. Час, вартість і людські втручання не виміряні зіставно. Власний merged patch, credited investigation та аудит — різні результати.
 
@@ -51,3 +54,5 @@ AI-assisted engineering: проблема, рішення, перевірка т
 ## Подані виправлення · 04.11.2026 UTC
 
 [Лезо — 20 нових PR у 18 репозиторіях](reports/lezo-2026-11.md): компіляція, автоматичне диференціювання, тензорні операції, ймовірнісні моделі та лінійні оператори. [English summary](reports/lezo-2026-11.md#english-summary). Статус кожного PR і перевірений source commit наведено у звіті.
+
+[Новий прохід «Лезо»: проміжний зріз 5 подань](reports/lezo50-2026-11.md). Подання й нові merge попередніх PR обліковані окремо.

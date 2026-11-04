@@ -3,6 +3,52 @@
   "author": "DiadkoShmek",
   "chapters": [
     {
+      "key": "redis-monitor",
+      "title": "Redis Python client",
+      "record_ids": [
+        "redis-monitor-entry-cleanup-2026-11-04"
+      ],
+      "report": "reports/redis-monitor-2026-11.md",
+      "uk": {
+        "problem": "Якщо вхід до MONITOR context завершувався помилкою, Python не викликав exit і позичене з’єднання лишалося зайнятим. Пул max_connections=1 міг перестати обслуговувати навіть PING; async setup також має шлях скасування.",
+        "decision": "Sync/async MONITOR звільняють з’єднання після невдалого входу, від’єднують його від Monitor до exit cleanup та повертають до пулу через finally. Async release захищено shield. Після рев’ю прибрано зайві exception-precedence гілки й варіації, зберігши потрібний maintainer shape.",
+        "proof": "Опис PR фіксує перевірку на тимчасовому loopback Redis 8.0.2: 23 passing і 3 native skips для RESP2 та окремо RESP3, включно з ACL denial, повторним використанням одноз’єднаннєвого пулу та async cancellation. GitHub підтверджує прямий merge #4550. Сервер під час оновлення книги не запускався.",
+        "lesson": "Невдалий context entry не запускає автоматичний exit. Власник позиченого ресурсу має явно відновити пул і перевірити його реальною наступною командою.",
+        "boundaries": {
+          "redis-monitor-entry-cleanup-2026-11-04": "Наш PR злитий upstream. Раніше зафіксовані локальні тести під час оновлення книги не повторювалися; повне production-використання не встановлено."
+        }
+      },
+      "en": {
+        "problem": "When MONITOR context entry failed, Python did not call exit and the borrowed connection remained checked out. A max_connections=1 pool could stop serving even PING; async setup also has a cancellation path.",
+        "decision": "Sync/async MONITOR clean up failed entry, detach the connection before exit cleanup and return it to the pool in finally. Async release remains shielded. Review follow-up removed extra exception-precedence branches and permutations while retaining the requested maintainer shape.",
+        "proof": "The PR records a temporary loopback Redis 8.0.2 run: 23 passing tests and three native skips for each of RESP2 and RESP3, including ACL denial, single-connection pool reuse and async cancellation. GitHub confirms the direct merge of #4550. The server was not restarted for this journal update.",
+        "lesson": "Failed context entry does not automatically invoke exit. The owner of a borrowed resource must restore the pool explicitly and verify recovery with an actual subsequent command."
+      }
+    },
+    {
+      "key": "semantic-kernel",
+      "title": "Microsoft Semantic Kernel",
+      "record_ids": [
+        "semantic-kernel-native-stream-cleanup-2026-11-04"
+      ],
+      "report": "reports/semantic-kernel-2026-11.md",
+      "uk": {
+        "problem": "Після раннього закриття або скасування streaming invocation вихідний sync/async Python generator лишався призупиненим. Його finally не звільняв ресурси в момент завершення виклику; утриманий reference робив це незалежним від garbage collection.",
+        "decision": "Внесок обгортає реальні native generators у closing/aclosing та закриває створений function-invocation stream у Kernel.invoke_stream. Звичайні значення й custom close-bearing результати не отримують чужого cleanup; публічні сигнатури збережено.",
+        "proof": "Публічний PR документує 8 failing і 148 passing тестів на базі та 156 passing на кандидатові, 18 доданих сценаріїв із утриманими генераторами й окремі перевірки скасування. GitHub підтверджує прямий merge #14701. Під час оновлення книги runtime-тести не повторювалися.",
+        "lesson": "Той шар, який володіє створеним потоком, має гарантовано завершувати його. Утриманий reference у регресії відділяє явний cleanup від випадкового прибирання GC.",
+        "boundaries": {
+          "semantic-kernel-native-stream-cleanup-2026-11-04": "Наш PR злитий upstream. Раніше зафіксовані локальні тести під час оновлення книги не повторювалися; повне production-використання не встановлено."
+        }
+      },
+      "en": {
+        "problem": "After early closure or cancellation of a streaming invocation, the underlying sync/async Python generator remained suspended. Its finally block did not release resources when the invocation ended; retaining the generator makes this independent of garbage collection.",
+        "decision": "The contribution wraps actual native generators in closing/aclosing and closes the owned function-invocation stream in Kernel.invoke_stream. Ordinary values and custom close-bearing results retain their existing behavior; public signatures are unchanged.",
+        "proof": "The public PR records eight failing and 148 passing baseline tests versus 156 passing candidate tests, 18 added retained-generator scenarios and separate cancellation checks. GitHub confirms the direct merge of #14701. Runtime tests were not repeated for this journal update.",
+        "lesson": "The layer that owns a created stream must finalize it. Retaining the source in the regression distinguishes explicit cleanup from incidental garbage collection."
+      }
+    },
+    {
       "key": "onnx-range",
       "title": "ONNX Range",
       "record_ids": [

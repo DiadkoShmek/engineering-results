@@ -283,6 +283,46 @@
         "sha256": "20d9e2b932268fd08daba018bf8670020f155944d09f2a927007d63047ce777d"
       },
       "boundary": "Direct merge of integer Range shape-inference fix; upstream APPROVED reviews are recorded separately. Runtime tests were not rerun for this book refresh, and production use is not established."
+    },
+    {
+      "id": "semantic-kernel-native-stream-cleanup-2026-11-04",
+      "category": "upstream_contribution",
+      "project": "Microsoft Semantic Kernel",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-04",
+      "merged_at": "2026-11-04T14:46:53Z",
+      "checked_at": "2026-11-04T16:20:18.445505Z",
+      "source_url": "https://github.com/microsoft/semantic-kernel/pull/14701",
+      "contribution_merged": true,
+      "merge_commit_sha": "78f612433829a9bd858e92521c1249d79865bb4f",
+      "implementation_by": "DiadkoShmek-directed contribution with Codex assistance",
+      "report_path": "reports/semantic-kernel-2026-11.md",
+      "evidence": {
+        "path": "evidence/semantic-kernel-2026-11-04.json",
+        "sha256": "46f5778376e400b9ab1d0ccf81595055368208ce1d2895020ef62eb899164df5"
+      },
+      "boundary": "Native-generator invocation cleanup only; separate prompt/provider forwarding layers and full SDK integration matrix are not established. Merge metadata refreshed; runtime tests not rerun."
+    },
+    {
+      "id": "redis-monitor-entry-cleanup-2026-11-04",
+      "category": "upstream_contribution",
+      "project": "Redis Python client",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-04",
+      "merged_at": "2026-11-04T15:44:00Z",
+      "checked_at": "2026-11-04T16:20:18.445505Z",
+      "source_url": "https://github.com/redis/redis-py/pull/4550",
+      "contribution_merged": true,
+      "merge_commit_sha": "d9fede6eb8c3836a9c632e75303584050f6617de",
+      "implementation_by": "DiadkoShmek-directed contribution with Codex assistance",
+      "report_path": "reports/redis-monitor-2026-11.md",
+      "evidence": {
+        "path": "evidence/redis-monitor-2026-11-04.json",
+        "sha256": "a454faa5b51c06d8b97d3fbb82e64a8919f396db0ec7affc7adf6ca85e794b76"
+      },
+      "boundary": "Focused MONITOR lifecycle change; no full replica/sentinel/cluster/Stack/TLS/Enterprise validation claim. Prior local tests are reported separately from the newly verified upstream merge."
     }
   ]
 }

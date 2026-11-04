@@ -1,6 +1,6 @@
 # External results
 
-<!-- generated; ledger-sha256:1b027bc2fc9423795aad17a93e08dbc15f545bb228b530f3bab6e8501b7a037f; narrative-sha256:016720fbbc340bc7a1bb82e000674d685ffc19abccff52700675b2e360cc70c7; pr-status-sha256:73147d901817058603a949fd9455b5692d75f5aed43e4ce52f519674073cc9cc -->
+<!-- generated; ledger-sha256:9c4bc5f498a966e1433eb8a32bd03bdaf9464d86e41380db1f4029bfb5b131f6; narrative-sha256:7bc563cb623a3e1beeb509355e5fe838ef7e5b4fbe3b70b7fb89770976eb572e; pr-status-sha256:86c0876597fb39b80d9ac05254045bea191602dad9d896ff4f59679cdf61cbdf -->
 
 
 DiadkoShmek · 2026-11-04 UTC
@@ -9,9 +9,9 @@ DiadkoShmek · 2026-11-04 UTC
 
 I investigate failures, define contracts and verify consequences. AI tools assist research, implementation and checking; I set direction, take responsibility for engineering decisions and authorize external actions. This book does not measure autonomy percentages or rank AI models.
 
-7 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+9 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
 
-Public PRs in other owners' repositories: 99 submitted; 7 merged, 86 open, 6 closed without merge. GitHub snapshot: 2026-11-04 12:05 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 104 submitted; 9 merged, 88 open, 7 closed without merge. GitHub snapshot: 2026-11-04 16:20 UTC. Own-repository and private activity is excluded.
 
 [Complete PR status](../../PR_STATUS.en.md)
 
@@ -19,35 +19,95 @@ Every status and date below comes from results.json. A local PASS, external cred
 
 ## Contents
 
-1. [ONNX Range](#case-onnx-range)
+1. [Redis Python client](#case-redis-monitor)
 
-2. [ONNX IR](#case-onnx-ir)
+2. [Microsoft Semantic Kernel](#case-semantic-kernel)
 
-3. [FilesDrop](#case-filesdrop)
+3. [ONNX Range](#case-onnx-range)
 
-4. [Prime Intellect](#case-prime)
+4. [ONNX IR](#case-onnx-ir)
 
-5. [M7 MCP](#case-m7)
+5. [FilesDrop](#case-filesdrop)
 
-6. [Braintrust SDK JavaScript](#case-braintrust)
+6. [Prime Intellect](#case-prime)
 
-7. [Kraft](#case-kraft)
+7. [M7 MCP](#case-m7)
 
-8. [PyTorch TensorDict](#case-tensordict)
+8. [Braintrust SDK JavaScript](#case-braintrust)
 
-9. [BlackJAX](#case-blackjax)
+9. [Kraft](#case-kraft)
 
-10. [TensorLy](#case-tensorly)
+10. [PyTorch TensorDict](#case-tensordict)
 
-11. [Apache TVM-FFI](#case-tvm)
+11. [BlackJAX](#case-blackjax)
 
-12. [CodinGame - Mad Pod Racing](#case-codingame)
+12. [TensorLy](#case-tensorly)
 
-13. [Zoria 2026 / UA SKILLS](#case-zoria)
+13. [Apache TVM-FFI](#case-tvm)
+
+14. [CodinGame - Mad Pod Racing](#case-codingame)
+
+15. [Zoria 2026 / UA SKILLS](#case-zoria)
+
+<a id="case-redis-monitor"></a>
+
+## 01. Redis Python client
+
+**2026-11-04 · Direct PR merged · UTC 2026-11-04T16:20:18.445505Z · 2026-11-04T15:44:00Z**
+
+Focused MONITOR lifecycle change; no full replica/sentinel/cluster/Stack/TLS/Enterprise validation claim. Prior local tests are reported separately from the newly verified upstream merge.
+
+### Problem
+
+When MONITOR context entry failed, Python did not call exit and the borrowed connection remained checked out. A max_connections=1 pool could stop serving even PING; async setup also has a cancellation path.
+
+### My decision and the external choice
+
+Sync/async MONITOR clean up failed entry, detach the connection before exit cleanup and return it to the pool in finally. Async release remains shielded. Review follow-up removed extra exception-precedence branches and permutations while retaining the requested maintainer shape.
+
+### Validation and limits
+
+The PR records a temporary loopback Redis 8.0.2 run: 23 passing tests and three native skips for each of RESP2 and RESP3, including ACL denial, single-connection pool reuse and async cancellation. GitHub confirms the direct merge of #4550. The server was not restarted for this journal update.
+
+### What I carry forward
+
+Failed context entry does not automatically invoke exit. The owner of a borrowed resource must restore the pool explicitly and verify recovery with an actual subsequent command.
+
+- [Primary source](https://github.com/redis/redis-py/pull/4550)
+
+[Повний кейс / Full report](../../reports/redis-monitor-2026-11.md)
+
+<a id="case-semantic-kernel"></a>
+
+## 02. Microsoft Semantic Kernel
+
+**2026-11-04 · Direct PR merged · UTC 2026-11-04T16:20:18.445505Z · 2026-11-04T14:46:53Z**
+
+Native-generator invocation cleanup only; separate prompt/provider forwarding layers and full SDK integration matrix are not established. Merge metadata refreshed; runtime tests not rerun.
+
+### Problem
+
+After early closure or cancellation of a streaming invocation, the underlying sync/async Python generator remained suspended. Its finally block did not release resources when the invocation ended; retaining the generator makes this independent of garbage collection.
+
+### My decision and the external choice
+
+The contribution wraps actual native generators in closing/aclosing and closes the owned function-invocation stream in Kernel.invoke_stream. Ordinary values and custom close-bearing results retain their existing behavior; public signatures are unchanged.
+
+### Validation and limits
+
+The public PR records eight failing and 148 passing baseline tests versus 156 passing candidate tests, 18 added retained-generator scenarios and separate cancellation checks. GitHub confirms the direct merge of #14701. Runtime tests were not repeated for this journal update.
+
+### What I carry forward
+
+The layer that owns a created stream must finalize it. Retaining the source in the regression distinguishes explicit cleanup from incidental garbage collection.
+
+- [Primary source](https://github.com/microsoft/semantic-kernel/pull/14701)
+
+[Повний кейс / Full report](../../reports/semantic-kernel-2026-11.md)
 
 <a id="case-onnx-range"></a>
 
-## 01. ONNX Range
+## 03. ONNX Range
 
 **2026-11-04 · Direct PR merged · 2026-11-04T01:09:20Z**
 
@@ -75,7 +135,7 @@ For a discrete element count, exact integer arithmetic with a safely represented
 
 <a id="case-onnx-ir"></a>
 
-## 02. ONNX IR
+## 04. ONNX IR
 
 **2026-11-03 · Direct PR merged · UTC 2026-11-03T17:33:18.542858Z · 2026-11-03T16:40:54Z**
 
@@ -103,7 +163,7 @@ Graph optimization must preserve public names and value ownership as well as num
 
 <a id="case-filesdrop"></a>
 
-## 03. FilesDrop
+## 05. FilesDrop
 
 **2026-10-21 · Direct PR merged**
 
@@ -131,7 +191,7 @@ Cleanup must preserve retryability. Cancelling a wait does not imply stopping th
 
 <a id="case-prime"></a>
 
-## 04. Prime Intellect
+## 06. Prime Intellect
 
 **2026-10-24 · Incorporated into a merged maintainer fix**
 
@@ -165,7 +225,7 @@ A contribution can shape a maintainer decision even when the proposed patch is n
 
 <a id="case-m7"></a>
 
-## 05. M7 MCP
+## 07. M7 MCP
 
 **2026-10-29 · Audit credited in release**
 
@@ -193,7 +253,7 @@ An audit should leave a checkable route to each failure and retain what a later 
 
 <a id="case-braintrust"></a>
 
-## 06. Braintrust SDK JavaScript
+## 08. Braintrust SDK JavaScript
 
 **2026-11-02 · Direct PR merged · 2026-11-02T11:37:30Z**
 
@@ -221,7 +281,7 @@ Chunk boundaries belong to the transport. Decoder state must belong to the compl
 
 <a id="case-kraft"></a>
 
-## 07. Kraft
+## 09. Kraft
 
 **2026-11-02 · Direct PR merged · 2026-11-02T12:08:30Z**
 
@@ -249,7 +309,7 @@ Repeated initialization should repeat useful work rather than mistake an idempot
 
 <a id="case-tensordict"></a>
 
-## 08. PyTorch TensorDict
+## 10. PyTorch TensorDict
 
 **2026-11-01 · Incorporated into a merged maintainer fix**
 
@@ -281,7 +341,7 @@ When a lower layer already owns the contract, delegation can be stronger than a 
 
 <a id="case-blackjax"></a>
 
-## 09. BlackJAX
+## 11. BlackJAX
 
 **2026-11-02 · Direct PR merged · 2026-11-02T14:43:52Z**
 
@@ -309,7 +369,7 @@ Stabilize the intermediate computation while preserving the mathematical quantit
 
 <a id="case-tensorly"></a>
 
-## 10. TensorLy
+## 12. TensorLy
 
 **2026-11-03 · Direct PR merged · 2026-11-02T23:54:45Z**
 
@@ -339,7 +399,7 @@ One carefully chosen example can cover both required multipliers without a grid 
 
 <a id="case-tvm"></a>
 
-## 11. Apache TVM-FFI
+## 13. Apache TVM-FFI
 
 **2026-11-03 · Incorporated into a merged maintainer fix**
 
@@ -371,7 +431,7 @@ A reproduction can lead to another repair. Superseded and merged are different e
 
 <a id="case-codingame"></a>
 
-## 12. CodinGame - Mad Pod Racing
+## 14. CodinGame - Mad Pod Racing
 
 **2026-10-21 (Europe/Helsinki) · Dated arena snapshot · UTC 2026-10-20T22:06:15.975Z · 86/1657 (Legend League)**
 
@@ -399,7 +459,7 @@ A stopping rule protects against proving a desired outcome. Local experiments an
 
 <a id="case-zoria"></a>
 
-## 13. Zoria 2026 / UA SKILLS
+## 15. Zoria 2026 / UA SKILLS
 
 **2026-10-19 (Europe/Helsinki) · Historical preliminary result · UTC 2026-10-20T22:06:05.463Z · 5/9 (overall preliminary score of second-stage participants)**
 

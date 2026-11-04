@@ -1,13 +1,13 @@
 # External results
 
-<!-- generated; ledger-sha256:1b027bc2fc9423795aad17a93e08dbc15f545bb228b530f3bab6e8501b7a037f; narrative-sha256:016720fbbc340bc7a1bb82e000674d685ffc19abccff52700675b2e360cc70c7; pr-status-sha256:73147d901817058603a949fd9455b5692d75f5aed43e4ce52f519674073cc9cc -->
+<!-- generated; ledger-sha256:9c4bc5f498a966e1433eb8a32bd03bdaf9464d86e41380db1f4029bfb5b131f6; narrative-sha256:7bc563cb623a3e1beeb509355e5fe838ef7e5b4fbe3b70b7fb89770976eb572e; pr-status-sha256:86c0876597fb39b80d9ac05254045bea191602dad9d896ff4f59679cdf61cbdf -->
 
 
 **2026-11-04 UTC**
 
-7 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+9 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
 
-Public PRs in other owners' repositories: 99 submitted; 7 merged, 86 open, 6 closed without merge. GitHub snapshot: 2026-11-04 12:05 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 104 submitted; 9 merged, 88 open, 7 closed without merge. GitHub snapshot: 2026-11-04 16:20 UTC. Own-repository and private activity is excluded.
 
 [Complete PR status](PR_STATUS.en.md)
 
@@ -15,6 +15,8 @@ Public PRs in other owners' repositories: 99 submitted; 7 merged, 86 open, 6 clo
 
 | Record date / source basis | Case | Outcome | Source |
 |---|---|---|---|
+| 2026-11-04 | [Redis Python client](reports/redis-monitor-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/redis/redis-py/pull/4550) |
+| 2026-11-04 | [Microsoft Semantic Kernel](reports/semantic-kernel-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/microsoft/semantic-kernel/pull/14701) |
 | 2026-11-04 | [ONNX Range](reports/onnx-range-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/onnx/onnx/pull/8734) |
 | 2026-11-03 | [ONNX IR](reports/onnx-ir-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/onnx/ir-py/pull/521) |
 | 2026-10-21 | [FilesDrop](reports/filesdrop-2026-10.md#english-summary) | Direct PR merged | [Public source](https://github.com/AndreyBegma/FilesDrop/pull/32) |

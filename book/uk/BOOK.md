@@ -1,6 +1,6 @@
 # Зовнішні результати
 
-<!-- generated; ledger-sha256:1b027bc2fc9423795aad17a93e08dbc15f545bb228b530f3bab6e8501b7a037f; narrative-sha256:016720fbbc340bc7a1bb82e000674d685ffc19abccff52700675b2e360cc70c7; pr-status-sha256:73147d901817058603a949fd9455b5692d75f5aed43e4ce52f519674073cc9cc -->
+<!-- generated; ledger-sha256:9c4bc5f498a966e1433eb8a32bd03bdaf9464d86e41380db1f4029bfb5b131f6; narrative-sha256:7bc563cb623a3e1beeb509355e5fe838ef7e5b4fbe3b70b7fb89770976eb572e; pr-status-sha256:86c0876597fb39b80d9ac05254045bea191602dad9d896ff4f59679cdf61cbdf -->
 
 
 DiadkoShmek · 2026-11-04 UTC
@@ -9,9 +9,9 @@ DiadkoShmek · 2026-11-04 UTC
 
 Я досліджую дефект, визначаю контракт і перевіряю наслідок. AI-інструменти допомагають із пошуком, реалізацією та перевіркою; я задаю напрям, відповідаю за інженерне рішення й погоджую зовнішні дії. Ця книга не вимірює відсоток автономності чи перевагу однієї моделі.
 
-Власні злиті PR: 7; внески у злиті рішення мейнтейнерів: 3; технічні аудити: 1. Змагання: часових записів 3, подій 2; Zoria враховано один раз.
+Власні злиті PR: 9; внески у злиті рішення мейнтейнерів: 3; технічні аудити: 1. Змагання: часових записів 3, подій 2; Zoria враховано один раз.
 
-Публічні PR у чужих репозиторіях: 99 подано; 7 злитих, 86 відкритих, 6 закритих без merge. Зріз GitHub: 2026-11-04 12:05 UTC. Власна та приватна активність виключені.
+Публічні PR у чужих репозиторіях: 104 подано; 9 злитих, 88 відкритих, 7 закритих без merge. Зріз GitHub: 2026-11-04 16:20 UTC. Власна та приватна активність виключені.
 
 [Повний стан PR](../../PR_STATUS.md)
 
@@ -19,35 +19,95 @@ DiadkoShmek · 2026-11-04 UTC
 
 ## Зміст
 
-1. [ONNX Range](#case-onnx-range)
+1. [Redis Python client](#case-redis-monitor)
 
-2. [ONNX IR](#case-onnx-ir)
+2. [Microsoft Semantic Kernel](#case-semantic-kernel)
 
-3. [FilesDrop](#case-filesdrop)
+3. [ONNX Range](#case-onnx-range)
 
-4. [Prime Intellect](#case-prime)
+4. [ONNX IR](#case-onnx-ir)
 
-5. [M7 MCP](#case-m7)
+5. [FilesDrop](#case-filesdrop)
 
-6. [Braintrust SDK JavaScript](#case-braintrust)
+6. [Prime Intellect](#case-prime)
 
-7. [Kraft](#case-kraft)
+7. [M7 MCP](#case-m7)
 
-8. [PyTorch TensorDict](#case-tensordict)
+8. [Braintrust SDK JavaScript](#case-braintrust)
 
-9. [BlackJAX](#case-blackjax)
+9. [Kraft](#case-kraft)
 
-10. [TensorLy](#case-tensorly)
+10. [PyTorch TensorDict](#case-tensordict)
 
-11. [Apache TVM-FFI](#case-tvm)
+11. [BlackJAX](#case-blackjax)
 
-12. [CodinGame - Mad Pod Racing](#case-codingame)
+12. [TensorLy](#case-tensorly)
 
-13. [Zoria 2026 / UA SKILLS](#case-zoria)
+13. [Apache TVM-FFI](#case-tvm)
+
+14. [CodinGame - Mad Pod Racing](#case-codingame)
+
+15. [Zoria 2026 / UA SKILLS](#case-zoria)
+
+<a id="case-redis-monitor"></a>
+
+## 01. Redis Python client
+
+**2026-11-04 · Власний PR merged · UTC 2026-11-04T16:20:18.445505Z · 2026-11-04T15:44:00Z**
+
+Наш PR злитий upstream. Раніше зафіксовані локальні тести під час оновлення книги не повторювалися; повне production-використання не встановлено.
+
+### Проблема
+
+Якщо вхід до MONITOR context завершувався помилкою, Python не викликав exit і позичене з’єднання лишалося зайнятим. Пул max_connections=1 міг перестати обслуговувати навіть PING; async setup також має шлях скасування.
+
+### Моє рішення та зовнішній вибір
+
+Sync/async MONITOR звільняють з’єднання після невдалого входу, від’єднують його від Monitor до exit cleanup та повертають до пулу через finally. Async release захищено shield. Після рев’ю прибрано зайві exception-precedence гілки й варіації, зберігши потрібний maintainer shape.
+
+### Перевірка й обмеження
+
+Опис PR фіксує перевірку на тимчасовому loopback Redis 8.0.2: 23 passing і 3 native skips для RESP2 та окремо RESP3, включно з ACL denial, повторним використанням одноз’єднаннєвого пулу та async cancellation. GitHub підтверджує прямий merge #4550. Сервер під час оновлення книги не запускався.
+
+### Що переношу далі
+
+Невдалий context entry не запускає автоматичний exit. Власник позиченого ресурсу має явно відновити пул і перевірити його реальною наступною командою.
+
+- [Першоджерело](https://github.com/redis/redis-py/pull/4550)
+
+[Повний кейс / Full report](../../reports/redis-monitor-2026-11.md)
+
+<a id="case-semantic-kernel"></a>
+
+## 02. Microsoft Semantic Kernel
+
+**2026-11-04 · Власний PR merged · UTC 2026-11-04T16:20:18.445505Z · 2026-11-04T14:46:53Z**
+
+Наш PR злитий upstream. Раніше зафіксовані локальні тести під час оновлення книги не повторювалися; повне production-використання не встановлено.
+
+### Проблема
+
+Після раннього закриття або скасування streaming invocation вихідний sync/async Python generator лишався призупиненим. Його finally не звільняв ресурси в момент завершення виклику; утриманий reference робив це незалежним від garbage collection.
+
+### Моє рішення та зовнішній вибір
+
+Внесок обгортає реальні native generators у closing/aclosing та закриває створений function-invocation stream у Kernel.invoke_stream. Звичайні значення й custom close-bearing результати не отримують чужого cleanup; публічні сигнатури збережено.
+
+### Перевірка й обмеження
+
+Публічний PR документує 8 failing і 148 passing тестів на базі та 156 passing на кандидатові, 18 доданих сценаріїв із утриманими генераторами й окремі перевірки скасування. GitHub підтверджує прямий merge #14701. Під час оновлення книги runtime-тести не повторювалися.
+
+### Що переношу далі
+
+Той шар, який володіє створеним потоком, має гарантовано завершувати його. Утриманий reference у регресії відділяє явний cleanup від випадкового прибирання GC.
+
+- [Першоджерело](https://github.com/microsoft/semantic-kernel/pull/14701)
+
+[Повний кейс / Full report](../../reports/semantic-kernel-2026-11.md)
 
 <a id="case-onnx-range"></a>
 
-## 01. ONNX Range
+## 03. ONNX Range
 
 **2026-11-04 · Власний PR merged · 2026-11-04T01:09:20Z**
 
@@ -75,7 +135,7 @@ GitHub підтверджує прямий merge PR #8734 4 листопада 2
 
 <a id="case-onnx-ir"></a>
 
-## 02. ONNX IR
+## 04. ONNX IR
 
 **2026-11-03 · Власний PR merged · UTC 2026-11-03T17:33:18.542858Z · 2026-11-03T16:40:54Z**
 
@@ -103,7 +163,7 @@ Identity зберігається, коли його вхід уже є публ
 
 <a id="case-filesdrop"></a>
 
-## 03. FilesDrop
+## 05. FilesDrop
 
 **2026-10-21 · Власний PR merged**
 
@@ -131,7 +191,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-prime"></a>
 
-## 04. Prime Intellect
+## 06. Prime Intellect
 
 **2026-10-24 · Внесок у merged fix мейнтейнера**
 
@@ -165,7 +225,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-m7"></a>
 
-## 05. M7 MCP
+## 07. M7 MCP
 
 **2026-10-29 · Аудит відзначено в релізі**
 
@@ -193,7 +253,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-braintrust"></a>
 
-## 06. Braintrust SDK JavaScript
+## 08. Braintrust SDK JavaScript
 
 **2026-11-02 · Власний PR merged · 2026-11-02T11:37:30Z**
 
@@ -221,7 +281,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-kraft"></a>
 
-## 07. Kraft
+## 09. Kraft
 
 **2026-11-02 · Власний PR merged · 2026-11-02T12:08:30Z**
 
@@ -249,7 +309,7 @@ Focused suite пройшов 16 тестів. Репозиторні ci-checks �
 
 <a id="case-tensordict"></a>
 
-## 08. PyTorch TensorDict
+## 10. PyTorch TensorDict
 
 **2026-11-01 · Внесок у merged fix мейнтейнера**
 
@@ -281,7 +341,7 @@ Focused suite пройшов 16 тестів. Репозиторні ci-checks �
 
 <a id="case-blackjax"></a>
 
-## 09. BlackJAX
+## 11. BlackJAX
 
 **2026-11-02 · Власний PR merged · 2026-11-02T14:43:52Z**
 
@@ -309,7 +369,7 @@ Barker MCMC міг відхилити крок до області вищої й
 
 <a id="case-tensorly"></a>
 
-## 10. TensorLy
+## 12. TensorLy
 
 **2026-11-03 · Власний PR merged · 2026-11-02T23:54:45Z**
 
@@ -339,7 +399,7 @@ Barker MCMC міг відхилити крок до області вищої й
 
 <a id="case-tvm"></a>
 
-## 11. Apache TVM-FFI
+## 13. Apache TVM-FFI
 
 **2026-11-03 · Внесок у merged fix мейнтейнера**
 
@@ -371,7 +431,7 @@ Barker MCMC міг відхилити крок до області вищої й
 
 <a id="case-codingame"></a>
 
-## 12. CodinGame - Mad Pod Racing
+## 14. CodinGame - Mad Pod Racing
 
 **2026-10-21 (Europe/Helsinki) · Датований зріз арени · UTC 2026-10-20T22:06:15.975Z · 86/1657 (Legend League)**
 
@@ -399,7 +459,7 @@ V79 зупинено після 2 перемог у восьми заверше�
 
 <a id="case-zoria"></a>
 
-## 13. Zoria 2026 / UA SKILLS
+## 15. Zoria 2026 / UA SKILLS
 
 **2026-10-19 (Europe/Helsinki) · Історичний попередній результат · UTC 2026-10-20T22:06:05.463Z · 5/9 (загальний попередній підсумок учасників другого етапу)**
 

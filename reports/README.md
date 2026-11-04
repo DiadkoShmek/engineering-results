@@ -28,3 +28,9 @@
 ## Подана серія / Submitted series
 
 [Лезо: 20 нових PR у 18 репозиторіях](lezo-2026-11.md) · [English](lezo-2026-11.md#english-summary). Датований перелік подань, локальних перевірок і source commits; прийняті результати обліковані окремо.
+
+## Прийняті 04.11.2026
+
+[Microsoft Semantic Kernel](semantic-kernel-2026-11.md) · [Redis Python client](redis-monitor-2026-11.md) — прямі merge із native merge-комітами.
+
+[Новий прохід «Лезо»: проміжний зріз 5 подань](lezo50-2026-11.md) · [English](lezo50-2026-11.md#english-summary).

@@ -1,0 +1,11 @@
+{
+  "source_url": "https://github.com/microsoft/semantic-kernel/pull/14701",
+  "state": "MERGED",
+  "merged_at": "2026-11-04T14:46:53Z",
+  "merge_commit_sha": "78f612433829a9bd858e92521c1249d79865bb4f",
+  "head_sha": "02dc31a2c5af0c6badf118123496b3bfa69f0416",
+  "merged_by": "eavanvalkenburg",
+  "checked_at": "2026-11-04T16:20:18.445505Z",
+  "source": "Native GitHub PR metadata and submitted diff",
+  "scope": "Direct merge verified; local validation counts are reported by the PR and were not rerun for this journal update."
+}

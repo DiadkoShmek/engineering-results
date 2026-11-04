@@ -1,8 +1,8 @@
 # External PR status
 
-<!-- generated; pr-status-sha256:73147d901817058603a949fd9455b5692d75f5aed43e4ce52f519674073cc9cc -->
+<!-- generated; pr-status-sha256:86c0876597fb39b80d9ac05254045bea191602dad9d896ff4f59679cdf61cbdf -->
 
-Public PRs in other owners' repositories: 99 submitted; 7 merged, 86 open, 6 closed without merge. GitHub snapshot: 2026-11-04 12:05 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 104 submitted; 9 merged, 88 open, 7 closed without merge. GitHub snapshot: 2026-11-04 16:20 UTC. Own-repository and private activity is excluded.
 
 Closed without merge does not necessarily mean rejected: 3 proposals are credited in merged maintainer solutions. Approval is not a merge. Snapshot completeness covers the PR inventory, not every CI run or review.
 
@@ -16,12 +16,16 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 
 - [Triton #12611](https://github.com/triton-lang/triton/pull/12611): Submitted; no upstream merge established. 2026-11-03T17:37:31.939526Z
 
-- [Semantic Kernel #14701](https://github.com/microsoft/semantic-kernel/pull/14701): APPROVED; PR OPEN. 2026-11-03T17:37:33.073547Z
+- [Semantic Kernel #14701](https://github.com/microsoft/semantic-kernel/pull/14701): Direct merge confirmed on 4 November 2026 at 14:46:53 UTC. 2026-11-04T16:20:18.445505Z
 
-## Merged PRs (7)
+- [Redis #4550](https://github.com/redis/redis-py/pull/4550): Direct merge confirmed on 4 November 2026 at 15:44:00 UTC. 2026-11-04T16:20:18.445505Z
+
+## Merged PRs (9)
 
 | Repository / PR | Change | Merge or update date UTC |
 |---|---|---|
+| [redis/redis-py #4550](https://github.com/redis/redis-py/pull/4550) | Fix connection cleanup when MONITOR context entry fails | 2026-11-04T15:44:00Z |
+| [microsoft/semantic-kernel #14701](https://github.com/microsoft/semantic-kernel/pull/14701) | Python: close native generators when stream invocations end | 2026-11-04T14:46:53Z |
 | [onnx/onnx #8734](https://github.com/onnx/onnx/pull/8734) | fix(shape_inference): compute integer range lengths exactly | 2026-11-04T01:09:20Z |
 | [onnx/ir-py #521](https://github.com/onnx/ir-py/pull/521) | &#91;passes&#93; Preserve public output aliases during Identity elimination | 2026-11-03T16:40:54Z |
 | [tensorly/tensorly #695](https://github.com/tensorly/tensorly/pull/695) | Apply weights and masks to single-factor Khatri-Rao products | 2026-11-02T23:54:45Z |
@@ -30,26 +34,29 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 | [braintrustdata/braintrust-sdk-javascript #2701](https://github.com/braintrustdata/braintrust-sdk-javascript/pull/2701) | fix: preserve UTF-8 in logged ReadableStream byte chunks | 2026-11-02T11:37:30Z |
 | [AndreyBegma/FilesDrop #32](https://github.com/AndreyBegma/FilesDrop/pull/32) | fix(api): retry expired cleanup and enforce URL timeout during DNS | 2026-10-21T08:49:27Z |
 
-## Open PRs (86)
+## Open PRs (88)
 
 | Repository / PR | Change | Merge or update date UTC |
 |---|---|---|
+| [NVIDIA/warp #2235](https://github.com/NVIDIA/warp/pull/2235) | Fix scaled smoothstep gradients | 2026-11-04T16:19:44Z |
+| [sgl-project/sglang #48419](https://github.com/sgl-project/sglang/pull/48419) | &#91;Fix&#93; Keep prefill batches homogeneous by input form | 2026-11-04T16:16:22Z |
+| [sgl-project/sglang #48402](https://github.com/sgl-project/sglang/pull/48402) | &#91;Fix&#93; scheduler: Respect earlier EOS in speculative stop handling | 2026-11-04T15:58:29Z |
+| [tensorflow/probability #2038](https://github.com/tensorflow/probability/pull/2038) | Fix higher derivatives of Lambert W at zero | 2026-11-04T15:58:26Z |
+| [google-deepmind/optax #1853](https://github.com/google-deepmind/optax/pull/1853) | Avoid gradient-product underflow in Rprop sign comparisons | 2026-11-04T14:36:34Z |
+| [pyro-ppl/numpyro #2404](https://github.com/pyro-ppl/numpyro/pull/2404) | fix(distributions): align Cat constraint event masks | 2026-11-04T14:29:31Z |
+| [dmlc/xgboost #12786](https://github.com/dmlc/xgboost/pull/12786) | Normalize Arrow dictionary category names with PyArrow | 2026-11-04T14:04:28Z |
+| [geomstats/geomstats #2170](https://github.com/geomstats/geomstats/pull/2170) | Preserve nonzero modes in rank-deficient Siegel exp and log maps | 2026-11-04T12:55:06Z |
+| [milvus-io/pymilvus #3903](https://github.com/milvus-io/pymilvus/pull/3903) | fix: return no query rows for an empty ID selection | 2026-11-04T12:52:30Z |
 | [google-deepmind/distrax #395](https://github.com/google-deepmind/distrax/pull/395) | Compare captured constants before equating transformed KL bijectors | 2026-11-04T11:58:35Z |
 | [dgasmith/opt_einsum #272](https://github.com/dgasmith/opt_einsum/pull/272) | Fix execution options in shared einsum contractions | 2026-11-04T11:58:12Z |
 | [google/flax #5637](https://github.com/google/flax/pull/5637) | Fix negative argnums state filters in NNX graph gradients | 2026-11-04T11:51:19Z |
-| [redis/redis-py #4550](https://github.com/redis/redis-py/pull/4550) | Fix connection cleanup when MONITOR context entry fails | 2026-11-04T11:51:17Z |
 | [geoopt/geoopt #282](https://github.com/geoopt/geoopt/pull/282) | Preserve vector batch axes in Sphere subspace projections | 2026-11-04T11:37:35Z |
-| [milvus-io/pymilvus #3903](https://github.com/milvus-io/pymilvus/pull/3903) | fix: return no query rows for an empty ID selection | 2026-11-04T11:28:48Z |
 | [pyro-ppl/pyro #3512](https://github.com/pyro-ppl/pyro/pull/3512) | Fix sample and batch dimensions in diagonal normal mixture sampling | 2026-11-04T11:07:59Z |
 | [google-deepmind/distrax #394](https://github.com/google-deepmind/distrax/pull/394) | Preserve straight-through gradients in combined sampling | 2026-11-04T10:57:46Z |
 | [PyLops/pylops #837](https://github.com/PyLops/pylops/pull/837) | Fix dense nonstationary convolution matrix orientation | 2026-11-04T10:57:33Z |
 | [pyro-ppl/numpyro #2405](https://github.com/pyro-ppl/numpyro/pull/2405) | fix(distributions): preserve GaussianStateSpace variance batch axes | 2026-11-04T10:41:57Z |
-| [pyro-ppl/numpyro #2404](https://github.com/pyro-ppl/numpyro/pull/2404) | fix(distributions): align Cat constraint event masks | 2026-11-04T10:40:18Z |
 | [blackjax-devs/blackjax #1071](https://github.com/blackjax-devs/blackjax/pull/1071) | Fix sample-axis reduction in Schrödinger–Föllmer drift | 2026-11-04T10:34:16Z |
-| [google-deepmind/optax #1853](https://github.com/google-deepmind/optax/pull/1853) | Avoid gradient-product underflow in Rprop sign comparisons | 2026-11-04T10:30:32Z |
 | [cornellius-gp/gpytorch #2839](https://github.com/cornellius-gp/gpytorch/pull/2839) | Fix rectangular covariance in RBFKernelGradGrad | 2026-11-04T10:29:21Z |
-| [dmlc/xgboost #12786](https://github.com/dmlc/xgboost/pull/12786) | Fix sliced Arrow dictionary category buffers | 2026-11-04T09:58:14Z |
-| [geomstats/geomstats #2170](https://github.com/geomstats/geomstats/pull/2170) | Preserve nonzero modes in rank-deficient Siegel exp and log maps | 2026-11-04T09:56:53Z |
 | [tensorly/tensorly #696](https://github.com/tensorly/tensorly/pull/696) | Respect conjugate transpose in complex vector mode products | 2026-11-04T09:30:28Z |
 | [pbrod/numdifftools #79](https://github.com/pbrod/numdifftools/pull/79) | fix: correct bicomplex expm1 and mixed Hessians | 2026-11-04T08:40:40Z |
 | [triton-lang/triton #12619](https://github.com/triton-lang/triton/pull/12619) | &#91;TritonGPU&#93; Preserve mutable loop-bound reads during nested-loop fusion | 2026-11-04T08:38:43Z |
@@ -65,7 +72,6 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 | [pyro-ppl/pyro #3510](https://github.com/pyro-ppl/pyro/pull/3510) | Preserve cached parameters when expanding zero-inflated distributions | 2026-11-03T10:47:00Z |
 | [NVIDIA/nccl #2551](https://github.com/NVIDIA/nccl/pull/2551) | Propagate ring metadata exchange failures | 2026-11-02T23:14:08Z |
 | [deepset-ai/haystack #13520](https://github.com/deepset-ai/haystack/pull/13520) | fix: attempt remaining pipeline cleanup after component errors | 2026-11-02T20:52:46Z |
-| [microsoft/semantic-kernel #14701](https://github.com/microsoft/semantic-kernel/pull/14701) | Python: close native generators when stream invocations end | 2026-11-02T20:44:06Z |
 | [facebookresearch/nevergrad #1728](https://github.com/facebookresearch/nevergrad/pull/1728) | Fix Pareto dominance in NSGA-II ranking | 2026-11-02T19:26:07Z |
 | [meta/Ax #5313](https://github.com/meta/Ax/pull/5313) | Preserve missing metrics when merging repeated measurements | 2026-11-02T19:04:22Z |
 | [PythonOT/POT #909](https://github.com/PythonOT/POT/pull/909) | &#91;MRG&#93; Fix paired Gaussian distances for unequal batch sizes | 2026-11-02T19:00:06Z |
@@ -121,10 +127,11 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 | [huggingface/datasets #8916](https://github.com/huggingface/datasets/pull/8916) | Fix default configuration selection when updating dataset cards | 2026-10-31T18:41:21Z |
 | [PrimeIntellect-ai/verifiers #3036](https://github.com/PrimeIntellect-ai/verifiers/pull/3036) | fix: include failure messages in rollout completion logs | 2026-10-31T18:00:21Z |
 
-## Closed without merge (6)
+## Closed without merge (7)
 
 | Repository / PR | Change | Merge or update date UTC |
 |---|---|---|
+| [apache/arrow #55395](https://github.com/apache/arrow/pull/55395) | GH-55394: &#91;C++&#93;&#91;Compute&#93; Check overflow when negating duration | 2026-11-04T15:58:23Z |
 | [triton-lang/triton #12590](https://github.com/triton-lang/triton/pull/12590) | &#91;RUNTIME&#93; Release autotuner arguments after failed runs | 2026-11-03T18:27:06Z |
 | [apache/tvm-ffi #897](https://github.com/apache/tvm-ffi/pull/897) | &#91;FIX&#93; Keep structural byte hashes independent of storage representation | 2026-11-02T20:58:53Z |
 | [optuna/optuna #6942](https://github.com/optuna/optuna/pull/6942) | Reject journal trial access after study deletion | 2026-11-02T04:55:35Z |

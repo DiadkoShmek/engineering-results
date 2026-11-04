@@ -1,13 +1,13 @@
 # Зовнішні результати
 
-<!-- generated; ledger-sha256:1b027bc2fc9423795aad17a93e08dbc15f545bb228b530f3bab6e8501b7a037f; narrative-sha256:016720fbbc340bc7a1bb82e000674d685ffc19abccff52700675b2e360cc70c7; pr-status-sha256:73147d901817058603a949fd9455b5692d75f5aed43e4ce52f519674073cc9cc -->
+<!-- generated; ledger-sha256:9c4bc5f498a966e1433eb8a32bd03bdaf9464d86e41380db1f4029bfb5b131f6; narrative-sha256:7bc563cb623a3e1beeb509355e5fe838ef7e5b4fbe3b70b7fb89770976eb572e; pr-status-sha256:86c0876597fb39b80d9ac05254045bea191602dad9d896ff4f59679cdf61cbdf -->
 
 
 **2026-11-04 UTC**
 
-Власні злиті PR: 7; внески у злиті рішення мейнтейнерів: 3; технічні аудити: 1. Змагання: часових записів 3, подій 2; Zoria враховано один раз.
+Власні злиті PR: 9; внески у злиті рішення мейнтейнерів: 3; технічні аудити: 1. Змагання: часових записів 3, подій 2; Zoria враховано один раз.
 
-Публічні PR у чужих репозиторіях: 99 подано; 7 злитих, 86 відкритих, 6 закритих без merge. Зріз GitHub: 2026-11-04 12:05 UTC. Власна та приватна активність виключені.
+Публічні PR у чужих репозиторіях: 104 подано; 9 злитих, 88 відкритих, 7 закритих без merge. Зріз GitHub: 2026-11-04 16:20 UTC. Власна та приватна активність виключені.
 
 [Повний стан PR](PR_STATUS.md)
 
@@ -15,6 +15,8 @@
 
 | Дата запису / основа | Кейс | Зовнішній стан | Джерело |
 |---|---|---|---|
+| 2026-11-04 | [Redis Python client](reports/redis-monitor-2026-11.md) | Власний PR merged | [Джерело](https://github.com/redis/redis-py/pull/4550) |
+| 2026-11-04 | [Microsoft Semantic Kernel](reports/semantic-kernel-2026-11.md) | Власний PR merged | [Джерело](https://github.com/microsoft/semantic-kernel/pull/14701) |
 | 2026-11-04 | [ONNX Range](reports/onnx-range-2026-11.md) | Власний PR merged | [Джерело](https://github.com/onnx/onnx/pull/8734) |
 | 2026-11-03 | [ONNX IR](reports/onnx-ir-2026-11.md) | Власний PR merged | [Джерело](https://github.com/onnx/ir-py/pull/521) |
 | 2026-10-21 | [FilesDrop](reports/filesdrop-2026-10.md) | Власний PR merged | [Джерело](https://github.com/AndreyBegma/FilesDrop/pull/32) |
