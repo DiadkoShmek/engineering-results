@@ -1,13 +1,13 @@
 # External results
 
-<!-- generated; ledger-sha256:058a7555629bfd81711ad1d17116129dae10d4d7c0072677fad26d726c2518a0; narrative-sha256:277c042ef3361f96f8b39f7059144f1f8b86b2d7b2c85b499ca7ec70ae8ba8fc; pr-status-sha256:9be991bd07354f27b3ef82af7dde97f66621bb2294ce1ca819babf93962a1563 -->
+<!-- generated; ledger-sha256:1b027bc2fc9423795aad17a93e08dbc15f545bb228b530f3bab6e8501b7a037f; narrative-sha256:016720fbbc340bc7a1bb82e000674d685ffc19abccff52700675b2e360cc70c7; pr-status-sha256:660b0b083f8c24b4fe338bebaa2dfbb6b7f3313af5c3df771cf168b28573f662 -->
 
 
-**2026-11-03 UTC**
+**2026-11-04 UTC**
 
-6 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+7 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
 
-Public PRs in other owners' repositories: 79 submitted; 6 merged, 68 open, 5 closed without merge. GitHub snapshot: 2026-11-03 17:33 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 87 submitted; 7 merged, 74 open, 6 closed without merge. GitHub snapshot: 2026-11-04 08:40 UTC. Own-repository and private activity is excluded.
 
 [Complete PR status](PR_STATUS.en.md)
 
@@ -15,6 +15,7 @@ Public PRs in other owners' repositories: 79 submitted; 6 merged, 68 open, 5 clo
 
 | Record date / source basis | Case | Outcome | Source |
 |---|---|---|---|
+| 2026-11-04 | [ONNX Range](reports/onnx-range-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/onnx/onnx/pull/8734) |
 | 2026-11-03 | [ONNX IR](reports/onnx-ir-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/onnx/ir-py/pull/521) |
 | 2026-10-21 | [FilesDrop](reports/filesdrop-2026-10.md#english-summary) | Direct PR merged | [Public source](https://github.com/AndreyBegma/FilesDrop/pull/32) |
 | 2026-10-24 | [Prime Intellect](reports/prime-intellect-2026-10.md#english-summary) | Incorporated into a merged maintainer fix | [Public source](https://github.com/PrimeIntellect-ai/verifiers/pull/2925#issuecomment-6385135636) |

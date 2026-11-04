@@ -1,17 +1,17 @@
 # External results
 
-<!-- generated; ledger-sha256:058a7555629bfd81711ad1d17116129dae10d4d7c0072677fad26d726c2518a0; narrative-sha256:277c042ef3361f96f8b39f7059144f1f8b86b2d7b2c85b499ca7ec70ae8ba8fc; pr-status-sha256:9be991bd07354f27b3ef82af7dde97f66621bb2294ce1ca819babf93962a1563 -->
+<!-- generated; ledger-sha256:1b027bc2fc9423795aad17a93e08dbc15f545bb228b530f3bab6e8501b7a037f; narrative-sha256:016720fbbc340bc7a1bb82e000674d685ffc19abccff52700675b2e360cc70c7; pr-status-sha256:660b0b083f8c24b4fe338bebaa2dfbb6b7f3313af5c3df771cf168b28573f662 -->
 
 
-DiadkoShmek · 2026-11-03 UTC
+DiadkoShmek · 2026-11-04 UTC
 
 ## Role and evidence
 
 I investigate failures, define contracts and verify consequences. AI tools assist research, implementation and checking; I set direction, take responsibility for engineering decisions and authorize external actions. This book does not measure autonomy percentages or rank AI models.
 
-6 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+7 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
 
-Public PRs in other owners' repositories: 79 submitted; 6 merged, 68 open, 5 closed without merge. GitHub snapshot: 2026-11-03 17:33 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 87 submitted; 7 merged, 74 open, 6 closed without merge. GitHub snapshot: 2026-11-04 08:40 UTC. Own-repository and private activity is excluded.
 
 [Complete PR status](../../PR_STATUS.en.md)
 
@@ -19,33 +19,63 @@ Every status and date below comes from results.json. A local PASS, external cred
 
 ## Contents
 
-1. [ONNX IR](#case-onnx-ir)
+1. [ONNX Range](#case-onnx-range)
 
-2. [FilesDrop](#case-filesdrop)
+2. [ONNX IR](#case-onnx-ir)
 
-3. [Prime Intellect](#case-prime)
+3. [FilesDrop](#case-filesdrop)
 
-4. [M7 MCP](#case-m7)
+4. [Prime Intellect](#case-prime)
 
-5. [Braintrust SDK JavaScript](#case-braintrust)
+5. [M7 MCP](#case-m7)
 
-6. [Kraft](#case-kraft)
+6. [Braintrust SDK JavaScript](#case-braintrust)
 
-7. [PyTorch TensorDict](#case-tensordict)
+7. [Kraft](#case-kraft)
 
-8. [BlackJAX](#case-blackjax)
+8. [PyTorch TensorDict](#case-tensordict)
 
-9. [TensorLy](#case-tensorly)
+9. [BlackJAX](#case-blackjax)
 
-10. [Apache TVM-FFI](#case-tvm)
+10. [TensorLy](#case-tensorly)
 
-11. [CodinGame - Mad Pod Racing](#case-codingame)
+11. [Apache TVM-FFI](#case-tvm)
 
-12. [Zoria 2026 / UA SKILLS](#case-zoria)
+12. [CodinGame - Mad Pod Racing](#case-codingame)
+
+13. [Zoria 2026 / UA SKILLS](#case-zoria)
+
+<a id="case-onnx-range"></a>
+
+## 01. ONNX Range
+
+**2026-11-04 · Direct PR merged · 2026-11-04T01:09:20Z**
+
+Direct merge of integer Range shape-inference fix; upstream APPROVED reviews are recorded separately. Runtime tests were not rerun for this book refresh, and production use is not established.
+
+### Problem
+
+Integer Range shape inference subtracted start from limit in the signed input type before conversion to floating point. For INT32 from −2147483648 to 2147483647 with step 2147483647, overflow produced zero instead of three; floating-point division can also round an INT64 quotient across a ceiling boundary.
+
+### My decision and the external choice
+
+A shared helper for both historical schemas computes unsigned distance and step magnitude, then exact integer ceiling division. It supports both directions and the minimum negative step; the floating-point path is unchanged.
+
+### Validation and limits
+
+GitHub confirms the direct merge of PR #8734 on 4 November 2026 and its merge commit. The PR description documents the example and approach; runtime tests were not rerun for the book refresh.
+
+### What I carry forward
+
+For a discrete element count, exact integer arithmetic with a safely represented distance avoids both signed subtraction overflow and quotient rounding errors.
+
+- [Primary source](https://github.com/onnx/onnx/pull/8734)
+
+[Повний кейс / Full report](../../reports/onnx-range-2026-11.md)
 
 <a id="case-onnx-ir"></a>
 
-## 01. ONNX IR
+## 02. ONNX IR
 
 **2026-11-03 · Direct PR merged · UTC 2026-11-03T17:33:18.542858Z · 2026-11-03T16:40:54Z**
 
@@ -73,7 +103,7 @@ Graph optimization must preserve public names and value ownership as well as num
 
 <a id="case-filesdrop"></a>
 
-## 02. FilesDrop
+## 03. FilesDrop
 
 **2026-10-21 · Direct PR merged**
 
@@ -101,7 +131,7 @@ Cleanup must preserve retryability. Cancelling a wait does not imply stopping th
 
 <a id="case-prime"></a>
 
-## 03. Prime Intellect
+## 04. Prime Intellect
 
 **2026-10-24 · Incorporated into a merged maintainer fix**
 
@@ -135,7 +165,7 @@ A contribution can shape a maintainer decision even when the proposed patch is n
 
 <a id="case-m7"></a>
 
-## 04. M7 MCP
+## 05. M7 MCP
 
 **2026-10-29 · Audit credited in release**
 
@@ -163,7 +193,7 @@ An audit should leave a checkable route to each failure and retain what a later 
 
 <a id="case-braintrust"></a>
 
-## 05. Braintrust SDK JavaScript
+## 06. Braintrust SDK JavaScript
 
 **2026-11-02 · Direct PR merged · 2026-11-02T11:37:30Z**
 
@@ -191,7 +221,7 @@ Chunk boundaries belong to the transport. Decoder state must belong to the compl
 
 <a id="case-kraft"></a>
 
-## 06. Kraft
+## 07. Kraft
 
 **2026-11-02 · Direct PR merged · 2026-11-02T12:08:30Z**
 
@@ -219,7 +249,7 @@ Repeated initialization should repeat useful work rather than mistake an idempot
 
 <a id="case-tensordict"></a>
 
-## 07. PyTorch TensorDict
+## 08. PyTorch TensorDict
 
 **2026-11-01 · Incorporated into a merged maintainer fix**
 
@@ -251,7 +281,7 @@ When a lower layer already owns the contract, delegation can be stronger than a 
 
 <a id="case-blackjax"></a>
 
-## 08. BlackJAX
+## 09. BlackJAX
 
 **2026-11-02 · Direct PR merged · 2026-11-02T14:43:52Z**
 
@@ -279,7 +309,7 @@ Stabilize the intermediate computation while preserving the mathematical quantit
 
 <a id="case-tensorly"></a>
 
-## 09. TensorLy
+## 10. TensorLy
 
 **2026-11-03 · Direct PR merged · 2026-11-02T23:54:45Z**
 
@@ -309,7 +339,7 @@ One carefully chosen example can cover both required multipliers without a grid 
 
 <a id="case-tvm"></a>
 
-## 10. Apache TVM-FFI
+## 11. Apache TVM-FFI
 
 **2026-11-03 · Incorporated into a merged maintainer fix**
 
@@ -341,7 +371,7 @@ A reproduction can lead to another repair. Superseded and merged are different e
 
 <a id="case-codingame"></a>
 
-## 11. CodinGame - Mad Pod Racing
+## 12. CodinGame - Mad Pod Racing
 
 **2026-10-21 (Europe/Helsinki) · Dated arena snapshot · UTC 2026-10-20T22:06:15.975Z · 86/1657 (Legend League)**
 
@@ -369,7 +399,7 @@ A stopping rule protects against proving a desired outcome. Local experiments an
 
 <a id="case-zoria"></a>
 
-## 12. Zoria 2026 / UA SKILLS
+## 13. Zoria 2026 / UA SKILLS
 
 **2026-10-19 (Europe/Helsinki) · Historical preliminary result · UTC 2026-10-20T22:06:05.463Z · 5/9 (overall preliminary score of second-stage participants)**
 

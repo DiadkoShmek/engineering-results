@@ -1,0 +1,22 @@
+{
+  "source_url": "https://github.com/onnx/onnx/pull/8734",
+  "state": "MERGED",
+  "merged_at": "2026-11-04T01:09:20Z",
+  "merge_commit_sha": "22ac1f97bb91b8b3933ed2245fe3151a4979f13c",
+  "head_sha": "c25dc544128358d0e707dee1cec3205795bda8d1",
+  "merged_by": "cyyever",
+  "source": "GitHub pull request readback",
+  "scope": "Merge metadata and PR description; runtime tests were not rerun for the book refresh.",
+  "upstream_reviews": [
+    {
+      "login": "cyyever",
+      "state": "APPROVED",
+      "submitted_at": "2026-11-03T09:05:16Z"
+    },
+    {
+      "login": "justinchuby",
+      "state": "APPROVED",
+      "submitted_at": "2026-11-03T16:24:08Z"
+    }
+  ]
+}

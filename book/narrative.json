@@ -3,6 +3,29 @@
   "author": "DiadkoShmek",
   "chapters": [
     {
+      "key": "onnx-range",
+      "title": "ONNX Range",
+      "record_ids": [
+        "onnx-range-integer-length-2026-11-04"
+      ],
+      "report": "reports/onnx-range-2026-11.md",
+      "uk": {
+        "problem": "Integer Range shape inference віднімав start від limit у знаковому типі до перетворення на floating point. Для INT32 від −2147483648 до 2147483647 із кроком 2147483647 переповнення давало нульову довжину замість трьох; floating-point ділення також може округлити частку INT64 за межу стелі.",
+        "decision": "Спільний helper для обох історичних схем обчислює беззнакову відстань і модуль кроку, а потім точне цілочисельне ділення з округленням угору. Підтримуються обидва напрями та мінімальний від’ємний крок; floating-point шлях не змінено.",
+        "proof": "GitHub підтверджує прямий merge PR #8734 4 листопада 2026 року та merge commit. Опис PR документує приклад і підхід; runtime-тести під час оновлення книги не повторювалися.",
+        "lesson": "Для дискретної кількості елементів точна цілочисельна арифметика з безпечним представленням відстані усуває і переповнення знакової різниці, і помилку округлення частки.",
+        "boundaries": {
+          "onnx-range-integer-length-2026-11-04": "Прямий merge і upstream approvals підтверджено; runtime-тести під час оновлення книги не повторювали, production-використання не встановлено."
+        }
+      },
+      "en": {
+        "problem": "Integer Range shape inference subtracted start from limit in the signed input type before conversion to floating point. For INT32 from −2147483648 to 2147483647 with step 2147483647, overflow produced zero instead of three; floating-point division can also round an INT64 quotient across a ceiling boundary.",
+        "decision": "A shared helper for both historical schemas computes unsigned distance and step magnitude, then exact integer ceiling division. It supports both directions and the minimum negative step; the floating-point path is unchanged.",
+        "proof": "GitHub confirms the direct merge of PR #8734 on 4 November 2026 and its merge commit. The PR description documents the example and approach; runtime tests were not rerun for the book refresh.",
+        "lesson": "For a discrete element count, exact integer arithmetic with a safely represented distance avoids both signed subtraction overflow and quotient rounding errors."
+      }
+    },
+    {
       "key": "onnx-ir",
       "title": "ONNX IR",
       "record_ids": [

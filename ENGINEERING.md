@@ -4,6 +4,8 @@ AI-assisted engineering: проблема, рішення, перевірка т
 
 ## Прийняті виправлення
 
+- **[ONNX Range](reports/onnx-range-2026-11.md):** точна довжина integer Range без переповнення знакової різниці; наш #8734 merged 04.11.2026.
+
 - **[ONNX IR](reports/onnx-ir-2026-11.md):** збереження публічних output names і ownership під час усунення Identity; наш #521 merged 03.11.2026.
 
 - **[TensorLy](reports/tensorly-2026-11.md):** weights і mask для single-factor Khatri-Rao; компактна регресія після рев’ю. Наш #695 merged.
@@ -33,7 +35,6 @@ AI-assisted engineering: проблема, рішення, перевірка т
 ## Review-stage · 03.11.2026 UTC
 
 - **[Triton #12611](reports/triton-2026-11.md):** оцінка вартості CUDA f32 sin/cos під час rematerialization. Поданий, OPEN; до merged-результатів не зарахований.
-- **[ONNX #8734](https://github.com/onnx/onnx/pull/8734):** точний integer Range shape inference; APPROVED, але OPEN.
 - **[Semantic Kernel #14701](https://github.com/microsoft/semantic-kernel/pull/14701):** cleanup native generators; APPROVED, але OPEN.
 - **[Docling Core #953](https://github.com/docling-project/docling-core/pull/953):** references скопійованих comments; Mergify чекає двох approving reviews.
 

@@ -264,6 +264,25 @@
       "implementation_by": "DiadkoShmek with Codex assistance",
       "report_path": "reports/onnx-ir-2026-11.md",
       "boundary": "Merged public-output alias preservation fix. Previously recorded focused CPU checks cover named outputs and ownership; they were not rerun for this journal refresh. The full nox/Python/Torch/GPU matrix and production deployment are not established."
+    },
+    {
+      "id": "onnx-range-integer-length-2026-11-04",
+      "category": "upstream_contribution",
+      "project": "ONNX",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-04",
+      "merged_at": "2026-11-04T01:09:20Z",
+      "source_url": "https://github.com/onnx/onnx/pull/8734",
+      "contribution_merged": true,
+      "merge_commit_sha": "22ac1f97bb91b8b3933ed2245fe3151a4979f13c",
+      "implementation_by": "DiadkoShmek with Codex assistance",
+      "report_path": "reports/onnx-range-2026-11.md",
+      "evidence": {
+        "path": "evidence/onnx-range-2026-11-04.json",
+        "sha256": "20d9e2b932268fd08daba018bf8670020f155944d09f2a927007d63047ce777d"
+      },
+      "boundary": "Direct merge of integer Range shape-inference fix; upstream APPROVED reviews are recorded separately. Runtime tests were not rerun for this book refresh, and production use is not established."
     }
   ]
 }

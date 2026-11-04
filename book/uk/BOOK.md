@@ -1,17 +1,17 @@
 # Зовнішні результати
 
-<!-- generated; ledger-sha256:058a7555629bfd81711ad1d17116129dae10d4d7c0072677fad26d726c2518a0; narrative-sha256:277c042ef3361f96f8b39f7059144f1f8b86b2d7b2c85b499ca7ec70ae8ba8fc; pr-status-sha256:9be991bd07354f27b3ef82af7dde97f66621bb2294ce1ca819babf93962a1563 -->
+<!-- generated; ledger-sha256:1b027bc2fc9423795aad17a93e08dbc15f545bb228b530f3bab6e8501b7a037f; narrative-sha256:016720fbbc340bc7a1bb82e000674d685ffc19abccff52700675b2e360cc70c7; pr-status-sha256:660b0b083f8c24b4fe338bebaa2dfbb6b7f3313af5c3df771cf168b28573f662 -->
 
 
-DiadkoShmek · 2026-11-03 UTC
+DiadkoShmek · 2026-11-04 UTC
 
 ## Роль і доказ
 
 Я досліджую дефект, визначаю контракт і перевіряю наслідок. AI-інструменти допомагають із пошуком, реалізацією та перевіркою; я задаю напрям, відповідаю за інженерне рішення й погоджую зовнішні дії. Ця книга не вимірює відсоток автономності чи перевагу однієї моделі.
 
-Власні злиті PR: 6; внески у злиті рішення мейнтейнерів: 3; технічні аудити: 1. Змагання: часових записів 3, подій 2; Zoria враховано один раз.
+Власні злиті PR: 7; внески у злиті рішення мейнтейнерів: 3; технічні аудити: 1. Змагання: часових записів 3, подій 2; Zoria враховано один раз.
 
-Публічні PR у чужих репозиторіях: 79 подано; 6 злитих, 68 відкритих, 5 закритих без merge. Зріз GitHub: 2026-11-03 17:33 UTC. Власна та приватна активність виключені.
+Публічні PR у чужих репозиторіях: 87 подано; 7 злитих, 74 відкритих, 6 закритих без merge. Зріз GitHub: 2026-11-04 08:40 UTC. Власна та приватна активність виключені.
 
 [Повний стан PR](../../PR_STATUS.md)
 
@@ -19,33 +19,63 @@ DiadkoShmek · 2026-11-03 UTC
 
 ## Зміст
 
-1. [ONNX IR](#case-onnx-ir)
+1. [ONNX Range](#case-onnx-range)
 
-2. [FilesDrop](#case-filesdrop)
+2. [ONNX IR](#case-onnx-ir)
 
-3. [Prime Intellect](#case-prime)
+3. [FilesDrop](#case-filesdrop)
 
-4. [M7 MCP](#case-m7)
+4. [Prime Intellect](#case-prime)
 
-5. [Braintrust SDK JavaScript](#case-braintrust)
+5. [M7 MCP](#case-m7)
 
-6. [Kraft](#case-kraft)
+6. [Braintrust SDK JavaScript](#case-braintrust)
 
-7. [PyTorch TensorDict](#case-tensordict)
+7. [Kraft](#case-kraft)
 
-8. [BlackJAX](#case-blackjax)
+8. [PyTorch TensorDict](#case-tensordict)
 
-9. [TensorLy](#case-tensorly)
+9. [BlackJAX](#case-blackjax)
 
-10. [Apache TVM-FFI](#case-tvm)
+10. [TensorLy](#case-tensorly)
 
-11. [CodinGame - Mad Pod Racing](#case-codingame)
+11. [Apache TVM-FFI](#case-tvm)
 
-12. [Zoria 2026 / UA SKILLS](#case-zoria)
+12. [CodinGame - Mad Pod Racing](#case-codingame)
+
+13. [Zoria 2026 / UA SKILLS](#case-zoria)
+
+<a id="case-onnx-range"></a>
+
+## 01. ONNX Range
+
+**2026-11-04 · Власний PR merged · 2026-11-04T01:09:20Z**
+
+Прямий merge і upstream approvals підтверджено; runtime-тести під час оновлення книги не повторювали, production-використання не встановлено.
+
+### Проблема
+
+Integer Range shape inference віднімав start від limit у знаковому типі до перетворення на floating point. Для INT32 від −2147483648 до 2147483647 із кроком 2147483647 переповнення давало нульову довжину замість трьох; floating-point ділення також може округлити частку INT64 за межу стелі.
+
+### Моє рішення та зовнішній вибір
+
+Спільний helper для обох історичних схем обчислює беззнакову відстань і модуль кроку, а потім точне цілочисельне ділення з округленням угору. Підтримуються обидва напрями та мінімальний від’ємний крок; floating-point шлях не змінено.
+
+### Перевірка й обмеження
+
+GitHub підтверджує прямий merge PR #8734 4 листопада 2026 року та merge commit. Опис PR документує приклад і підхід; runtime-тести під час оновлення книги не повторювалися.
+
+### Що переношу далі
+
+Для дискретної кількості елементів точна цілочисельна арифметика з безпечним представленням відстані усуває і переповнення знакової різниці, і помилку округлення частки.
+
+- [Першоджерело](https://github.com/onnx/onnx/pull/8734)
+
+[Повний кейс / Full report](../../reports/onnx-range-2026-11.md)
 
 <a id="case-onnx-ir"></a>
 
-## 01. ONNX IR
+## 02. ONNX IR
 
 **2026-11-03 · Власний PR merged · UTC 2026-11-03T17:33:18.542858Z · 2026-11-03T16:40:54Z**
 
@@ -73,7 +103,7 @@ Identity зберігається, коли його вхід уже є публ
 
 <a id="case-filesdrop"></a>
 
-## 02. FilesDrop
+## 03. FilesDrop
 
 **2026-10-21 · Власний PR merged**
 
@@ -101,7 +131,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-prime"></a>
 
-## 03. Prime Intellect
+## 04. Prime Intellect
 
 **2026-10-24 · Внесок у merged fix мейнтейнера**
 
@@ -135,7 +165,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-m7"></a>
 
-## 04. M7 MCP
+## 05. M7 MCP
 
 **2026-10-29 · Аудит відзначено в релізі**
 
@@ -163,7 +193,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-braintrust"></a>
 
-## 05. Braintrust SDK JavaScript
+## 06. Braintrust SDK JavaScript
 
 **2026-11-02 · Власний PR merged · 2026-11-02T11:37:30Z**
 
@@ -191,7 +221,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-kraft"></a>
 
-## 06. Kraft
+## 07. Kraft
 
 **2026-11-02 · Власний PR merged · 2026-11-02T12:08:30Z**
 
@@ -219,7 +249,7 @@ Focused suite пройшов 16 тестів. Репозиторні ci-checks �
 
 <a id="case-tensordict"></a>
 
-## 07. PyTorch TensorDict
+## 08. PyTorch TensorDict
 
 **2026-11-01 · Внесок у merged fix мейнтейнера**
 
@@ -251,7 +281,7 @@ Focused suite пройшов 16 тестів. Репозиторні ci-checks �
 
 <a id="case-blackjax"></a>
 
-## 08. BlackJAX
+## 09. BlackJAX
 
 **2026-11-02 · Власний PR merged · 2026-11-02T14:43:52Z**
 
@@ -279,7 +309,7 @@ Barker MCMC міг відхилити крок до області вищої й
 
 <a id="case-tensorly"></a>
 
-## 09. TensorLy
+## 10. TensorLy
 
 **2026-11-03 · Власний PR merged · 2026-11-02T23:54:45Z**
 
@@ -309,7 +339,7 @@ Barker MCMC міг відхилити крок до області вищої й
 
 <a id="case-tvm"></a>
 
-## 10. Apache TVM-FFI
+## 11. Apache TVM-FFI
 
 **2026-11-03 · Внесок у merged fix мейнтейнера**
 
@@ -341,7 +371,7 @@ Barker MCMC міг відхилити крок до області вищої й
 
 <a id="case-codingame"></a>
 
-## 11. CodinGame - Mad Pod Racing
+## 12. CodinGame - Mad Pod Racing
 
 **2026-10-21 (Europe/Helsinki) · Датований зріз арени · UTC 2026-10-20T22:06:15.975Z · 86/1657 (Legend League)**
 
@@ -369,7 +399,7 @@ V79 зупинено після 2 перемог у восьми заверше�
 
 <a id="case-zoria"></a>
 
-## 12. Zoria 2026 / UA SKILLS
+## 13. Zoria 2026 / UA SKILLS
 
 **2026-10-19 (Europe/Helsinki) · Історичний попередній результат · UTC 2026-10-20T22:06:05.463Z · 5/9 (загальний попередній підсумок учасників другого етапу)**
 

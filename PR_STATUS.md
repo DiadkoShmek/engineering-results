@@ -1,8 +1,8 @@
 # Стан зовнішніх PR
 
-<!-- generated; pr-status-sha256:9be991bd07354f27b3ef82af7dde97f66621bb2294ce1ca819babf93962a1563 -->
+<!-- generated; pr-status-sha256:660b0b083f8c24b4fe338bebaa2dfbb6b7f3313af5c3df771cf168b28573f662 -->
 
-Публічні PR у чужих репозиторіях: 79 подано; 6 злитих, 68 відкритих, 5 закритих без merge. Зріз GitHub: 2026-11-03 17:33 UTC. Власна та приватна активність виключені.
+Публічні PR у чужих репозиторіях: 87 подано; 7 злитих, 74 відкритих, 6 закритих без merge. Зріз GitHub: 2026-11-04 08:40 UTC. Власна та приватна активність виключені.
 
 Закритий без merge PR не обов’язково відхилений: 3 пропозиції відзначено у злитих рішеннях мейнтейнерів. Схвалення не є merge. Повнота цього зрізу стосується переліку PR, а не всіх CI чи рев’ю.
 
@@ -10,7 +10,7 @@
 
 ## Окремі сигнали рев’ю
 
-- [ONNX #8734](https://github.com/onnx/onnx/pull/8734): APPROVED, але PR ще відкритий; до merged не зараховано. 2026-11-03T17:35:58.018796Z
+- [ONNX #8734](https://github.com/onnx/onnx/pull/8734): Прямий merge підтверджено; approvals від cyyever та justinchuby. 2026-11-04T08:28:59.029981Z
 
 - [Docling Core #953](https://github.com/docling-project/docling-core/pull/953): Відкритий; правило Mergify чекає двох схвалень рев’ю. 2026-11-03T17:35:57.594788Z
 
@@ -18,10 +18,11 @@
 
 - [Semantic Kernel #14701](https://github.com/microsoft/semantic-kernel/pull/14701): APPROVED; PR OPEN. 2026-11-03T17:37:33.073547Z
 
-## Злиті PR (6)
+## Злиті PR (7)
 
 | Проєкт / PR | Зміна | Дата merge або оновлення UTC |
 |---|---|---|
+| [onnx/onnx #8734](https://github.com/onnx/onnx/pull/8734) | fix(shape_inference): compute integer range lengths exactly | 2026-11-04T01:09:20Z |
 | [onnx/ir-py #521](https://github.com/onnx/ir-py/pull/521) | &#91;passes&#93; Preserve public output aliases during Identity elimination | 2026-11-03T16:40:54Z |
 | [tensorly/tensorly #695](https://github.com/tensorly/tensorly/pull/695) | Apply weights and masks to single-factor Khatri-Rao products | 2026-11-02T23:54:45Z |
 | [blackjax-devs/blackjax #1068](https://github.com/blackjax-devs/blackjax/pull/1068) | Avoid exponential overflow in Barker proposal probabilities | 2026-11-02T14:43:52Z |
@@ -29,14 +30,21 @@
 | [braintrustdata/braintrust-sdk-javascript #2701](https://github.com/braintrustdata/braintrust-sdk-javascript/pull/2701) | fix: preserve UTF-8 in logged ReadableStream byte chunks | 2026-11-02T11:37:30Z |
 | [AndreyBegma/FilesDrop #32](https://github.com/AndreyBegma/FilesDrop/pull/32) | fix(api): retry expired cleanup and enforce URL timeout during DNS | 2026-10-21T08:49:27Z |
 
-## Відкриті PR (68)
+## Відкриті PR (74)
 
 | Проєкт / PR | Зміна | Дата merge або оновлення UTC |
 |---|---|---|
+| [pbrod/numdifftools #79](https://github.com/pbrod/numdifftools/pull/79) | fix: correct bicomplex expm1 and mixed Hessians | 2026-11-04T08:40:40Z |
+| [triton-lang/triton #12619](https://github.com/triton-lang/triton/pull/12619) | &#91;TritonGPU&#93; Preserve mutable loop-bound reads during nested-loop fusion | 2026-11-04T08:38:43Z |
+| [yt-project/unyt #706](https://github.com/yt-project/unyt/pull/706) | BUG: give least-squares residuals squared RHS units | 2026-11-04T08:34:57Z |
+| [HIPS/autograd #840](https://github.com/HIPS/autograd/pull/840) | Fix normalization in real FFT reverse-mode gradients | 2026-11-04T08:21:59Z |
+| [data-apis/array-api-extra #1081](https://github.com/data-apis/array-api-extra/pull/1081) | BUG: cov: preserve singleton batch dimensions | 2026-11-04T08:06:41Z |
+| [pymc-devs/pytensor #2602](https://github.com/pymc-devs/pytensor/pull/2602) | Fix default L2 norms for vector axes and empty batches | 2026-11-04T07:49:36Z |
+| [pydata/sparse #1024](https://github.com/pydata/sparse/pull/1024) | fix: keep Kronecker-product coordinate arithmetic integral | 2026-11-04T07:36:41Z |
+| [patrick-kidger/diffrax #798](https://github.com/patrick-kidger/diffrax/pull/798) | Reset LeapfrogMidpoint history after a vector-field jump | 2026-11-04T07:01:26Z |
 | [triton-lang/triton #12611](https://github.com/triton-lang/triton/pull/12611) | &#91;TritonGPU&#93; Increase the rematerialization cost of full CUDA trig | 2026-11-03T17:11:56Z |
 | [docling-project/docling-core #953](https://github.com/docling-project/docling-core/pull/953) | fix: remap copied document comment references | 2026-11-03T16:35:29Z |
 | [onnx/ir-py #529](https://github.com/onnx/ir-py/pull/529) | &#91;graph&#93; preserve iterator graph input/output slice replacements | 2026-11-03T16:26:28Z |
-| [onnx/onnx #8734](https://github.com/onnx/onnx/pull/8734) | fix(shape_inference): compute integer range lengths exactly | 2026-11-03T16:24:08Z |
 | [pyro-ppl/pyro #3510](https://github.com/pyro-ppl/pyro/pull/3510) | Preserve cached parameters when expanding zero-inflated distributions | 2026-11-03T10:47:00Z |
 | [NVIDIA/nccl #2551](https://github.com/NVIDIA/nccl/pull/2551) | Propagate ring metadata exchange failures | 2026-11-02T23:14:08Z |
 | [dmlc/xgboost #12786](https://github.com/dmlc/xgboost/pull/12786) | Fix sliced Arrow dictionary category buffers | 2026-11-02T21:34:01Z |
@@ -62,7 +70,6 @@
 | [safetensors/safetensors #900](https://github.com/safetensors/safetensors/pull/900) | Fix CPU allocation of empty PyTorch tensors | 2026-11-02T16:17:47Z |
 | [google/grain #1447](https://github.com/google/grain/pull/1447) | Preserve promoted dtype in optimized batching | 2026-11-02T16:15:12Z |
 | [google-deepmind/dm-haiku #924](https://github.com/google-deepmind/dm-haiku/pull/924) | Compute LayerNorm statistics in at least float32 | 2026-11-02T16:15:03Z |
-| [triton-lang/triton #12590](https://github.com/triton-lang/triton/pull/12590) | &#91;RUNTIME&#93; Release autotuner arguments after failed runs | 2026-11-02T15:50:23Z |
 | [meta-pytorch/data #1569](https://github.com/meta-pytorch/data/pull/1569) | Propagate shutdown through batch wrappers | 2026-11-02T15:42:28Z |
 | [jax-ml/ml_dtypes #429](https://github.com/jax-ml/ml_dtypes/pull/429) | Fix complex NaN ordering in sort and searchsorted | 2026-11-02T15:33:35Z |
 | [pydata/sparse #1021](https://github.com/pydata/sparse/pull/1021) | fix: preserve output buffers in sparse reductions | 2026-11-02T15:28:17Z |
@@ -102,10 +109,11 @@
 | [huggingface/datasets #8916](https://github.com/huggingface/datasets/pull/8916) | Fix default configuration selection when updating dataset cards | 2026-10-31T18:41:21Z |
 | [PrimeIntellect-ai/verifiers #3036](https://github.com/PrimeIntellect-ai/verifiers/pull/3036) | fix: include failure messages in rollout completion logs | 2026-10-31T18:00:21Z |
 
-## Закриті без merge (5)
+## Закриті без merge (6)
 
 | Проєкт / PR | Зміна | Дата merge або оновлення UTC |
 |---|---|---|
+| [triton-lang/triton #12590](https://github.com/triton-lang/triton/pull/12590) | &#91;RUNTIME&#93; Release autotuner arguments after failed runs | 2026-11-03T18:27:06Z |
 | [apache/tvm-ffi #897](https://github.com/apache/tvm-ffi/pull/897) | &#91;FIX&#93; Keep structural byte hashes independent of storage representation | 2026-11-02T20:58:53Z |
 | [optuna/optuna #6942](https://github.com/optuna/optuna/pull/6942) | Reject journal trial access after study deletion | 2026-11-02T04:55:35Z |
 | [cornellius-gp/gpytorch #2835](https://github.com/cornellius-gp/gpytorch/pull/2835) | Clear inference caches on module transformations | 2026-11-01T21:54:47Z |
