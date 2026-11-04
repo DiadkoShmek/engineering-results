@@ -1,8 +1,8 @@
 # External PR status
 
-<!-- generated; pr-status-sha256:aa4174b9678cb6b72aab4cee9cc44c435f05cc5dc0afdb2852500cd356bcb585 -->
+<!-- generated; pr-status-sha256:8ad8e0101637ee1fbc48ab56e0d974996e0a49a2903d1f51533153424aa47313 -->
 
-Public PRs in other owners' repositories: 115 submitted; 10 merged, 98 open, 7 closed without merge. GitHub snapshot: 2026-11-04 21:48 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 117 submitted; 10 merged, 100 open, 7 closed without merge. GitHub snapshot: 2026-11-04 23:13 UTC. Own-repository and private activity is excluded.
 
 Closed without merge does not necessarily mean rejected: 3 proposals are credited in merged maintainer solutions. Approval is not a merge. Snapshot completeness covers the PR inventory, not every CI run or review.
 
@@ -37,11 +37,14 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 | [braintrustdata/braintrust-sdk-javascript #2701](https://github.com/braintrustdata/braintrust-sdk-javascript/pull/2701) | fix: preserve UTF-8 in logged ReadableStream byte chunks | 2026-11-02T11:37:30Z |
 | [AndreyBegma/FilesDrop #32](https://github.com/AndreyBegma/FilesDrop/pull/32) | fix(api): retry expired cleanup and enforce URL timeout during DNS | 2026-10-21T08:49:27Z |
 
-## Open PRs (98)
+## Open PRs (100)
 
 | Repository / PR | Change | Merge or update date UTC |
 |---|---|---|
-| [milvus-io/pymilvus #3903](https://github.com/milvus-io/pymilvus/pull/3903) | fix: return no query rows for an empty ID selection | 2026-11-04T21:48:01Z |
+| [cornellius-gp/gpytorch #2841](https://github.com/cornellius-gp/gpytorch/pull/2841) | Normalize negative tensor event indices in multitask covariance | 2026-11-04T23:08:02Z |
+| [ott-jax/ott #716](https://github.com/ott-jax/ott/pull/716) | Fix custom implicit differentiation solver dispatch | 2026-11-04T22:51:47Z |
+| [patrick-kidger/equinox #1282](https://github.com/patrick-kidger/equinox/pull/1282) | Recognize NumPy bfloat16 and float8 leaves in filtered gradients | 2026-11-04T22:48:54Z |
+| [milvus-io/pymilvus #3903](https://github.com/milvus-io/pymilvus/pull/3903) | fix: return no query rows for an empty ID selection | 2026-11-04T22:08:22Z |
 | [patrick-kidger/optimistix #248](https://github.com/patrick-kidger/optimistix/pull/248) | Use a descent fallback when the indirect damping root fails | 2026-11-04T21:46:40Z |
 | [google-deepmind/optax #1854](https://github.com/google-deepmind/optax/pull/1854) | Reset Lookahead at synchronized fast parameters | 2026-11-04T21:38:40Z |
 | [pyro-ppl/numpyro #2406](https://github.com/pyro-ppl/numpyro/pull/2406) | fix(distributions): preserve ordered logistic tail masses | 2026-11-04T21:05:31Z |
@@ -52,7 +55,6 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 | [meta-pytorch/botorch #3545](https://github.com/meta-pytorch/botorch/pull/3545) | Refresh IndexSampler when ensemble probabilities change | 2026-11-04T19:59:56Z |
 | [patrick-kidger/diffrax #799](https://github.com/patrick-kidger/diffrax/pull/799) | Preserve PyTrees in interpolation increments | 2026-11-04T18:54:35Z |
 | [cornellius-gp/gpytorch #2840](https://github.com/cornellius-gp/gpytorch/pull/2840) | Fix parameter batch axes in Hamming IMQ covariances | 2026-11-04T18:50:40Z |
-| [ott-jax/ott #716](https://github.com/ott-jax/ott/pull/716) | Fix custom implicit differentiation solver dispatch | 2026-11-04T18:37:34Z |
 | [patrick-kidger/lineax #268](https://github.com/patrick-kidger/lineax/pull/268) | Preserve reshaping identities during materialisation | 2026-11-04T18:00:35Z |
 | [cornellius-gp/linear_operator #158](https://github.com/cornellius-gp/linear_operator/pull/158) | Apply left factors once in structured triangular solves | 2026-11-04T17:51:50Z |
 | [apache/tvm-ffi #921](https://github.com/apache/tvm-ffi/pull/921) | &#91;FIX&#93; Keep JSON numbers independent of numeric locale | 2026-11-04T17:25:12Z |
