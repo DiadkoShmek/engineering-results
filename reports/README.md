@@ -4,6 +4,7 @@
 
 | Кейс | Зовнішній наслідок | Звіт |
 |---|---|---|
+| PyLops | Власний dense-convolution fix merged; тест адаптував мейнтейнер | [Українською](pylops-2026-11.md) · [English](pylops-2026-11.md#english-summary) |
 | ONNX IR | Власний fix публічних output aliases merged | [Українською](onnx-ir-2026-11.md) · [English](onnx-ir-2026-11.md#english-summary) |
 | Triton | Поданий PR #12611; OPEN, без merge | [Українською](triton-2026-11.md) · [English](triton-2026-11.md#english-summary) |
 | TensorLy | Власний single-factor Khatri-Rao fix merged | [Українською](tensorly-2026-11.md) · [English](tensorly-2026-11.md#english-summary) |
@@ -31,6 +32,6 @@
 
 ## Прийняті 04.11.2026
 
-[Microsoft Semantic Kernel](semantic-kernel-2026-11.md) · [Redis Python client](redis-monitor-2026-11.md) — прямі merge із native merge-комітами.
+[PyLops](pylops-2026-11.md) · [Microsoft Semantic Kernel](semantic-kernel-2026-11.md) · [Redis Python client](redis-monitor-2026-11.md) — прямі merge із native merge-комітами.
 
-[Новий прохід «Лезо»: проміжний зріз 5 подань](lezo50-2026-11.md) · [English](lezo50-2026-11.md#english-summary).
+[Новий прохід «Лезо»: проміжний зріз 16 подань](lezo50-2026-11.md) · [English](lezo50-2026-11.md#english-summary).

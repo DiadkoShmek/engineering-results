@@ -1,0 +1,16 @@
+{
+  "source_url": "https://github.com/PyLops/pylops/pull/837",
+  "state": "MERGED",
+  "merged_at": "2026-11-04T21:34:47Z",
+  "merge_commit_sha": "06dc2761b4ffc1e6ae899f78a1a950d850a622c4",
+  "head_sha": "fe85bf75de06eb4900990d632db341f25dbe856e",
+  "merged_by": "mrava87",
+  "checked_at": "2026-11-04T21:44:06.308045+00:00",
+  "source": "Native GitHub PR metadata and maintainer test-adaptation diff",
+  "maintainer_adaptation": {
+    "author": "mrava87",
+    "commit": "fe85bf75de06eb4900990d632db341f25dbe856e",
+    "scope": "Existing assertions rearranged around a shared Cdense variable; product owner unchanged"
+  },
+  "scope": "Direct merge verified; prior local validation counts are documented by the PR, not rerun for this journal update."
+}

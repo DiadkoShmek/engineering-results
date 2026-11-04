@@ -1,6 +1,6 @@
 # External results
 
-<!-- generated; ledger-sha256:9c4bc5f498a966e1433eb8a32bd03bdaf9464d86e41380db1f4029bfb5b131f6; narrative-sha256:7bc563cb623a3e1beeb509355e5fe838ef7e5b4fbe3b70b7fb89770976eb572e; pr-status-sha256:86c0876597fb39b80d9ac05254045bea191602dad9d896ff4f59679cdf61cbdf -->
+<!-- generated; ledger-sha256:949c9fe78d470412d3f55c64b2d4cd8824b585b15f8a128b90091fef7a8ccbc2; narrative-sha256:7596cd4d35624c4f6c5f13890b6f72895546b09cb885ebdb2cb6b88eb45f3808; pr-status-sha256:aa4174b9678cb6b72aab4cee9cc44c435f05cc5dc0afdb2852500cd356bcb585 -->
 
 
 DiadkoShmek · 2026-11-04 UTC
@@ -9,9 +9,9 @@ DiadkoShmek · 2026-11-04 UTC
 
 I investigate failures, define contracts and verify consequences. AI tools assist research, implementation and checking; I set direction, take responsibility for engineering decisions and authorize external actions. This book does not measure autonomy percentages or rank AI models.
 
-9 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+10 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
 
-Public PRs in other owners' repositories: 104 submitted; 9 merged, 88 open, 7 closed without merge. GitHub snapshot: 2026-11-04 16:20 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 115 submitted; 10 merged, 98 open, 7 closed without merge. GitHub snapshot: 2026-11-04 21:48 UTC. Own-repository and private activity is excluded.
 
 [Complete PR status](../../PR_STATUS.en.md)
 
@@ -19,39 +19,69 @@ Every status and date below comes from results.json. A local PASS, external cred
 
 ## Contents
 
-1. [Redis Python client](#case-redis-monitor)
+1. [PyLops](#case-pylops)
 
-2. [Microsoft Semantic Kernel](#case-semantic-kernel)
+2. [Redis Python client](#case-redis-monitor)
 
-3. [ONNX Range](#case-onnx-range)
+3. [Microsoft Semantic Kernel](#case-semantic-kernel)
 
-4. [ONNX IR](#case-onnx-ir)
+4. [ONNX Range](#case-onnx-range)
 
-5. [FilesDrop](#case-filesdrop)
+5. [ONNX IR](#case-onnx-ir)
 
-6. [Prime Intellect](#case-prime)
+6. [FilesDrop](#case-filesdrop)
 
-7. [M7 MCP](#case-m7)
+7. [Prime Intellect](#case-prime)
 
-8. [Braintrust SDK JavaScript](#case-braintrust)
+8. [M7 MCP](#case-m7)
 
-9. [Kraft](#case-kraft)
+9. [Braintrust SDK JavaScript](#case-braintrust)
 
-10. [PyTorch TensorDict](#case-tensordict)
+10. [Kraft](#case-kraft)
 
-11. [BlackJAX](#case-blackjax)
+11. [PyTorch TensorDict](#case-tensordict)
 
-12. [TensorLy](#case-tensorly)
+12. [BlackJAX](#case-blackjax)
 
-13. [Apache TVM-FFI](#case-tvm)
+13. [TensorLy](#case-tensorly)
 
-14. [CodinGame - Mad Pod Racing](#case-codingame)
+14. [Apache TVM-FFI](#case-tvm)
 
-15. [Zoria 2026 / UA SKILLS](#case-zoria)
+15. [CodinGame - Mad Pod Racing](#case-codingame)
+
+16. [Zoria 2026 / UA SKILLS](#case-zoria)
+
+<a id="case-pylops"></a>
+
+## 01. PyLops
+
+**2026-11-04 · Direct PR merged · UTC 2026-11-04T21:44:06.308045+00:00 · 2026-11-04T21:34:47Z**
+
+One-dimensional real nonstationary dense operator orientation; prior runtime proof not rerun for journal update. Multidimensional dense-shape/complex-filter limitations remain; no production adoption or income claim.
+
+### Problem
+
+The dense matrix of a one-dimensional nonstationary convolution stored impulse responses as rows rather than columns. Dense multiplication and direct inversion disagreed with the public operator even for varying symmetric filters.
+
+### My decision and the external choice
+
+The contribution transposes the assembled matrix and adds forward/adjoint equivalence assertions to an existing seeded test. Matteo Ravasi rearranged the assertions around Cdense before merging; the production correction is unchanged.
+
+### Validation and limits
+
+Native GitHub confirms direct merge #837 at 21:34:47 UTC on 4 November 2026. The PR documents 18 nonstationary-module passes, 543 neighboring passes/3 skips, 128 coordinate-oracle matrices and 48 operator-action cases. A concrete 51-sample inverse fixture improves relative error from 8.24% to below 2e-16. Runtime checks were not repeated for this journal update.
+
+### What I carry forward
+
+An operator matrix must reproduce its action on coordinate impulses. Testing both forward and adjoint separates an orientation bug from an accidentally symmetric control.
+
+- [Primary source](https://github.com/PyLops/pylops/pull/837)
+
+[Повний кейс / Full report](../../reports/pylops-2026-11.md)
 
 <a id="case-redis-monitor"></a>
 
-## 01. Redis Python client
+## 02. Redis Python client
 
 **2026-11-04 · Direct PR merged · UTC 2026-11-04T16:20:18.445505Z · 2026-11-04T15:44:00Z**
 
@@ -79,7 +109,7 @@ Failed context entry does not automatically invoke exit. The owner of a borrowed
 
 <a id="case-semantic-kernel"></a>
 
-## 02. Microsoft Semantic Kernel
+## 03. Microsoft Semantic Kernel
 
 **2026-11-04 · Direct PR merged · UTC 2026-11-04T16:20:18.445505Z · 2026-11-04T14:46:53Z**
 
@@ -107,7 +137,7 @@ The layer that owns a created stream must finalize it. Retaining the source in t
 
 <a id="case-onnx-range"></a>
 
-## 03. ONNX Range
+## 04. ONNX Range
 
 **2026-11-04 · Direct PR merged · 2026-11-04T01:09:20Z**
 
@@ -135,7 +165,7 @@ For a discrete element count, exact integer arithmetic with a safely represented
 
 <a id="case-onnx-ir"></a>
 
-## 04. ONNX IR
+## 05. ONNX IR
 
 **2026-11-03 · Direct PR merged · UTC 2026-11-03T17:33:18.542858Z · 2026-11-03T16:40:54Z**
 
@@ -163,7 +193,7 @@ Graph optimization must preserve public names and value ownership as well as num
 
 <a id="case-filesdrop"></a>
 
-## 05. FilesDrop
+## 06. FilesDrop
 
 **2026-10-21 · Direct PR merged**
 
@@ -191,7 +221,7 @@ Cleanup must preserve retryability. Cancelling a wait does not imply stopping th
 
 <a id="case-prime"></a>
 
-## 06. Prime Intellect
+## 07. Prime Intellect
 
 **2026-10-24 · Incorporated into a merged maintainer fix**
 
@@ -225,7 +255,7 @@ A contribution can shape a maintainer decision even when the proposed patch is n
 
 <a id="case-m7"></a>
 
-## 07. M7 MCP
+## 08. M7 MCP
 
 **2026-10-29 · Audit credited in release**
 
@@ -253,7 +283,7 @@ An audit should leave a checkable route to each failure and retain what a later 
 
 <a id="case-braintrust"></a>
 
-## 08. Braintrust SDK JavaScript
+## 09. Braintrust SDK JavaScript
 
 **2026-11-02 · Direct PR merged · 2026-11-02T11:37:30Z**
 
@@ -281,7 +311,7 @@ Chunk boundaries belong to the transport. Decoder state must belong to the compl
 
 <a id="case-kraft"></a>
 
-## 09. Kraft
+## 10. Kraft
 
 **2026-11-02 · Direct PR merged · 2026-11-02T12:08:30Z**
 
@@ -309,7 +339,7 @@ Repeated initialization should repeat useful work rather than mistake an idempot
 
 <a id="case-tensordict"></a>
 
-## 10. PyTorch TensorDict
+## 11. PyTorch TensorDict
 
 **2026-11-01 · Incorporated into a merged maintainer fix**
 
@@ -341,7 +371,7 @@ When a lower layer already owns the contract, delegation can be stronger than a 
 
 <a id="case-blackjax"></a>
 
-## 11. BlackJAX
+## 12. BlackJAX
 
 **2026-11-02 · Direct PR merged · 2026-11-02T14:43:52Z**
 
@@ -369,7 +399,7 @@ Stabilize the intermediate computation while preserving the mathematical quantit
 
 <a id="case-tensorly"></a>
 
-## 12. TensorLy
+## 13. TensorLy
 
 **2026-11-03 · Direct PR merged · 2026-11-02T23:54:45Z**
 
@@ -399,7 +429,7 @@ One carefully chosen example can cover both required multipliers without a grid 
 
 <a id="case-tvm"></a>
 
-## 13. Apache TVM-FFI
+## 14. Apache TVM-FFI
 
 **2026-11-03 · Incorporated into a merged maintainer fix**
 
@@ -431,7 +461,7 @@ A reproduction can lead to another repair. Superseded and merged are different e
 
 <a id="case-codingame"></a>
 
-## 14. CodinGame - Mad Pod Racing
+## 15. CodinGame - Mad Pod Racing
 
 **2026-10-21 (Europe/Helsinki) · Dated arena snapshot · UTC 2026-10-20T22:06:15.975Z · 86/1657 (Legend League)**
 
@@ -459,7 +489,7 @@ A stopping rule protects against proving a desired outcome. Local experiments an
 
 <a id="case-zoria"></a>
 
-## 15. Zoria 2026 / UA SKILLS
+## 16. Zoria 2026 / UA SKILLS
 
 **2026-10-19 (Europe/Helsinki) · Historical preliminary result · UTC 2026-10-20T22:06:05.463Z · 5/9 (overall preliminary score of second-stage participants)**
 

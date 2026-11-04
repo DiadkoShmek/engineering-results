@@ -3,6 +3,29 @@
   "author": "DiadkoShmek",
   "chapters": [
     {
+      "key": "pylops",
+      "title": "PyLops",
+      "record_ids": [
+        "pylops-nonstationary-dense-orientation-2026-11-04"
+      ],
+      "report": "reports/pylops-2026-11.md",
+      "uk": {
+        "problem": "Щільна матриця нестаціонарної одновимірної згортки містила імпульсні відгуки рядками замість стовпців. Множення й пряме обернення розходилися з публічним оператором навіть для симетричних фільтрів, що змінюються вздовж сигналу.",
+        "decision": "Внесок транспонує зібрану матрицю та перевіряє її forward і adjoint дії в наявному seeded тесті. Matteo Ravasi перед merge переставив перевірки навколо Cdense; виробничий fix залишився тим самим.",
+        "proof": "Native GitHub підтверджує прямий merge #837 о 21:34:47 UTC 04.11.2026. PR документує 18 passing nonstationary tests, 543 neighboring passes/3 skips, 128 coordinate-oracle матриць і 48 operator-action cases. У конкретній 51-sample задачі dense-inverse error зменшився з 8.24% до менш ніж 2e-16. Runtime під час оновлення книги не повторювали.",
+        "lesson": "Матриця оператора має відтворювати його дію на координатних імпульсах. Перевірка і forward, і adjoint відділяє помилку орієнтації від випадково симетричного контрольного прикладу.",
+        "boundaries": {
+          "pylops-nonstationary-dense-orientation-2026-11-04": "Прямий merge і maintainer adaptation підтверджено. Лише одновимірний дійсний оператор; старі multidimensional/complex обмеження збережені. Runtime не повторювали, production-використання не встановлено."
+        }
+      },
+      "en": {
+        "problem": "The dense matrix of a one-dimensional nonstationary convolution stored impulse responses as rows rather than columns. Dense multiplication and direct inversion disagreed with the public operator even for varying symmetric filters.",
+        "decision": "The contribution transposes the assembled matrix and adds forward/adjoint equivalence assertions to an existing seeded test. Matteo Ravasi rearranged the assertions around Cdense before merging; the production correction is unchanged.",
+        "proof": "Native GitHub confirms direct merge #837 at 21:34:47 UTC on 4 November 2026. The PR documents 18 nonstationary-module passes, 543 neighboring passes/3 skips, 128 coordinate-oracle matrices and 48 operator-action cases. A concrete 51-sample inverse fixture improves relative error from 8.24% to below 2e-16. Runtime checks were not repeated for this journal update.",
+        "lesson": "An operator matrix must reproduce its action on coordinate impulses. Testing both forward and adjoint separates an orientation bug from an accidentally symmetric control."
+      }
+    },
+    {
       "key": "redis-monitor",
       "title": "Redis Python client",
       "record_ids": [

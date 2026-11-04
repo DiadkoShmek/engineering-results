@@ -1,8 +1,8 @@
 # External PR status
 
-<!-- generated; pr-status-sha256:86c0876597fb39b80d9ac05254045bea191602dad9d896ff4f59679cdf61cbdf -->
+<!-- generated; pr-status-sha256:aa4174b9678cb6b72aab4cee9cc44c435f05cc5dc0afdb2852500cd356bcb585 -->
 
-Public PRs in other owners' repositories: 104 submitted; 9 merged, 88 open, 7 closed without merge. GitHub snapshot: 2026-11-04 16:20 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 115 submitted; 10 merged, 98 open, 7 closed without merge. GitHub snapshot: 2026-11-04 21:48 UTC. Own-repository and private activity is excluded.
 
 Closed without merge does not necessarily mean rejected: 3 proposals are credited in merged maintainer solutions. Approval is not a merge. Snapshot completeness covers the PR inventory, not every CI run or review.
 
@@ -20,10 +20,13 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 
 - [Redis #4550](https://github.com/redis/redis-py/pull/4550): Direct merge confirmed on 4 November 2026 at 15:44:00 UTC. 2026-11-04T16:20:18.445505Z
 
-## Merged PRs (9)
+- [PyLops #837](https://github.com/PyLops/pylops/pull/837): Direct merge confirmed; Matteo Ravasi adapted test arrangement before merging. 2026-11-04T21:44:06.308045+00:00
+
+## Merged PRs (10)
 
 | Repository / PR | Change | Merge or update date UTC |
 |---|---|---|
+| [PyLops/pylops #837](https://github.com/PyLops/pylops/pull/837) | Fix: dense nonstationary convolution matrix orientation | 2026-11-04T21:34:47Z |
 | [redis/redis-py #4550](https://github.com/redis/redis-py/pull/4550) | Fix connection cleanup when MONITOR context entry fails | 2026-11-04T15:44:00Z |
 | [microsoft/semantic-kernel #14701](https://github.com/microsoft/semantic-kernel/pull/14701) | Python: close native generators when stream invocations end | 2026-11-04T14:46:53Z |
 | [onnx/onnx #8734](https://github.com/onnx/onnx/pull/8734) | fix(shape_inference): compute integer range lengths exactly | 2026-11-04T01:09:20Z |
@@ -34,27 +37,39 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 | [braintrustdata/braintrust-sdk-javascript #2701](https://github.com/braintrustdata/braintrust-sdk-javascript/pull/2701) | fix: preserve UTF-8 in logged ReadableStream byte chunks | 2026-11-02T11:37:30Z |
 | [AndreyBegma/FilesDrop #32](https://github.com/AndreyBegma/FilesDrop/pull/32) | fix(api): retry expired cleanup and enforce URL timeout during DNS | 2026-10-21T08:49:27Z |
 
-## Open PRs (88)
+## Open PRs (98)
 
 | Repository / PR | Change | Merge or update date UTC |
 |---|---|---|
-| [NVIDIA/warp #2235](https://github.com/NVIDIA/warp/pull/2235) | Fix scaled smoothstep gradients | 2026-11-04T16:19:44Z |
-| [sgl-project/sglang #48419](https://github.com/sgl-project/sglang/pull/48419) | &#91;Fix&#93; Keep prefill batches homogeneous by input form | 2026-11-04T16:16:22Z |
+| [milvus-io/pymilvus #3903](https://github.com/milvus-io/pymilvus/pull/3903) | fix: return no query rows for an empty ID selection | 2026-11-04T21:48:01Z |
+| [patrick-kidger/optimistix #248](https://github.com/patrick-kidger/optimistix/pull/248) | Use a descent fallback when the indirect damping root fails | 2026-11-04T21:46:40Z |
+| [google-deepmind/optax #1854](https://github.com/google-deepmind/optax/pull/1854) | Reset Lookahead at synchronized fast parameters | 2026-11-04T21:38:40Z |
+| [pyro-ppl/numpyro #2406](https://github.com/pyro-ppl/numpyro/pull/2406) | fix(distributions): preserve ordered logistic tail masses | 2026-11-04T21:05:31Z |
+| [pyro-ppl/numpyro #2401](https://github.com/pyro-ppl/numpyro/pull/2401) | Keep bounded DirichletMultinomial counts in pytree data | 2026-11-04T20:50:46Z |
+| [pyro-ppl/numpyro #2405](https://github.com/pyro-ppl/numpyro/pull/2405) | fix(distributions): preserve GaussianStateSpace variance batch axes | 2026-11-04T20:50:44Z |
+| [pyro-ppl/numpyro #2404](https://github.com/pyro-ppl/numpyro/pull/2404) | fix(distributions): align Cat constraint event masks | 2026-11-04T20:43:46Z |
+| [blackjax-devs/blackjax #1072](https://github.com/blackjax-devs/blackjax/pull/1072) | Preserve the previous target during partial-posterior mutation | 2026-11-04T20:23:22Z |
+| [meta-pytorch/botorch #3545](https://github.com/meta-pytorch/botorch/pull/3545) | Refresh IndexSampler when ensemble probabilities change | 2026-11-04T19:59:56Z |
+| [patrick-kidger/diffrax #799](https://github.com/patrick-kidger/diffrax/pull/799) | Preserve PyTrees in interpolation increments | 2026-11-04T18:54:35Z |
+| [cornellius-gp/gpytorch #2840](https://github.com/cornellius-gp/gpytorch/pull/2840) | Fix parameter batch axes in Hamming IMQ covariances | 2026-11-04T18:50:40Z |
+| [ott-jax/ott #716](https://github.com/ott-jax/ott/pull/716) | Fix custom implicit differentiation solver dispatch | 2026-11-04T18:37:34Z |
+| [patrick-kidger/lineax #268](https://github.com/patrick-kidger/lineax/pull/268) | Preserve reshaping identities during materialisation | 2026-11-04T18:00:35Z |
+| [cornellius-gp/linear_operator #158](https://github.com/cornellius-gp/linear_operator/pull/158) | Apply left factors once in structured triangular solves | 2026-11-04T17:51:50Z |
+| [apache/tvm-ffi #921](https://github.com/apache/tvm-ffi/pull/921) | &#91;FIX&#93; Keep JSON numbers independent of numeric locale | 2026-11-04T17:25:12Z |
+| [google-deepmind/optax #1852](https://github.com/google-deepmind/optax/pull/1852) | Keep zero learning rates from entering MADGRAD dual averages | 2026-11-04T16:49:52Z |
+| [sgl-project/sglang #48419](https://github.com/sgl-project/sglang/pull/48419) | &#91;Fix&#93; scheduler: Keep prefill batches homogeneous by input form | 2026-11-04T16:42:53Z |
+| [NVIDIA/warp #2235](https://github.com/NVIDIA/warp/pull/2235) | Fix scaled smoothstep gradients | 2026-11-04T16:31:07Z |
 | [sgl-project/sglang #48402](https://github.com/sgl-project/sglang/pull/48402) | &#91;Fix&#93; scheduler: Respect earlier EOS in speculative stop handling | 2026-11-04T15:58:29Z |
 | [tensorflow/probability #2038](https://github.com/tensorflow/probability/pull/2038) | Fix higher derivatives of Lambert W at zero | 2026-11-04T15:58:26Z |
 | [google-deepmind/optax #1853](https://github.com/google-deepmind/optax/pull/1853) | Avoid gradient-product underflow in Rprop sign comparisons | 2026-11-04T14:36:34Z |
-| [pyro-ppl/numpyro #2404](https://github.com/pyro-ppl/numpyro/pull/2404) | fix(distributions): align Cat constraint event masks | 2026-11-04T14:29:31Z |
 | [dmlc/xgboost #12786](https://github.com/dmlc/xgboost/pull/12786) | Normalize Arrow dictionary category names with PyArrow | 2026-11-04T14:04:28Z |
 | [geomstats/geomstats #2170](https://github.com/geomstats/geomstats/pull/2170) | Preserve nonzero modes in rank-deficient Siegel exp and log maps | 2026-11-04T12:55:06Z |
-| [milvus-io/pymilvus #3903](https://github.com/milvus-io/pymilvus/pull/3903) | fix: return no query rows for an empty ID selection | 2026-11-04T12:52:30Z |
 | [google-deepmind/distrax #395](https://github.com/google-deepmind/distrax/pull/395) | Compare captured constants before equating transformed KL bijectors | 2026-11-04T11:58:35Z |
 | [dgasmith/opt_einsum #272](https://github.com/dgasmith/opt_einsum/pull/272) | Fix execution options in shared einsum contractions | 2026-11-04T11:58:12Z |
 | [google/flax #5637](https://github.com/google/flax/pull/5637) | Fix negative argnums state filters in NNX graph gradients | 2026-11-04T11:51:19Z |
 | [geoopt/geoopt #282](https://github.com/geoopt/geoopt/pull/282) | Preserve vector batch axes in Sphere subspace projections | 2026-11-04T11:37:35Z |
 | [pyro-ppl/pyro #3512](https://github.com/pyro-ppl/pyro/pull/3512) | Fix sample and batch dimensions in diagonal normal mixture sampling | 2026-11-04T11:07:59Z |
 | [google-deepmind/distrax #394](https://github.com/google-deepmind/distrax/pull/394) | Preserve straight-through gradients in combined sampling | 2026-11-04T10:57:46Z |
-| [PyLops/pylops #837](https://github.com/PyLops/pylops/pull/837) | Fix dense nonstationary convolution matrix orientation | 2026-11-04T10:57:33Z |
-| [pyro-ppl/numpyro #2405](https://github.com/pyro-ppl/numpyro/pull/2405) | fix(distributions): preserve GaussianStateSpace variance batch axes | 2026-11-04T10:41:57Z |
 | [blackjax-devs/blackjax #1071](https://github.com/blackjax-devs/blackjax/pull/1071) | Fix sample-axis reduction in Schrödinger–Föllmer drift | 2026-11-04T10:34:16Z |
 | [cornellius-gp/gpytorch #2839](https://github.com/cornellius-gp/gpytorch/pull/2839) | Fix rectangular covariance in RBFKernelGradGrad | 2026-11-04T10:29:21Z |
 | [tensorly/tensorly #696](https://github.com/tensorly/tensorly/pull/696) | Respect conjugate transpose in complex vector mode products | 2026-11-04T09:30:28Z |
@@ -93,11 +108,9 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 | [jax-ml/ml_dtypes #429](https://github.com/jax-ml/ml_dtypes/pull/429) | Fix complex NaN ordering in sort and searchsorted | 2026-11-02T15:33:35Z |
 | [pydata/sparse #1021](https://github.com/pydata/sparse/pull/1021) | fix: preserve output buffers in sparse reductions | 2026-11-02T15:28:17Z |
 | [abetlen/llama-cpp-python #2400](https://github.com/abetlen/llama-cpp-python/pull/2400) | fix(cache): honor configured disk cache capacity | 2026-11-02T15:19:26Z |
-| [google-deepmind/optax #1852](https://github.com/google-deepmind/optax/pull/1852) | Keep zero learning rates from entering MADGRAD dual averages | 2026-11-02T15:17:56Z |
 | [dask/distributed #9384](https://github.com/dask/distributed/pull/9384) | &#91;unsupervised AI&#93; Preserve serialized dictionary headers | 2026-11-02T11:54:04Z |
 | [dask/dask #12694](https://github.com/dask/dask/pull/12694) | &#91;unsupervised AI&#93; Accept false-valued cached dependencies | 2026-11-02T11:54:02Z |
 | [dagster-io/dagster #34381](https://github.com/dagster-io/dagster/pull/34381) | fix: avoid busy polling pending pool claims | 2026-11-02T11:50:54Z |
-| [pyro-ppl/numpyro #2401](https://github.com/pyro-ppl/numpyro/pull/2401) | Keep bounded DirichletMultinomial counts in pytree data | 2026-11-02T05:49:35Z |
 | [google/flax #5635](https://github.com/google/flax/pull/5635) | Pass a PRNG key to NNX WeightNorm scale initializers | 2026-11-02T02:44:20Z |
 | [google-deepmind/distrax #393](https://github.com/google-deepmind/distrax/pull/393) | Handle zero-probability bins in CategoricalUniform sampling | 2026-11-02T02:37:09Z |
 | [cornellius-gp/gpytorch #2836](https://github.com/cornellius-gp/gpytorch/pull/2836) | Fix multidimensional GibbsKernel normalization | 2026-11-02T02:31:09Z |
