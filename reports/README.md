@@ -24,3 +24,7 @@
 **21.10.2026 · AI-assisted engineering · C++ · оцінка ігрової політики**
 
 [Про процес і ролі](../ENGINEERING.md) · [Журнал результатів](../RESULTS.md) · [English results](../RESULTS.en.md) · [Профіль](https://github.com/DiadkoShmek)
+
+## Подана серія / Submitted series
+
+[Лезо: 20 нових PR у 18 репозиторіях](lezo-2026-11.md) · [English](lezo-2026-11.md#english-summary). Датований перелік подань, локальних перевірок і source commits; прийняті результати обліковані окремо.

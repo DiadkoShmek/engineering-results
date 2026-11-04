@@ -1,8 +1,8 @@
 # Стан зовнішніх PR
 
-<!-- generated; pr-status-sha256:660b0b083f8c24b4fe338bebaa2dfbb6b7f3313af5c3df771cf168b28573f662 -->
+<!-- generated; pr-status-sha256:73147d901817058603a949fd9455b5692d75f5aed43e4ce52f519674073cc9cc -->
 
-Публічні PR у чужих репозиторіях: 87 подано; 7 злитих, 74 відкритих, 6 закритих без merge. Зріз GitHub: 2026-11-04 08:40 UTC. Власна та приватна активність виключені.
+Публічні PR у чужих репозиторіях: 99 подано; 7 злитих, 86 відкритих, 6 закритих без merge. Зріз GitHub: 2026-11-04 12:05 UTC. Власна та приватна активність виключені.
 
 Закритий без merge PR не обов’язково відхилений: 3 пропозиції відзначено у злитих рішеннях мейнтейнерів. Схвалення не є merge. Повнота цього зрізу стосується переліку PR, а не всіх CI чи рев’ю.
 
@@ -30,10 +30,27 @@
 | [braintrustdata/braintrust-sdk-javascript #2701](https://github.com/braintrustdata/braintrust-sdk-javascript/pull/2701) | fix: preserve UTF-8 in logged ReadableStream byte chunks | 2026-11-02T11:37:30Z |
 | [AndreyBegma/FilesDrop #32](https://github.com/AndreyBegma/FilesDrop/pull/32) | fix(api): retry expired cleanup and enforce URL timeout during DNS | 2026-10-21T08:49:27Z |
 
-## Відкриті PR (74)
+## Відкриті PR (86)
 
 | Проєкт / PR | Зміна | Дата merge або оновлення UTC |
 |---|---|---|
+| [google-deepmind/distrax #395](https://github.com/google-deepmind/distrax/pull/395) | Compare captured constants before equating transformed KL bijectors | 2026-11-04T11:58:35Z |
+| [dgasmith/opt_einsum #272](https://github.com/dgasmith/opt_einsum/pull/272) | Fix execution options in shared einsum contractions | 2026-11-04T11:58:12Z |
+| [google/flax #5637](https://github.com/google/flax/pull/5637) | Fix negative argnums state filters in NNX graph gradients | 2026-11-04T11:51:19Z |
+| [redis/redis-py #4550](https://github.com/redis/redis-py/pull/4550) | Fix connection cleanup when MONITOR context entry fails | 2026-11-04T11:51:17Z |
+| [geoopt/geoopt #282](https://github.com/geoopt/geoopt/pull/282) | Preserve vector batch axes in Sphere subspace projections | 2026-11-04T11:37:35Z |
+| [milvus-io/pymilvus #3903](https://github.com/milvus-io/pymilvus/pull/3903) | fix: return no query rows for an empty ID selection | 2026-11-04T11:28:48Z |
+| [pyro-ppl/pyro #3512](https://github.com/pyro-ppl/pyro/pull/3512) | Fix sample and batch dimensions in diagonal normal mixture sampling | 2026-11-04T11:07:59Z |
+| [google-deepmind/distrax #394](https://github.com/google-deepmind/distrax/pull/394) | Preserve straight-through gradients in combined sampling | 2026-11-04T10:57:46Z |
+| [PyLops/pylops #837](https://github.com/PyLops/pylops/pull/837) | Fix dense nonstationary convolution matrix orientation | 2026-11-04T10:57:33Z |
+| [pyro-ppl/numpyro #2405](https://github.com/pyro-ppl/numpyro/pull/2405) | fix(distributions): preserve GaussianStateSpace variance batch axes | 2026-11-04T10:41:57Z |
+| [pyro-ppl/numpyro #2404](https://github.com/pyro-ppl/numpyro/pull/2404) | fix(distributions): align Cat constraint event masks | 2026-11-04T10:40:18Z |
+| [blackjax-devs/blackjax #1071](https://github.com/blackjax-devs/blackjax/pull/1071) | Fix sample-axis reduction in Schrödinger–Föllmer drift | 2026-11-04T10:34:16Z |
+| [google-deepmind/optax #1853](https://github.com/google-deepmind/optax/pull/1853) | Avoid gradient-product underflow in Rprop sign comparisons | 2026-11-04T10:30:32Z |
+| [cornellius-gp/gpytorch #2839](https://github.com/cornellius-gp/gpytorch/pull/2839) | Fix rectangular covariance in RBFKernelGradGrad | 2026-11-04T10:29:21Z |
+| [dmlc/xgboost #12786](https://github.com/dmlc/xgboost/pull/12786) | Fix sliced Arrow dictionary category buffers | 2026-11-04T09:58:14Z |
+| [geomstats/geomstats #2170](https://github.com/geomstats/geomstats/pull/2170) | Preserve nonzero modes in rank-deficient Siegel exp and log maps | 2026-11-04T09:56:53Z |
+| [tensorly/tensorly #696](https://github.com/tensorly/tensorly/pull/696) | Respect conjugate transpose in complex vector mode products | 2026-11-04T09:30:28Z |
 | [pbrod/numdifftools #79](https://github.com/pbrod/numdifftools/pull/79) | fix: correct bicomplex expm1 and mixed Hessians | 2026-11-04T08:40:40Z |
 | [triton-lang/triton #12619](https://github.com/triton-lang/triton/pull/12619) | &#91;TritonGPU&#93; Preserve mutable loop-bound reads during nested-loop fusion | 2026-11-04T08:38:43Z |
 | [yt-project/unyt #706](https://github.com/yt-project/unyt/pull/706) | BUG: give least-squares residuals squared RHS units | 2026-11-04T08:34:57Z |
@@ -47,9 +64,6 @@
 | [onnx/ir-py #529](https://github.com/onnx/ir-py/pull/529) | &#91;graph&#93; preserve iterator graph input/output slice replacements | 2026-11-03T16:26:28Z |
 | [pyro-ppl/pyro #3510](https://github.com/pyro-ppl/pyro/pull/3510) | Preserve cached parameters when expanding zero-inflated distributions | 2026-11-03T10:47:00Z |
 | [NVIDIA/nccl #2551](https://github.com/NVIDIA/nccl/pull/2551) | Propagate ring metadata exchange failures | 2026-11-02T23:14:08Z |
-| [dmlc/xgboost #12786](https://github.com/dmlc/xgboost/pull/12786) | Fix sliced Arrow dictionary category buffers | 2026-11-02T21:34:01Z |
-| [google-deepmind/optax #1853](https://github.com/google-deepmind/optax/pull/1853) | Avoid gradient-product underflow in Rprop sign comparisons | 2026-11-02T21:22:41Z |
-| [redis/redis-py #4550](https://github.com/redis/redis-py/pull/4550) | Fix connection cleanup when MONITOR context entry fails | 2026-11-02T21:04:33Z |
 | [deepset-ai/haystack #13520](https://github.com/deepset-ai/haystack/pull/13520) | fix: attempt remaining pipeline cleanup after component errors | 2026-11-02T20:52:46Z |
 | [microsoft/semantic-kernel #14701](https://github.com/microsoft/semantic-kernel/pull/14701) | Python: close native generators when stream invocations end | 2026-11-02T20:44:06Z |
 | [facebookresearch/nevergrad #1728](https://github.com/facebookresearch/nevergrad/pull/1728) | Fix Pareto dominance in NSGA-II ranking | 2026-11-02T19:26:07Z |
@@ -61,7 +75,6 @@
 | [google-deepmind/tree #156](https://github.com/google-deepmind/tree/pull/156) | Keep transparent proxy type checks separate by reported class | 2026-11-02T18:26:07Z |
 | [google-deepmind/dm_env #25](https://github.com/google-deepmind/dm_env/pull/25) | Reject NaN values in bounded array validation | 2026-11-02T17:38:43Z |
 | [facebookresearch/fairscale #1206](https://github.com/facebookresearch/fairscale/pull/1206) | &#91;fix&#93; Preserve checkpoint owners when deep-copying modules | 2026-11-02T17:28:45Z |
-| [google/flax #5637](https://github.com/google/flax/pull/5637) | Fix negative argnums state filters in NNX graph gradients | 2026-11-02T17:17:55Z |
 | [meta-pytorch/torchsnapshot #186](https://github.com/meta-pytorch/torchsnapshot/pull/186) | Preserve raw tensor bytes with byte-sized storage carriers | 2026-11-02T17:06:26Z |
 | [google/orbax #3720](https://github.com/google/orbax/pull/3720) | Capture JSON state before asynchronous checkpoint commit | 2026-11-02T16:54:59Z |
 | [google-deepmind/chex #484](https://github.com/google-deepmind/chex/pull/484) | Preserve residual keyword arguments in fake_pmap | 2026-11-02T16:54:51Z |
@@ -97,7 +110,6 @@
 | [nmslib/hnswlib #705](https://github.com/nmslib/hnswlib/pull/705) | Restore brute-force label lookup after loading an index | 2026-10-31T23:56:00Z |
 | [microsoft/Olive #2779](https://github.com/microsoft/Olive/pull/2779) | fix(onnx): preserve public MatMul outputs during Gemm fusion | 2026-10-31T22:31:57Z |
 | [SeldonIO/MLServer #2638](https://github.com/SeldonIO/MLServer/pull/2638) | fix(batching): preserve peers when a batch request is cancelled | 2026-10-31T22:23:13Z |
-| [milvus-io/pymilvus #3903](https://github.com/milvus-io/pymilvus/pull/3903) | fix: return no query rows for an empty ID selection | 2026-10-31T21:55:43Z |
 | [chroma-core/chroma #7975](https://github.com/chroma-core/chroma/pull/7975) | &#91;BUG&#93;(python): Isolate persistent settings | 2026-10-31T21:51:37Z |
 | [microsoft/onnxscript #3141](https://github.com/microsoft/onnxscript/pull/3141) | fix: preserve Conv parameters when fusing broadcast scalars | 2026-10-31T21:33:33Z |
 | [bentoml/BentoML #5771](https://github.com/bentoml/BentoML/pull/5771) | fix: propagate split-batch recombination errors | 2026-10-31T21:12:04Z |

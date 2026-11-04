@@ -47,3 +47,7 @@ AI-assisted engineering: проблема, рішення, перевірка т
 Це не контрольований порівняльний бенчмарк AI-моделей. Час, вартість і людські втручання не виміряні зіставно. Власний merged patch, credited investigation та аудит — різні результати.
 
 [Журнал](RESULTS.md) · [English results](RESULTS.en.md) · [Профіль](https://github.com/DiadkoShmek)
+
+## Подані виправлення · 04.11.2026 UTC
+
+[Лезо — 20 нових PR у 18 репозиторіях](reports/lezo-2026-11.md): компіляція, автоматичне диференціювання, тензорні операції, ймовірнісні моделі та лінійні оператори. [English summary](reports/lezo-2026-11.md#english-summary). Статус кожного PR і перевірений source commit наведено у звіті.
