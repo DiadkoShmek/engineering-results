@@ -231,7 +231,9 @@ def pdfs(ledger,narrative):
                 y=self.height-16*mm-i*10*mm;c.setStrokeColor(teal);c.setFillColor(colors.HexColor('#F1F6F5'));c.roundRect(0,y,width,8*mm,2*mm,fill=1,stroke=0)
                 c.setFillColor(teal);c.setFont('Sans',8);c.drawString(4*mm,y+2.7*mm,f'{i+1:02d}  '+label)
                 if i<3:c.setStrokeColor(copper);c.line(width/2,y,width/2,y-2*mm)
-    records=ledger['records'];date=max(r['as_of'] for r in records);ledger_hash=digest(ROOT/'results.json')
+    records = ledger['records']
+    date = max(max(r['as_of'] for r in records), json.loads((ROOT/'pr-status.json').read_text())['observed_at'][:10])
+    ledger_hash = digest(ROOT/'results.json')
     class Book(BaseDocTemplate):
         def afterFlowable(self,f):
             if isinstance(f,Paragraph) and getattr(f,'toc_key',None):

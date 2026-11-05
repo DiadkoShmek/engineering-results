@@ -1,8 +1,8 @@
 # Стан зовнішніх PR
 
-<!-- generated; pr-status-sha256:8ad8e0101637ee1fbc48ab56e0d974996e0a49a2903d1f51533153424aa47313 -->
+<!-- generated; pr-status-sha256:9aedd1a7d6c67deef05f93b5a82f76a89c6f7f00f3bbc25ddda0a95562f86ba6 -->
 
-Публічні PR у чужих репозиторіях: 117 подано; 10 злитих, 100 відкритих, 7 закритих без merge. Зріз GitHub: 2026-11-04 23:13 UTC. Власна та приватна активність виключені.
+Публічні PR у чужих репозиторіях: 122 подано; 10 злитих, 105 відкритих, 7 закритих без merge. Зріз GitHub: 2026-11-05 01:23 UTC. Власна та приватна активність виключені.
 
 Закритий без merge PR не обов’язково відхилений: 3 пропозиції відзначено у злитих рішеннях мейнтейнерів. Схвалення не є merge. Повнота цього зрізу стосується переліку PR, а не всіх CI чи рев’ю.
 
@@ -37,10 +37,16 @@
 | [braintrustdata/braintrust-sdk-javascript #2701](https://github.com/braintrustdata/braintrust-sdk-javascript/pull/2701) | fix: preserve UTF-8 in logged ReadableStream byte chunks | 2026-11-02T11:37:30Z |
 | [AndreyBegma/FilesDrop #32](https://github.com/AndreyBegma/FilesDrop/pull/32) | fix(api): retry expired cleanup and enforce URL timeout during DNS | 2026-10-21T08:49:27Z |
 
-## Відкриті PR (100)
+## Відкриті PR (105)
 
 | Проєкт / PR | Зміна | Дата merge або оновлення UTC |
 |---|---|---|
+| [martenlienen/torchode #56](https://github.com/martenlienen/torchode/pull/56) | Backpropagate from the first evaluation to the initial time | 2026-11-05T01:21:43Z |
+| [onnx/ir-py #531](https://github.com/onnx/ir-py/pull/531) | &#91;passes&#93; Preserve signed zero in floating CSE attribute keys | 2026-11-05T01:21:29Z |
+| [google-deepmind/optax #1855](https://github.com/google-deepmind/optax/pull/1855) | Return scalar arrays from skip_not_finite for inactive optimizer groups | 2026-11-05T01:02:30Z |
+| [tensorflow/probability #2039](https://github.com/tensorflow/probability/pull/2039) | Restore atan_difference gradients at negative-one products | 2026-11-05T00:27:38Z |
+| [cornellius-gp/linear_operator #161](https://github.com/cornellius-gp/linear_operator/pull/161) | Preserve diagonal batch axes in block-diagonal products | 2026-11-04T23:42:46Z |
+| [tensorflow/probability #2038](https://github.com/tensorflow/probability/pull/2038) | Fix higher derivatives of Lambert W at zero | 2026-11-04T23:30:20Z |
 | [cornellius-gp/gpytorch #2841](https://github.com/cornellius-gp/gpytorch/pull/2841) | Normalize negative tensor event indices in multitask covariance | 2026-11-04T23:08:02Z |
 | [ott-jax/ott #716](https://github.com/ott-jax/ott/pull/716) | Fix custom implicit differentiation solver dispatch | 2026-11-04T22:51:47Z |
 | [patrick-kidger/equinox #1282](https://github.com/patrick-kidger/equinox/pull/1282) | Recognize NumPy bfloat16 and float8 leaves in filtered gradients | 2026-11-04T22:48:54Z |
@@ -62,7 +68,6 @@
 | [sgl-project/sglang #48419](https://github.com/sgl-project/sglang/pull/48419) | &#91;Fix&#93; scheduler: Keep prefill batches homogeneous by input form | 2026-11-04T16:42:53Z |
 | [NVIDIA/warp #2235](https://github.com/NVIDIA/warp/pull/2235) | Fix scaled smoothstep gradients | 2026-11-04T16:31:07Z |
 | [sgl-project/sglang #48402](https://github.com/sgl-project/sglang/pull/48402) | &#91;Fix&#93; scheduler: Respect earlier EOS in speculative stop handling | 2026-11-04T15:58:29Z |
-| [tensorflow/probability #2038](https://github.com/tensorflow/probability/pull/2038) | Fix higher derivatives of Lambert W at zero | 2026-11-04T15:58:26Z |
 | [google-deepmind/optax #1853](https://github.com/google-deepmind/optax/pull/1853) | Avoid gradient-product underflow in Rprop sign comparisons | 2026-11-04T14:36:34Z |
 | [dmlc/xgboost #12786](https://github.com/dmlc/xgboost/pull/12786) | Normalize Arrow dictionary category names with PyArrow | 2026-11-04T14:04:28Z |
 | [geomstats/geomstats #2170](https://github.com/geomstats/geomstats/pull/2170) | Preserve nonzero modes in rank-deficient Siegel exp and log maps | 2026-11-04T12:55:06Z |
