@@ -3,6 +3,29 @@
   "author": "DiadkoShmek",
   "chapters": [
     {
+      "key": "instructor",
+      "title": "Instructor",
+      "record_ids": [
+        "instructor-streaming-unicode-2026-11-05"
+      ],
+      "report": "reports/instructor-2026-11.md",
+      "uk": {
+        "problem": "Sanitizer часткового JSON у streaming output видаляв DEL/C1 навіть усередині валідних рядків. Значення й ключі могли змінитися до завершення валідації.",
+        "decision": "Наша пропозиція #2866 звузила regex до C0 й додала Unicode streaming regressions. Мейнтейнер консолідував її з іншими пропозиціями в #2899: per-stream tracking лапок і escape-послідовностей зберігає DEL/C1 у JSON-рядках та історичне repair поза ними.",
+        "proof": "Native GitHub підтверджує merge #2899 через jxnl-oai 05.11.2026 о 18:47:01 UTC, commit 5f352b0085fb2f8adaa26d69a6447ed5cabd2034. Head 723629d57c05edb996db411e93e7b37ae5c95a8b збігається з перевіреним source audit: C0-only return AST збережений, sync/async тести розширені. 101 passing tests — звіт мейнтейнера; під час оновлення книги їх не повторювали.",
+        "lesson": "Власний PR і merged maintainer consolidation — різні наслідки. Атрибуцію треба звіряти і на reviewed head, і на фінальному squash commit: trailer може зникнути, навіть коли явний reference зберігся.",
+        "boundaries": {
+          "instructor-streaming-unicode-2026-11-05": "Наш #2866 закритий без merge. #2899 злитий із явним посиланням на #2866; coauthor trailer є на head, але відсутній у фінальному squash. Це четвертий incorporated contribution, не одинадцятий direct merge. Runtime/provider checks не повторювали."
+        }
+      },
+      "en": {
+        "problem": "The partial-JSON streaming sanitizer removed DEL/C1 even inside valid strings, changing keys and values before completed validation.",
+        "decision": "Our #2866 narrowed the regex to C0 and added Unicode streaming regressions. The maintainer consolidated it with other proposals in #2899, using per-stream quote/escape tracking to preserve DEL/C1 inside JSON strings while retaining historical repair outside strings.",
+        "proof": "Native GitHub confirms #2899 merged through jxnl-oai at 18:47:01 UTC on 5 November 2026, commit 5f352b0085fb2f8adaa26d69a6447ed5cabd2034. Head 723629d57c05edb996db411e93e7b37ae5c95a8b matches the source-audited head: the C0-only return AST is retained and sync/async tests are expanded. The 101 passing tests are the maintainer’s report and were not rerun for this journal update.",
+        "lesson": "An original PR and a merged maintainer consolidation are distinct outcomes. Check attribution on both the reviewed head and final squash: a trailer can disappear while the explicit PR reference survives."
+      }
+    },
+    {
       "key": "pylops",
       "title": "PyLops",
       "record_ids": [

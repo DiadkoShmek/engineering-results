@@ -1,17 +1,17 @@
 # External results
 
-<!-- generated; ledger-sha256:949c9fe78d470412d3f55c64b2d4cd8824b585b15f8a128b90091fef7a8ccbc2; narrative-sha256:7596cd4d35624c4f6c5f13890b6f72895546b09cb885ebdb2cb6b88eb45f3808; pr-status-sha256:9c6f5a76da976a24f16def75c7ea47688906f3be52b66df9aadf52e8394b0aeb -->
+<!-- generated; ledger-sha256:c28a069b22b49e30cfcaf845733b0343f5cbb9e41680f977ebbe723440bbb60a; narrative-sha256:67b52d20ff53a725d7394fa27e3d4a1f3f7b3278503d9d981f515da6877bc9ea; pr-status-sha256:44941cfd85d7964e37323bbd0017d2600e85379c19c7836a6a8f877b1bd6b45f -->
 
 
 Engineering outcomes tied to external evidence. A separate casebook for code, investigation, audits and arenas, keeping each kind of result distinct.
 
-10 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+10 directly merged PRs; 4 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
 
-Public PRs in other owners' repositories: 134 submitted; 10 merged, 117 open, 7 closed without merge. GitHub snapshot: 2026-11-05 07:35 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 134 submitted; 10 merged, 116 open, 8 closed without merge. GitHub snapshot: 2026-11-05 19:07 UTC. Own-repository and private activity is excluded.
 
 [All PRs and current dispositions](PR_STATUS.en.md)
 
-**2026-11-04 UTC** · [Українська](README.md) · [English](README.en.md)
+**2026-11-05 UTC** · [Українська](README.md) · [English](README.en.md)
 
 ## The book
 

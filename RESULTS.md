@@ -1,13 +1,13 @@
 # Зовнішні результати
 
-<!-- generated; ledger-sha256:949c9fe78d470412d3f55c64b2d4cd8824b585b15f8a128b90091fef7a8ccbc2; narrative-sha256:7596cd4d35624c4f6c5f13890b6f72895546b09cb885ebdb2cb6b88eb45f3808; pr-status-sha256:9c6f5a76da976a24f16def75c7ea47688906f3be52b66df9aadf52e8394b0aeb -->
+<!-- generated; ledger-sha256:c28a069b22b49e30cfcaf845733b0343f5cbb9e41680f977ebbe723440bbb60a; narrative-sha256:67b52d20ff53a725d7394fa27e3d4a1f3f7b3278503d9d981f515da6877bc9ea; pr-status-sha256:44941cfd85d7964e37323bbd0017d2600e85379c19c7836a6a8f877b1bd6b45f -->
 
 
-**2026-11-04 UTC**
+**2026-11-05 UTC**
 
-Власні злиті PR: 10; внески у злиті рішення мейнтейнерів: 3; технічні аудити: 1. Змагання: часових записів 3, подій 2; Zoria враховано один раз.
+Власні злиті PR: 10; внески у злиті рішення мейнтейнерів: 4; технічні аудити: 1. Змагання: часових записів 3, подій 2; Zoria враховано один раз.
 
-Публічні PR у чужих репозиторіях: 134 подано; 10 злитих, 117 відкритих, 7 закритих без merge. Зріз GitHub: 2026-11-05 07:35 UTC. Власна та приватна активність виключені.
+Публічні PR у чужих репозиторіях: 134 подано; 10 злитих, 116 відкритих, 8 закритих без merge. Зріз GitHub: 2026-11-05 19:07 UTC. Власна та приватна активність виключені.
 
 [Повний стан PR](PR_STATUS.md)
 
@@ -15,6 +15,7 @@
 
 | Дата запису / основа | Кейс | Зовнішній стан | Джерело |
 |---|---|---|---|
+| 2026-11-05 | [Instructor](reports/instructor-2026-11.md) | Внесок у merged fix мейнтейнера | [Джерело](https://github.com/567-labs/instructor/pull/2899) |
 | 2026-11-04 | [PyLops](reports/pylops-2026-11.md) | Власний PR merged | [Джерело](https://github.com/PyLops/pylops/pull/837) |
 | 2026-11-04 | [Redis Python client](reports/redis-monitor-2026-11.md) | Власний PR merged | [Джерело](https://github.com/redis/redis-py/pull/4550) |
 | 2026-11-04 | [Microsoft Semantic Kernel](reports/semantic-kernel-2026-11.md) | Власний PR merged | [Джерело](https://github.com/microsoft/semantic-kernel/pull/14701) |

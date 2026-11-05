@@ -4,6 +4,8 @@ AI-assisted engineering: проблема, рішення, перевірка т
 
 ## Прийняті виправлення
 
+- **[PyLops](reports/pylops-2026-11.md):** орієнтація dense nonstationary convolution узгоджена з forward/adjoint дією оператора; наш #837 merged 04.11.2026.
+
 - **[Microsoft Semantic Kernel](reports/semantic-kernel-2026-11.md):** завершення sync/async native generators після закриття streaming invocation; #14701 merged 04.11.2026.
 - **[Redis Python client](reports/redis-monitor-2026-11.md):** повернення MONITOR connection до пулу після невдалого context entry; #4550 merged 04.11.2026.
 
@@ -21,6 +23,8 @@ AI-assisted engineering: проблема, рішення, перевірка т
 
 ## Дослідження у виправленнях мейнтейнерів
 
+- **[Instructor](reports/instructor-2026-11.md):** Unicode streaming finding і regressions увійшли в консолідацію #2899; наш #2866 superseded. Final squash посилається на #2866, але не зберіг head coauthor trailer.
+
 - **[Prime Intellect](reports/prime-intellect-2026-10.md):** відтворення сформувало виправлення ізоляції агентів у Verifiers і prime-rl. Наш patch superseded.
 - **[TensorDict](reports/tensordict-2026-11.md):** partial checkpoints, differential controls і тести; мейнтейнер обрав менший fix через власний loader PyTorch. Наш #3426 superseded; #3427 merged із credit.
 
@@ -35,13 +39,15 @@ AI-assisted engineering: проблема, рішення, перевірка т
 - **[CodinGame · Mad Pod Racing](reports/codingame-2026-10.md):** відхилена гіпотеза після 2/8; умовний результат 221/400; зовнішня арена окремо.
 - **Zoria / UA SKILLS:** призер сезону. [Оголошення та історія](RESULTS.md#zoria-2026--підсумок-ua-skills); інженерний розбір ще не опублікований.
 
-## Review-stage · 03.11.2026 UTC
+## Вибрані сигнали рев’ю · 05.11.2026, 19:10 UTC
 
-- **[Triton #12611](reports/triton-2026-11.md):** оцінка вартості CUDA f32 sin/cos під час rematerialization. Поданий, OPEN; до merged-результатів не зарахований.
-- **[Semantic Kernel #14701](reports/semantic-kernel-2026-11.md):** історично APPROVED; merge підтверджено 04.11.2026 о 14:46:53 UTC.
-- **[Docling Core #953](https://github.com/docling-project/docling-core/pull/953):** references скопійованих comments; Mergify чекає двох approving reviews.
+- **[Triton #12611](reports/triton-2026-11.md):** OPEN; upstream merge не підтверджено.
+- **[Docling Core #953](https://github.com/docling-project/docling-core/pull/953):** OPEN, aggregate REVIEW_REQUIRED. Поточні CI та всі правила merge цим зрізом не засвідчуються.
+- **[OTT #716](https://github.com/ott-jax/ott/pull/716):** мейнтейнер michalk8 оновив гілку та скоротив тест; Lint/Tests на head 60222b1 чекають дозволу запуску (ACTION_REQUIRED), merge немає.
+- **[ONNX IR #533](https://github.com/onnx/ir-py/pull/533#discussion_r4484767254):** justinchuby схвалив із питанням щодо зміни тесту та flakiness; OPEN, aggregate reviewDecision лишається null.
+- **[ONNX IR #531](https://github.com/onnx/ir-py/pull/531#pullrequestreview-5790485437):** CHANGES_REQUESTED щодо практичної потреби розрізняти signed zero; потрібна предметна відповідь, merge немає.
 
-[Повний датований стан PR](PR_STATUS.md) · [English](PR_STATUS.en.md). Схвалення та локальні тести не є merge.
+[Повний датований стан PR](PR_STATUS.md) · [English](PR_STATUS.en.md). Це вибрані сигнали, не повний аудит CI/threads. Схвалення та локальні тести не є merge.
 
 ## Як читати
 
@@ -55,4 +61,4 @@ AI-assisted engineering: проблема, рішення, перевірка т
 
 [Лезо — 20 нових PR у 18 репозиторіях](reports/lezo-2026-11.md): компіляція, автоматичне диференціювання, тензорні операції, ймовірнісні моделі та лінійні оператори. [English summary](reports/lezo-2026-11.md#english-summary). Статус кожного PR і перевірений source commit наведено у звіті.
 
-[Новий прохід «Лезо»: проміжний зріз 5 подань](reports/lezo50-2026-11.md). Подання й нові merge попередніх PR обліковані окремо.
+[Новий прохід «Лезо»: завершено 35 подань](reports/lezo50-2026-11.md). Подання й нові merge попередніх PR обліковані окремо.

@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "account": "DiadkoShmek",
-  "observed_at": "2026-11-05T07:35:24.625578+00:00",
+  "observed_at": "2026-11-05T19:07:22.746713+00:00",
   "scope": "All public authored PRs in repositories owned by other accounts. Own-repository and private activity are excluded; this is a dated snapshot, not a merge forecast.",
   "pagination_complete": true,
   "page_size": 25,
   "counts": {
     "total": 134,
     "merged": 10,
-    "open": 117,
-    "closed_unmerged": 7
+    "open": 116,
+    "closed_unmerged": 8
   },
   "featured_submissions": [
     {
@@ -19,58 +19,94 @@
   ],
   "review_signals": [
     {
-      "label": "ONNX #8734",
-      "url": "https://github.com/onnx/onnx/pull/8734",
+      "label": "Instructor #2899 / our #2866",
+      "url": "https://github.com/567-labs/instructor/pull/2899",
       "state": "MERGED",
-      "review_decision": "APPROVED",
-      "uk": "Прямий merge підтверджено; approvals від cyyever та justinchuby",
-      "en": "Direct merge confirmed; approvals from cyyever and justinchuby",
-      "checked_at": "2026-11-04T08:28:59.029981Z"
+      "review_decision": null,
+      "uk": "Наш #2866 включений у merged #2899 із прямим посиланням; співавторський рядок є у PR head, але відсутній у фінальному squash-коміті",
+      "en": "Our #2866 was incorporated into merged #2899 with an explicit reference; the PR head has a coauthor trailer, but the final squash commit does not",
+      "checked_at": "2026-11-05T19:10:06.066Z"
+    },
+    {
+      "label": "OTT-JAX #716",
+      "url": "https://github.com/ott-jax/ott/pull/716",
+      "state": "OPEN",
+      "review_decision": null,
+      "uk": "michalk8 оновив гілку та скоротив тест; Lint і Tests на head 60222b1 очікують дозволу запуску (ACTION_REQUIRED), merge немає",
+      "en": "michalk8 updated the branch and pruned the test; Lint and Tests on head 60222b1 await run approval (ACTION_REQUIRED), with no merge",
+      "checked_at": "2026-11-05T19:10:06.066Z"
+    },
+    {
+      "label": "ONNX IR #533",
+      "url": "https://github.com/onnx/ir-py/pull/533",
+      "state": "OPEN",
+      "review_decision": null,
+      "uk": "justinchuby схвалив із коментарем; просить пояснити зміну тесту та ризик нестабільності. PR відкритий",
+      "en": "justinchuby approved with a comment asking about the test change and possible flakiness. The PR remains open",
+      "checked_at": "2026-11-05T19:10:06.066Z"
+    },
+    {
+      "label": "ONNX IR #531",
+      "url": "https://github.com/onnx/ir-py/pull/531",
+      "state": "OPEN",
+      "review_decision": "CHANGES_REQUESTED",
+      "uk": "justinchuby запросив зміни: ставить під сумнів практичну потребу розрізняти signed zero. Потрібна предметна відповідь; merge немає",
+      "en": "justinchuby requested changes, questioning the practical need to distinguish signed zero. A technical response is needed; no merge",
+      "checked_at": "2026-11-05T19:10:06.066Z"
     },
     {
       "label": "Docling Core #953",
       "url": "https://github.com/docling-project/docling-core/pull/953",
       "state": "OPEN",
       "review_decision": "REVIEW_REQUIRED",
-      "uk": "Відкритий; правило Mergify чекає двох схвалень рев’ю",
-      "en": "Open; Mergify requires two approving reviews",
-      "checked_at": "2026-11-03T17:35:57.594788Z"
+      "uk": "Відкритий; GitHub показує REVIEW_REQUIRED. Поточні CI та всі правила merge цим зрізом не засвідчуються",
+      "en": "Open; GitHub reports REVIEW_REQUIRED. This snapshot does not certify current CI or all merge rules",
+      "checked_at": "2026-11-05T19:10:06.066Z"
     },
     {
       "label": "Triton #12611",
       "url": "https://github.com/triton-lang/triton/pull/12611",
       "state": "OPEN",
       "review_decision": "REVIEW_REQUIRED",
-      "uk": "Поданий; зовнішній merge не підтверджено",
-      "en": "Submitted; no upstream merge established",
-      "checked_at": "2026-11-03T17:37:31.939526Z"
+      "uk": "Відкритий інженерний кейс; upstream merge не підтверджено",
+      "en": "Open engineering case; no upstream merge established",
+      "checked_at": "2026-11-05T19:10:06.066Z"
+    },
+    {
+      "label": "ONNX #8734",
+      "url": "https://github.com/onnx/onnx/pull/8734",
+      "state": "MERGED",
+      "review_decision": "APPROVED",
+      "uk": "Прямий merge підтверджено свіжим повним переліком PR",
+      "en": "Direct merge confirmed in the fresh complete PR inventory",
+      "checked_at": "2026-11-05T19:10:06.066Z"
     },
     {
       "label": "Semantic Kernel #14701",
       "url": "https://github.com/microsoft/semantic-kernel/pull/14701",
       "state": "MERGED",
       "review_decision": "APPROVED",
-      "uk": "Прямий merge підтверджено 04.11.2026 о 14:46:53 UTC",
-      "en": "Direct merge confirmed on 4 November 2026 at 14:46:53 UTC",
-      "checked_at": "2026-11-04T16:20:18.445505Z"
+      "uk": "Прямий merge 04.11.2026 о 14:46:53 UTC підтверджено",
+      "en": "Direct merge at 14:46:53 UTC on 4 November 2026 confirmed",
+      "checked_at": "2026-11-05T19:10:06.066Z"
     },
     {
       "label": "Redis #4550",
       "url": "https://github.com/redis/redis-py/pull/4550",
       "state": "MERGED",
       "review_decision": null,
-      "uk": "Прямий merge підтверджено 04.11.2026 о 15:44:00 UTC",
-      "en": "Direct merge confirmed on 4 November 2026 at 15:44:00 UTC",
-      "checked_at": "2026-11-04T16:20:18.445505Z"
+      "uk": "Прямий merge 04.11.2026 о 15:44:00 UTC підтверджено",
+      "en": "Direct merge at 15:44:00 UTC on 4 November 2026 confirmed",
+      "checked_at": "2026-11-05T19:10:06.066Z"
     },
     {
       "label": "PyLops #837",
       "url": "https://github.com/PyLops/pylops/pull/837",
       "state": "MERGED",
       "review_decision": "APPROVED",
-      "uk": "Прямий merge підтверджено; Matteo Ravasi адаптував розташування перевірок перед merge",
-      "en": "Direct merge confirmed; Matteo Ravasi adapted test arrangement before merging",
-      "checked_at": "2026-11-04T21:44:06.308045+00:00"
+      "uk": "Прямий merge підтверджено; адаптація тесту мейнтейнером збережена в історії кейсу",
+      "en": "Direct merge confirmed; the case history retains the maintainer's test adaptation",
+      "checked_at": "2026-11-05T19:10:06.066Z"
     }
   ],
   "pull_requests": [
@@ -98,7 +134,7 @@
       "state": "OPEN",
       "draft": false,
       "created_at": "2026-11-05T07:28:24Z",
-      "updated_at": "2026-11-05T07:28:36Z",
+      "updated_at": "2026-11-05T08:27:44Z",
       "merged_at": null,
       "closed_at": null,
       "head_sha": "a9db3b33f622f1db0ec61725dea7af8a30a8c423",
@@ -258,12 +294,12 @@
       "state": "OPEN",
       "draft": false,
       "created_at": "2026-11-05T01:58:41Z",
-      "updated_at": "2026-11-05T02:20:59Z",
+      "updated_at": "2026-11-05T19:04:12Z",
       "merged_at": null,
       "closed_at": null,
       "head_sha": "4e9e20ed6b0c840ee764b6f9822b41a8e1fe11bd",
       "merge_commit_sha": null,
-      "review_decision": "REVIEW_REQUIRED",
+      "review_decision": null,
       "repository_visibility": "PUBLIC"
     },
     {
@@ -290,12 +326,12 @@
       "state": "OPEN",
       "draft": false,
       "created_at": "2026-11-05T01:01:04Z",
-      "updated_at": "2026-11-05T01:21:29Z",
+      "updated_at": "2026-11-05T19:05:14Z",
       "merged_at": null,
       "closed_at": null,
       "head_sha": "9dbb14fca4141a25c44c71e8468a375be95053e1",
       "merge_commit_sha": null,
-      "review_decision": "REVIEW_REQUIRED",
+      "review_decision": "CHANGES_REQUESTED",
       "repository_visibility": "PUBLIC"
     },
     {
@@ -482,10 +518,10 @@
       "state": "OPEN",
       "draft": false,
       "created_at": "2026-11-04T18:37:34Z",
-      "updated_at": "2026-11-04T22:51:47Z",
+      "updated_at": "2026-11-05T18:11:43Z",
       "merged_at": null,
       "closed_at": null,
-      "head_sha": "d4698f3c3d1e0b3e5cad98f67fc0a0708ec2bd3b",
+      "head_sha": "60222b14ad8d460b75e951ff75d14a6a705ba783",
       "merge_commit_sha": null,
       "review_decision": null,
       "repository_visibility": "PUBLIC"
@@ -1647,12 +1683,12 @@
       "number": 2866,
       "title": "fix: preserve valid Unicode in partial streaming output",
       "url": "https://github.com/567-labs/instructor/pull/2866",
-      "state": "OPEN",
+      "state": "CLOSED",
       "draft": false,
       "created_at": "2026-11-02T00:26:40Z",
-      "updated_at": "2026-11-02T00:26:40Z",
+      "updated_at": "2026-11-05T16:40:27Z",
       "merged_at": null,
-      "closed_at": null,
+      "closed_at": "2026-11-05T16:40:27Z",
       "head_sha": "f8bd904aceec2a8e0a756ca9d0190c6743138185",
       "merge_commit_sha": null,
       "review_decision": "REVIEW_REQUIRED",

@@ -1,26 +1,34 @@
 # External PR status
 
-<!-- generated; pr-status-sha256:9c6f5a76da976a24f16def75c7ea47688906f3be52b66df9aadf52e8394b0aeb -->
+<!-- generated; pr-status-sha256:44941cfd85d7964e37323bbd0017d2600e85379c19c7836a6a8f877b1bd6b45f -->
 
-Public PRs in other owners' repositories: 134 submitted; 10 merged, 117 open, 7 closed without merge. GitHub snapshot: 2026-11-05 07:35 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 134 submitted; 10 merged, 116 open, 8 closed without merge. GitHub snapshot: 2026-11-05 19:07 UTC. Own-repository and private activity is excluded.
 
-Closed without merge does not necessarily mean rejected: 3 proposals are credited in merged maintainer solutions. Approval is not a merge. Snapshot completeness covers the PR inventory, not every CI run or review.
+Closed without merge does not necessarily mean rejected: 4 proposals are credited in merged maintainer solutions. Approval is not a merge. Snapshot completeness covers the PR inventory, not every CI run or review.
 
 [Українська](PR_STATUS.md) · [English](PR_STATUS.en.md) · [JSON](pr-status.json) · [Results](RESULTS.en.md)
 
 ## Selected review signals
 
-- [ONNX #8734](https://github.com/onnx/onnx/pull/8734): Direct merge confirmed; approvals from cyyever and justinchuby. 2026-11-04T08:28:59.029981Z
+- [Instructor #2899 / our #2866](https://github.com/567-labs/instructor/pull/2899): Our #2866 was incorporated into merged #2899 with an explicit reference; the PR head has a coauthor trailer, but the final squash commit does not. 2026-11-05T19:10:06.066Z
 
-- [Docling Core #953](https://github.com/docling-project/docling-core/pull/953): Open; Mergify requires two approving reviews. 2026-11-03T17:35:57.594788Z
+- [OTT-JAX #716](https://github.com/ott-jax/ott/pull/716): michalk8 updated the branch and pruned the test; Lint and Tests on head 60222b1 await run approval (ACTION_REQUIRED), with no merge. 2026-11-05T19:10:06.066Z
 
-- [Triton #12611](https://github.com/triton-lang/triton/pull/12611): Submitted; no upstream merge established. 2026-11-03T17:37:31.939526Z
+- [ONNX IR #533](https://github.com/onnx/ir-py/pull/533): justinchuby approved with a comment asking about the test change and possible flakiness. The PR remains open. 2026-11-05T19:10:06.066Z
 
-- [Semantic Kernel #14701](https://github.com/microsoft/semantic-kernel/pull/14701): Direct merge confirmed on 4 November 2026 at 14:46:53 UTC. 2026-11-04T16:20:18.445505Z
+- [ONNX IR #531](https://github.com/onnx/ir-py/pull/531): justinchuby requested changes, questioning the practical need to distinguish signed zero. A technical response is needed; no merge. 2026-11-05T19:10:06.066Z
 
-- [Redis #4550](https://github.com/redis/redis-py/pull/4550): Direct merge confirmed on 4 November 2026 at 15:44:00 UTC. 2026-11-04T16:20:18.445505Z
+- [Docling Core #953](https://github.com/docling-project/docling-core/pull/953): Open; GitHub reports REVIEW_REQUIRED. This snapshot does not certify current CI or all merge rules. 2026-11-05T19:10:06.066Z
 
-- [PyLops #837](https://github.com/PyLops/pylops/pull/837): Direct merge confirmed; Matteo Ravasi adapted test arrangement before merging. 2026-11-04T21:44:06.308045+00:00
+- [Triton #12611](https://github.com/triton-lang/triton/pull/12611): Open engineering case; no upstream merge established. 2026-11-05T19:10:06.066Z
+
+- [ONNX #8734](https://github.com/onnx/onnx/pull/8734): Direct merge confirmed in the fresh complete PR inventory. 2026-11-05T19:10:06.066Z
+
+- [Semantic Kernel #14701](https://github.com/microsoft/semantic-kernel/pull/14701): Direct merge at 14:46:53 UTC on 4 November 2026 confirmed. 2026-11-05T19:10:06.066Z
+
+- [Redis #4550](https://github.com/redis/redis-py/pull/4550): Direct merge at 15:44:00 UTC on 4 November 2026 confirmed. 2026-11-05T19:10:06.066Z
+
+- [PyLops #837](https://github.com/PyLops/pylops/pull/837): Direct merge confirmed; the case history retains the maintainer's test adaptation. 2026-11-05T19:10:06.066Z
 
 ## Merged PRs (10)
 
@@ -37,12 +45,15 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 | [braintrustdata/braintrust-sdk-javascript #2701](https://github.com/braintrustdata/braintrust-sdk-javascript/pull/2701) | fix: preserve UTF-8 in logged ReadableStream byte chunks | 2026-11-02T11:37:30Z |
 | [AndreyBegma/FilesDrop #32](https://github.com/AndreyBegma/FilesDrop/pull/32) | fix(api): retry expired cleanup and enforce URL timeout during DNS | 2026-10-21T08:49:27Z |
 
-## Open PRs (117)
+## Open PRs (116)
 
 | Repository / PR | Change | Merge or update date UTC |
 |---|---|---|
+| [onnx/ir-py #531](https://github.com/onnx/ir-py/pull/531) | &#91;passes&#93; Preserve signed zero in floating CSE attribute keys | 2026-11-05T19:05:14Z |
+| [onnx/ir-py #533](https://github.com/onnx/ir-py/pull/533) | &#91;passes&#93; Preserve independent Dropout evaluations during CSE | 2026-11-05T19:04:12Z |
+| [ott-jax/ott #716](https://github.com/ott-jax/ott/pull/716) | Fix custom implicit differentiation solver dispatch | 2026-11-05T18:11:43Z |
+| [pyro-ppl/numpyro #2410](https://github.com/pyro-ppl/numpyro/pull/2410) | fix(distributions): infer RecursiveLinearTransform parameter batches | 2026-11-05T08:27:44Z |
 | [cornellius-gp/gpytorch #2842](https://github.com/cornellius-gp/gpytorch/pull/2842) | Fix multitask covariance ordering during arithmetic | 2026-11-05T07:34:03Z |
-| [pyro-ppl/numpyro #2410](https://github.com/pyro-ppl/numpyro/pull/2410) | fix(distributions): infer RecursiveLinearTransform parameter batches | 2026-11-05T07:28:36Z |
 | [milvus-io/pymilvus #3903](https://github.com/milvus-io/pymilvus/pull/3903) | fix: return no query rows for an empty ID selection | 2026-11-05T07:22:46Z |
 | [meta-pytorch/botorch #3546](https://github.com/meta-pytorch/botorch/pull/3546) | Compute Gaussian mixture variance from centered means | 2026-11-05T07:18:39Z |
 | [google-deepmind/dm-haiku #925](https://github.com/google-deepmind/dm-haiku/pull/925) | Use carried Haiku state in while-loop conditions | 2026-11-05T06:09:06Z |
@@ -53,15 +64,12 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 | [cornellius-gp/linear_operator #162](https://github.com/cornellius-gp/linear_operator/pull/162) | Fix log determinants with constant Kronecker diagonal noise | 2026-11-05T03:40:13Z |
 | [GPflow/GPflow #2178](https://github.com/GPflow/GPflow/pull/2178) | Fix multidimensional periodic Matern covariances | 2026-11-05T03:27:39Z |
 | [pyro-ppl/pyro #3513](https://github.com/pyro-ppl/pyro/pull/3513) | Preserve Delta density terms in KL-based ELBOs | 2026-11-05T03:23:11Z |
-| [onnx/ir-py #533](https://github.com/onnx/ir-py/pull/533) | &#91;passes&#93; Preserve independent Dropout evaluations during CSE | 2026-11-05T02:20:59Z |
 | [martenlienen/torchode #56](https://github.com/martenlienen/torchode/pull/56) | Backpropagate from the first evaluation to the initial time | 2026-11-05T01:21:43Z |
-| [onnx/ir-py #531](https://github.com/onnx/ir-py/pull/531) | &#91;passes&#93; Preserve signed zero in floating CSE attribute keys | 2026-11-05T01:21:29Z |
 | [google-deepmind/optax #1855](https://github.com/google-deepmind/optax/pull/1855) | Return scalar arrays from skip_not_finite for inactive optimizer groups | 2026-11-05T01:02:30Z |
 | [tensorflow/probability #2039](https://github.com/tensorflow/probability/pull/2039) | Restore atan_difference gradients at negative-one products | 2026-11-05T00:27:38Z |
 | [cornellius-gp/linear_operator #161](https://github.com/cornellius-gp/linear_operator/pull/161) | Preserve diagonal batch axes in block-diagonal products | 2026-11-04T23:42:46Z |
 | [tensorflow/probability #2038](https://github.com/tensorflow/probability/pull/2038) | Fix higher derivatives of Lambert W at zero | 2026-11-04T23:30:20Z |
 | [cornellius-gp/gpytorch #2841](https://github.com/cornellius-gp/gpytorch/pull/2841) | Normalize negative tensor event indices in multitask covariance | 2026-11-04T23:08:02Z |
-| [ott-jax/ott #716](https://github.com/ott-jax/ott/pull/716) | Fix custom implicit differentiation solver dispatch | 2026-11-04T22:51:47Z |
 | [patrick-kidger/equinox #1282](https://github.com/patrick-kidger/equinox/pull/1282) | Recognize NumPy bfloat16 and float8 leaves in filtered gradients | 2026-11-04T22:48:54Z |
 | [patrick-kidger/optimistix #248](https://github.com/patrick-kidger/optimistix/pull/248) | Use a descent fallback when the indirect damping root fails | 2026-11-04T21:46:40Z |
 | [google-deepmind/optax #1854](https://github.com/google-deepmind/optax/pull/1854) | Reset Lookahead at synchronized fast parameters | 2026-11-04T21:38:40Z |
@@ -138,7 +146,6 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 | [pytorch/rl #4662](https://github.com/pytorch/rl/pull/4662) | &#91;BugFix&#93; Jointly broadcast TruncatedNormal parameters and bounds | 2026-11-02T00:38:15Z |
 | [bentoml/BentoML #5772](https://github.com/bentoml/BentoML/pull/5772) | fix: cancel ASGI application when a waiting request is cancelled | 2026-11-02T00:37:45Z |
 | [microsoft/onnxscript #3147](https://github.com/microsoft/onnxscript/pull/3147) | fix(rewriter): preserve PRelu data-input expansion | 2026-11-02T00:37:07Z |
-| [567-labs/instructor #2866](https://github.com/567-labs/instructor/pull/2866) | fix: preserve valid Unicode in partial streaming output | 2026-11-02T00:26:40Z |
 | [guidance-ai/llguidance #426](https://github.com/guidance-ai/llguidance/pull/426) | fix: preserve Unicode escapes when converting GBNF to Lark | 2026-11-02T00:17:48Z |
 | [pytorch/rl #4660](https://github.com/pytorch/rl/pull/4660) | &#91;BugFix&#93; Apply IndependentNormal location scaling during construction | 2026-11-01T00:42:13Z |
 | [wandb/weave #8086](https://github.com/wandb/weave/pull/8086) | fix(weave): include cached tokens in Conversation Anthropic usage | 2026-11-01T00:14:33Z |
@@ -159,10 +166,11 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 | [huggingface/datasets #8916](https://github.com/huggingface/datasets/pull/8916) | Fix default configuration selection when updating dataset cards | 2026-10-31T18:41:21Z |
 | [PrimeIntellect-ai/verifiers #3036](https://github.com/PrimeIntellect-ai/verifiers/pull/3036) | fix: include failure messages in rollout completion logs | 2026-10-31T18:00:21Z |
 
-## Closed without merge (7)
+## Closed without merge (8)
 
 | Repository / PR | Change | Merge or update date UTC |
 |---|---|---|
+| [567-labs/instructor #2866](https://github.com/567-labs/instructor/pull/2866) | fix: preserve valid Unicode in partial streaming output | 2026-11-05T16:40:27Z |
 | [apache/arrow #55395](https://github.com/apache/arrow/pull/55395) | GH-55394: &#91;C++&#93;&#91;Compute&#93; Check overflow when negating duration | 2026-11-04T15:58:23Z |
 | [triton-lang/triton #12590](https://github.com/triton-lang/triton/pull/12590) | &#91;RUNTIME&#93; Release autotuner arguments after failed runs | 2026-11-03T18:27:06Z |
 | [apache/tvm-ffi #897](https://github.com/apache/tvm-ffi/pull/897) | &#91;FIX&#93; Keep structural byte hashes independent of storage representation | 2026-11-02T20:58:53Z |

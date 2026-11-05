@@ -4,6 +4,7 @@
 
 | Кейс | Зовнішній наслідок | Звіт |
 |---|---|---|
+| Instructor | Наш #2866 superseded; maintainer #2899 merged із явним reference, не direct merge | [Українською](instructor-2026-11.md) · [English](instructor-2026-11.md#english-summary) |
 | PyLops | Власний dense-convolution fix merged; тест адаптував мейнтейнер | [Українською](pylops-2026-11.md) · [English](pylops-2026-11.md#english-summary) |
 | ONNX IR | Власний fix публічних output aliases merged | [Українською](onnx-ir-2026-11.md) · [English](onnx-ir-2026-11.md#english-summary) |
 | Triton | Поданий PR #12611; OPEN, без merge | [Українською](triton-2026-11.md) · [English](triton-2026-11.md#english-summary) |
@@ -34,4 +35,4 @@
 
 [PyLops](pylops-2026-11.md) · [Microsoft Semantic Kernel](semantic-kernel-2026-11.md) · [Redis Python client](redis-monitor-2026-11.md) — прямі merge із native merge-комітами.
 
-[Новий прохід «Лезо»: проміжний зріз 16 подань](lezo50-2026-11.md) · [English](lezo50-2026-11.md#english-summary).
+[Новий прохід «Лезо»: завершено 35 подань](lezo50-2026-11.md) · [English](lezo50-2026-11.md#english-summary).

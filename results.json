@@ -343,6 +343,41 @@
         "sha256": "923ef03cf4dccaf0bd924bd81fbf81cf46d5d6da9fa842b58733e87ad6af60ca"
       },
       "boundary": "One-dimensional real nonstationary dense operator orientation; prior runtime proof not rerun for journal update. Multidimensional dense-shape/complex-filter limitations remain; no production adoption or income claim."
+    },
+    {
+      "id": "instructor-streaming-unicode-2026-11-05",
+      "category": "upstream_contribution",
+      "project": "Instructor",
+      "format": "open_source",
+      "status": "incorporated_in_maintainer_fix",
+      "as_of": "2026-11-05",
+      "source_url": "https://github.com/567-labs/instructor/pull/2899",
+      "contribution_url": "https://github.com/567-labs/instructor/pull/2866",
+      "contribution_merged": false,
+      "implementation_by": "maintainer jxnl-oai",
+      "our_contribution": "Original Unicode-preservation finding, C0-only sanitizer proposal and streaming regressions",
+      "upstream_fixes": [
+        {
+          "url": "https://github.com/567-labs/instructor/pull/2899",
+          "merged": true,
+          "merged_at": "2026-11-05T18:47:01Z",
+          "merge_commit_sha": "5f352b0085fb2f8adaa26d69a6447ed5cabd2034",
+          "merged_by": "jxnl-oai",
+          "observed_head": "723629d57c05edb996db411e93e7b37ae5c95a8b"
+        }
+      ],
+      "acknowledgement_url": "https://github.com/567-labs/instructor/pull/2866#issuecomment-6663590222",
+      "attribution": "Replacement body and final squash commit explicitly reference our #2866. Reviewed PR head has our coauthor trailer; final squash commit omits it.",
+      "head_coauthor_trailer_present": true,
+      "final_squash_coauthor_trailer_present": false,
+      "report_path": "reports/instructor-2026-11.md",
+      "boundary": "Our #2866 closed unmerged; maintainer consolidation #2899 merged with an explicit reference to our PR. The reviewed head retains our coauthor trailer, but the final squash commit does not. Source comparison was performed; the maintainer-reported 101 passing tests were not rerun for this journal update. No provider, deployment or live-service proof.",
+      "previous_observation": {
+        "as_of": "2026-11-05",
+        "status": "superseded_by_open_maintainer_fix",
+        "successor_state": "OPEN",
+        "successor_head": "723629d57c05edb996db411e93e7b37ae5c95a8b"
+      }
     }
   ]
 }
