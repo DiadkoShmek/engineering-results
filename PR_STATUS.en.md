@@ -1,8 +1,8 @@
 # External PR status
 
-<!-- generated; pr-status-sha256:347ed54914873636d9f3e146bb115a9b3ad28a73a69aff4b6f430e7b79499f54 -->
+<!-- generated; pr-status-sha256:9c6f5a76da976a24f16def75c7ea47688906f3be52b66df9aadf52e8394b0aeb -->
 
-Public PRs in other owners' repositories: 129 submitted; 10 merged, 112 open, 7 closed without merge. GitHub snapshot: 2026-11-05 04:48 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 134 submitted; 10 merged, 117 open, 7 closed without merge. GitHub snapshot: 2026-11-05 07:35 UTC. Own-repository and private activity is excluded.
 
 Closed without merge does not necessarily mean rejected: 3 proposals are credited in merged maintainer solutions. Approval is not a merge. Snapshot completeness covers the PR inventory, not every CI run or review.
 
@@ -37,10 +37,16 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 | [braintrustdata/braintrust-sdk-javascript #2701](https://github.com/braintrustdata/braintrust-sdk-javascript/pull/2701) | fix: preserve UTF-8 in logged ReadableStream byte chunks | 2026-11-02T11:37:30Z |
 | [AndreyBegma/FilesDrop #32](https://github.com/AndreyBegma/FilesDrop/pull/32) | fix(api): retry expired cleanup and enforce URL timeout during DNS | 2026-10-21T08:49:27Z |
 
-## Open PRs (112)
+## Open PRs (117)
 
 | Repository / PR | Change | Merge or update date UTC |
 |---|---|---|
+| [cornellius-gp/gpytorch #2842](https://github.com/cornellius-gp/gpytorch/pull/2842) | Fix multitask covariance ordering during arithmetic | 2026-11-05T07:34:03Z |
+| [pyro-ppl/numpyro #2410](https://github.com/pyro-ppl/numpyro/pull/2410) | fix(distributions): infer RecursiveLinearTransform parameter batches | 2026-11-05T07:28:36Z |
+| [milvus-io/pymilvus #3903](https://github.com/milvus-io/pymilvus/pull/3903) | fix: return no query rows for an empty ID selection | 2026-11-05T07:22:46Z |
+| [meta-pytorch/botorch #3546](https://github.com/meta-pytorch/botorch/pull/3546) | Compute Gaussian mixture variance from centered means | 2026-11-05T07:18:39Z |
+| [google-deepmind/dm-haiku #925](https://github.com/google-deepmind/dm-haiku/pull/925) | Use carried Haiku state in while-loop conditions | 2026-11-05T06:09:06Z |
+| [microsoft/onnxscript #3161](https://github.com/microsoft/onnxscript/pull/3161) | Fix ConcatFromSequence lowering for opsets 11 and 12 | 2026-11-05T05:28:53Z |
 | [tensorly/tensorly #701](https://github.com/tensorly/tensorly/pull/701) | Prevent cancelling updates from stopping FISTA early | 2026-11-05T04:47:58Z |
 | [google-deepmind/distrax #396](https://github.com/google-deepmind/distrax/pull/396) | Broadcast SplitCoupling halves over batch axes | 2026-11-05T04:17:28Z |
 | [NVIDIA/warp #2245](https://github.com/NVIDIA/warp/pull/2245) | Widen float16 atan2 gradient intermediates | 2026-11-05T04:00:31Z |
@@ -57,7 +63,6 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 | [cornellius-gp/gpytorch #2841](https://github.com/cornellius-gp/gpytorch/pull/2841) | Normalize negative tensor event indices in multitask covariance | 2026-11-04T23:08:02Z |
 | [ott-jax/ott #716](https://github.com/ott-jax/ott/pull/716) | Fix custom implicit differentiation solver dispatch | 2026-11-04T22:51:47Z |
 | [patrick-kidger/equinox #1282](https://github.com/patrick-kidger/equinox/pull/1282) | Recognize NumPy bfloat16 and float8 leaves in filtered gradients | 2026-11-04T22:48:54Z |
-| [milvus-io/pymilvus #3903](https://github.com/milvus-io/pymilvus/pull/3903) | fix: return no query rows for an empty ID selection | 2026-11-04T22:08:22Z |
 | [patrick-kidger/optimistix #248](https://github.com/patrick-kidger/optimistix/pull/248) | Use a descent fallback when the indirect damping root fails | 2026-11-04T21:46:40Z |
 | [google-deepmind/optax #1854](https://github.com/google-deepmind/optax/pull/1854) | Reset Lookahead at synchronized fast parameters | 2026-11-04T21:38:40Z |
 | [pyro-ppl/numpyro #2406](https://github.com/pyro-ppl/numpyro/pull/2406) | fix(distributions): preserve ordered logistic tail masses | 2026-11-04T21:05:31Z |

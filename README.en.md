@@ -1,13 +1,13 @@
 # External results
 
-<!-- generated; ledger-sha256:949c9fe78d470412d3f55c64b2d4cd8824b585b15f8a128b90091fef7a8ccbc2; narrative-sha256:7596cd4d35624c4f6c5f13890b6f72895546b09cb885ebdb2cb6b88eb45f3808; pr-status-sha256:347ed54914873636d9f3e146bb115a9b3ad28a73a69aff4b6f430e7b79499f54 -->
+<!-- generated; ledger-sha256:949c9fe78d470412d3f55c64b2d4cd8824b585b15f8a128b90091fef7a8ccbc2; narrative-sha256:7596cd4d35624c4f6c5f13890b6f72895546b09cb885ebdb2cb6b88eb45f3808; pr-status-sha256:9c6f5a76da976a24f16def75c7ea47688906f3be52b66df9aadf52e8394b0aeb -->
 
 
 Engineering outcomes tied to external evidence. A separate casebook for code, investigation, audits and arenas, keeping each kind of result distinct.
 
 10 directly merged PRs; 3 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
 
-Public PRs in other owners' repositories: 129 submitted; 10 merged, 112 open, 7 closed without merge. GitHub snapshot: 2026-11-05 04:48 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 134 submitted; 10 merged, 117 open, 7 closed without merge. GitHub snapshot: 2026-11-05 07:35 UTC. Own-repository and private activity is excluded.
 
 [All PRs and current dispositions](PR_STATUS.en.md)
 
