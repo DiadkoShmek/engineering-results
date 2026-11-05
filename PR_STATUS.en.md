@@ -1,8 +1,8 @@
 # External PR status
 
-<!-- generated; pr-status-sha256:9aedd1a7d6c67deef05f93b5a82f76a89c6f7f00f3bbc25ddda0a95562f86ba6 -->
+<!-- generated; pr-status-sha256:347ed54914873636d9f3e146bb115a9b3ad28a73a69aff4b6f430e7b79499f54 -->
 
-Public PRs in other owners' repositories: 122 submitted; 10 merged, 105 open, 7 closed without merge. GitHub snapshot: 2026-11-05 01:23 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 129 submitted; 10 merged, 112 open, 7 closed without merge. GitHub snapshot: 2026-11-05 04:48 UTC. Own-repository and private activity is excluded.
 
 Closed without merge does not necessarily mean rejected: 3 proposals are credited in merged maintainer solutions. Approval is not a merge. Snapshot completeness covers the PR inventory, not every CI run or review.
 
@@ -37,10 +37,17 @@ Closed without merge does not necessarily mean rejected: 3 proposals are credite
 | [braintrustdata/braintrust-sdk-javascript #2701](https://github.com/braintrustdata/braintrust-sdk-javascript/pull/2701) | fix: preserve UTF-8 in logged ReadableStream byte chunks | 2026-11-02T11:37:30Z |
 | [AndreyBegma/FilesDrop #32](https://github.com/AndreyBegma/FilesDrop/pull/32) | fix(api): retry expired cleanup and enforce URL timeout during DNS | 2026-10-21T08:49:27Z |
 
-## Open PRs (105)
+## Open PRs (112)
 
 | Repository / PR | Change | Merge or update date UTC |
 |---|---|---|
+| [tensorly/tensorly #701](https://github.com/tensorly/tensorly/pull/701) | Prevent cancelling updates from stopping FISTA early | 2026-11-05T04:47:58Z |
+| [google-deepmind/distrax #396](https://github.com/google-deepmind/distrax/pull/396) | Broadcast SplitCoupling halves over batch axes | 2026-11-05T04:17:28Z |
+| [NVIDIA/warp #2245](https://github.com/NVIDIA/warp/pull/2245) | Widen float16 atan2 gradient intermediates | 2026-11-05T04:00:31Z |
+| [cornellius-gp/linear_operator #162](https://github.com/cornellius-gp/linear_operator/pull/162) | Fix log determinants with constant Kronecker diagonal noise | 2026-11-05T03:40:13Z |
+| [GPflow/GPflow #2178](https://github.com/GPflow/GPflow/pull/2178) | Fix multidimensional periodic Matern covariances | 2026-11-05T03:27:39Z |
+| [pyro-ppl/pyro #3513](https://github.com/pyro-ppl/pyro/pull/3513) | Preserve Delta density terms in KL-based ELBOs | 2026-11-05T03:23:11Z |
+| [onnx/ir-py #533](https://github.com/onnx/ir-py/pull/533) | &#91;passes&#93; Preserve independent Dropout evaluations during CSE | 2026-11-05T02:20:59Z |
 | [martenlienen/torchode #56](https://github.com/martenlienen/torchode/pull/56) | Backpropagate from the first evaluation to the initial time | 2026-11-05T01:21:43Z |
 | [onnx/ir-py #531](https://github.com/onnx/ir-py/pull/531) | &#91;passes&#93; Preserve signed zero in floating CSE attribute keys | 2026-11-05T01:21:29Z |
 | [google-deepmind/optax #1855](https://github.com/google-deepmind/optax/pull/1855) | Return scalar arrays from skip_not_finite for inactive optimizer groups | 2026-11-05T01:02:30Z |
