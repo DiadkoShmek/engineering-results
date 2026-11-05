@@ -1,6 +1,6 @@
 # Зовнішні результати
 
-<!-- generated; ledger-sha256:c28a069b22b49e30cfcaf845733b0343f5cbb9e41680f977ebbe723440bbb60a; narrative-sha256:67b52d20ff53a725d7394fa27e3d4a1f3f7b3278503d9d981f515da6877bc9ea; pr-status-sha256:44941cfd85d7964e37323bbd0017d2600e85379c19c7836a6a8f877b1bd6b45f -->
+<!-- generated; ledger-sha256:01e1c97b07fc337e3b63a7e70911afad55c63a88a0c7a43b67c664eeb218abd4; narrative-sha256:d2dd325e8e8ab4f4a6b9a81fdb55e325b1b93f482a6ea60b3a1324dbf27e4cbe; pr-status-sha256:6cf76b0331c7751ed6b38b31ea7bb4b5800e5b141777137a1863ab267eb56d11 -->
 
 
 DiadkoShmek · 2026-11-05 UTC
@@ -9,9 +9,9 @@ DiadkoShmek · 2026-11-05 UTC
 
 Я досліджую дефект, визначаю контракт і перевіряю наслідок. AI-інструменти допомагають із пошуком, реалізацією та перевіркою; я задаю напрям, відповідаю за інженерне рішення й погоджую зовнішні дії. Ця книга не вимірює відсоток автономності чи перевагу однієї моделі.
 
-Власні злиті PR: 10; внески у злиті рішення мейнтейнерів: 4; технічні аудити: 1. Змагання: часових записів 3, подій 2; Zoria враховано один раз.
+Власні злиті PR: 13; внески у злиті рішення мейнтейнерів: 4; технічні аудити: 1. Змагання: часових записів 3, подій 2; Zoria враховано один раз.
 
-Публічні PR у чужих репозиторіях: 134 подано; 10 злитих, 116 відкритих, 8 закритих без merge. Зріз GitHub: 2026-11-05 19:07 UTC. Власна та приватна активність виключені.
+Публічні PR у чужих репозиторіях: 134 подано; 13 злитих, 113 відкритих, 8 закритих без merge. Зріз GitHub: 2026-11-05 21:47 UTC. Власна та приватна активність виключені.
 
 [Повний стан PR](../../PR_STATUS.md)
 
@@ -19,43 +19,133 @@ DiadkoShmek · 2026-11-05 UTC
 
 ## Зміст
 
-1. [Instructor](#case-instructor)
+1. [OTT-JAX](#case-ott-implicit-diff)
 
-2. [PyLops](#case-pylops)
+2. [ONNX IR · graph iterator](#case-onnx-ir-iterator)
 
-3. [Redis Python client](#case-redis-monitor)
+3. [ONNX IR · Dropout CSE](#case-onnx-ir-dropout)
 
-4. [Microsoft Semantic Kernel](#case-semantic-kernel)
+4. [Instructor](#case-instructor)
 
-5. [ONNX Range](#case-onnx-range)
+5. [PyLops](#case-pylops)
 
-6. [ONNX IR](#case-onnx-ir)
+6. [Redis Python client](#case-redis-monitor)
 
-7. [FilesDrop](#case-filesdrop)
+7. [Microsoft Semantic Kernel](#case-semantic-kernel)
 
-8. [Prime Intellect](#case-prime)
+8. [ONNX Range](#case-onnx-range)
 
-9. [M7 MCP](#case-m7)
+9. [ONNX IR](#case-onnx-ir)
 
-10. [Braintrust SDK JavaScript](#case-braintrust)
+10. [FilesDrop](#case-filesdrop)
 
-11. [Kraft](#case-kraft)
+11. [Prime Intellect](#case-prime)
 
-12. [PyTorch TensorDict](#case-tensordict)
+12. [M7 MCP](#case-m7)
 
-13. [BlackJAX](#case-blackjax)
+13. [Braintrust SDK JavaScript](#case-braintrust)
 
-14. [TensorLy](#case-tensorly)
+14. [Kraft](#case-kraft)
 
-15. [Apache TVM-FFI](#case-tvm)
+15. [PyTorch TensorDict](#case-tensordict)
 
-16. [CodinGame - Mad Pod Racing](#case-codingame)
+16. [BlackJAX](#case-blackjax)
 
-17. [Zoria 2026 / UA SKILLS](#case-zoria)
+17. [TensorLy](#case-tensorly)
+
+18. [Apache TVM-FFI](#case-tvm)
+
+19. [CodinGame - Mad Pod Racing](#case-codingame)
+
+20. [Zoria 2026 / UA SKILLS](#case-zoria)
+
+<a id="case-ott-implicit-diff"></a>
+
+## 01. OTT-JAX
+
+**2026-11-05 · Власний PR merged · UTC 2026-11-05T21:46:10.662Z · 2026-11-05T21:21:59Z**
+
+Прямий merge із maintainer-pruned тестом. Поточна регресія перевіряє n<=m/default-LSE dispatch path, не довільний solver. Дев’ять check runs прив’язані до reviewed head; локального повного runtime re-audit, GPU/higherAD/performance або production adoption не заявлено.
+
+### Проблема
+
+Документований ImplicitDiff(solver=...) приймав користувацький callback, але differentiation падала з UnboundLocalError до його виклику. Локальний solver отримував значення лише у default-гілці.
+
+### Моє рішення та зовнішній вибір
+
+Внесок ініціалізує локальний solver перед існуючим explicit-None fallback. Типова схема, Schur/transpose logic і kwargs forwarding збережені. Мейнтейнер michalk8 скоротив регресію до одного public Sinkhorn cost-gradient порівняння.
+
+### Перевірка й обмеження
+
+Наш #716 злитий через michalk8 05.11.2026 о 21:21:59 UTC, commit 8683e37d162db8b1fbb746afc28825c938f6e833. На reviewed head 60222b14 підтверджені дев’ять hosted check runs SUCCESS, включно з Lint і Tests. Поточний тест використовує use_danskin=False, порівнює custom/default x-gradients і перевіряє рівно один виклик із потрібними kwargs. Ширші попередні локальні перевірки збережені як історичні; під час оновлення книги їх не повторювали.
+
+### Що переношу далі
+
+Ремонт extension-point має відновлювати виклик callback у реальному споживачі. Після maintainer pruning треба описувати фактичний фінальний тест і CI, не переносити на нього ширше історичне покриття.
+
+- [Першоджерело](https://github.com/ott-jax/ott/pull/716)
+
+[Повний кейс / Full report](../../reports/ott-2026-11.md)
+
+<a id="case-onnx-ir-iterator"></a>
+
+## 02. ONNX IR · graph iterator
+
+**2026-11-05 · Власний PR merged · 2026-11-05T21:21:07Z**
+
+Прямий merge нашого PR. Finite iterable slices; rollback некоректних операцій не розширений. Runtime counts - датований PR report, не повторний прогін.
+
+### Проблема
+
+Присвоєння finite iterator/generator у graph.inputs[:] або graph.outputs[:] спочатку витрачало його на ownership tracking, а потім передавало порожній iterable у list assignment. Clone міг втратити graph I/O, а extended slices - помилково відхиляти коректну довжину.
+
+### Моє рішення та зовнішній вибір
+
+Заміна матеріалізується в tuple один раз до обох споживачів. Це узгоджено з constructor/extend pattern; ownership і Python slice semantics лишаються в наявному власнику.
+
+### Перевірка й обмеження
+
+Наш #529 злитий через justinchuby 05.11.2026 о 21:21:07 UTC, commit 045f02a0dad7c8135305e4f5022784d4550d40e7. Фінальні два файли зберігають tuple snapshot і graph/model regressions. Історичний PR report має 760 tests/104 subtests та окремий 239/96 review; це не прогін під час цього оновлення книги.
+
+### Що переношу далі
+
+Одноразовий iterable треба зафіксувати перед кількома споживачами. Перевірка серіалізації та повного ONNX model checking показує наслідок втрати graph I/O за межами контейнера.
+
+- [Першоджерело](https://github.com/onnx/ir-py/pull/529)
+
+[Повний кейс / Full report](../../reports/onnx-ir-iterator-2026-11.md)
+
+<a id="case-onnx-ir-dropout"></a>
+
+## 03. ONNX IR · Dropout CSE
+
+**2026-11-05 · Власний PR merged · 2026-11-05T21:15:56Z**
+
+Прямий merge нашого PR. Структурний Dropout test не вимагає нерівності випадкових масок. Seeded/inference paths теж conservatively excluded; 12 тестів - попередній amendment proof, не новий прогін.
+
+### Проблема
+
+CSE об’єднував незалежні standard-domain Dropout evaluations з однаковими входами. Їхні sampled masks ставали одним значенням, і downstream Xor перетворювався на Xor(v,v), тотожно false.
+
+### Моє рішення та зовнішній вибір
+
+Dropout додано до наявного переліку nondeterministic exclusions. Регресія структурно зберігає два вузли й різні Xor operands, без вимоги, щоб дві випадкові маски обов’язково відрізнялися. Зайві thread-pool зміни тестового helper прибрані.
+
+### Перевірка й обмеження
+
+Наш #533 злитий через justinchuby 05.11.2026 о 21:15:56 UTC, commit 4b0302491a601f445e9035097d0b9f6f0f7f90fe. Exact final head ab1253c9 містить лише exclusion і структурний test. Останній amendment документує 12 passing CSE methods; source/runtime proof вже виконаний раніше, під час підтримки книги його не повторювали.
+
+### Що переношу далі
+
+CSE має враховувати семантику випадкового evaluation, а не лише тотожність входів. Структурна регресія перевіряє незалежність вузлів без flaky припущення про конкретні random samples.
+
+- [Першоджерело](https://github.com/onnx/ir-py/pull/533)
+
+[Повний кейс / Full report](../../reports/onnx-ir-dropout-2026-11.md)
 
 <a id="case-instructor"></a>
 
-## 01. Instructor
+## 04. Instructor
 
 **2026-11-05 · Внесок у merged fix мейнтейнера**
 
@@ -87,7 +177,7 @@ Native GitHub підтверджує merge #2899 через jxnl-oai 05.11.2026 
 
 <a id="case-pylops"></a>
 
-## 02. PyLops
+## 05. PyLops
 
 **2026-11-04 · Власний PR merged · UTC 2026-11-04T21:44:06.308045+00:00 · 2026-11-04T21:34:47Z**
 
@@ -115,7 +205,7 @@ Native GitHub підтверджує прямий merge #837 о 21:34:47 UTC 04.
 
 <a id="case-redis-monitor"></a>
 
-## 03. Redis Python client
+## 06. Redis Python client
 
 **2026-11-04 · Власний PR merged · UTC 2026-11-04T16:20:18.445505Z · 2026-11-04T15:44:00Z**
 
@@ -143,7 +233,7 @@ Sync/async MONITOR звільняють з’єднання після невд�
 
 <a id="case-semantic-kernel"></a>
 
-## 04. Microsoft Semantic Kernel
+## 07. Microsoft Semantic Kernel
 
 **2026-11-04 · Власний PR merged · UTC 2026-11-04T16:20:18.445505Z · 2026-11-04T14:46:53Z**
 
@@ -171,7 +261,7 @@ Sync/async MONITOR звільняють з’єднання після невд�
 
 <a id="case-onnx-range"></a>
 
-## 05. ONNX Range
+## 08. ONNX Range
 
 **2026-11-04 · Власний PR merged · 2026-11-04T01:09:20Z**
 
@@ -199,7 +289,7 @@ GitHub підтверджує прямий merge PR #8734 4 листопада 2
 
 <a id="case-onnx-ir"></a>
 
-## 06. ONNX IR
+## 09. ONNX IR
 
 **2026-11-03 · Власний PR merged · UTC 2026-11-03T17:33:18.542858Z · 2026-11-03T16:40:54Z**
 
@@ -227,7 +317,7 @@ Identity зберігається, коли його вхід уже є публ
 
 <a id="case-filesdrop"></a>
 
-## 07. FilesDrop
+## 10. FilesDrop
 
 **2026-10-21 · Власний PR merged**
 
@@ -255,7 +345,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-prime"></a>
 
-## 08. Prime Intellect
+## 11. Prime Intellect
 
 **2026-10-24 · Внесок у merged fix мейнтейнера**
 
@@ -289,7 +379,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-m7"></a>
 
-## 09. M7 MCP
+## 12. M7 MCP
 
 **2026-10-29 · Аудит відзначено в релізі**
 
@@ -317,7 +407,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-braintrust"></a>
 
-## 10. Braintrust SDK JavaScript
+## 13. Braintrust SDK JavaScript
 
 **2026-11-02 · Власний PR merged · 2026-11-02T11:37:30Z**
 
@@ -345,7 +435,7 @@ Cleanup має зберігати можливість повторення. С�
 
 <a id="case-kraft"></a>
 
-## 11. Kraft
+## 14. Kraft
 
 **2026-11-02 · Власний PR merged · 2026-11-02T12:08:30Z**
 
@@ -373,7 +463,7 @@ Focused suite пройшов 16 тестів. Репозиторні ci-checks �
 
 <a id="case-tensordict"></a>
 
-## 12. PyTorch TensorDict
+## 15. PyTorch TensorDict
 
 **2026-11-01 · Внесок у merged fix мейнтейнера**
 
@@ -405,7 +495,7 @@ Focused suite пройшов 16 тестів. Репозиторні ci-checks �
 
 <a id="case-blackjax"></a>
 
-## 13. BlackJAX
+## 16. BlackJAX
 
 **2026-11-02 · Власний PR merged · 2026-11-02T14:43:52Z**
 
@@ -433,7 +523,7 @@ Barker MCMC міг відхилити крок до області вищої й
 
 <a id="case-tensorly"></a>
 
-## 14. TensorLy
+## 17. TensorLy
 
 **2026-11-03 · Власний PR merged · 2026-11-02T23:54:45Z**
 
@@ -463,7 +553,7 @@ Barker MCMC міг відхилити крок до області вищої й
 
 <a id="case-tvm"></a>
 
-## 15. Apache TVM-FFI
+## 18. Apache TVM-FFI
 
 **2026-11-03 · Внесок у merged fix мейнтейнера**
 
@@ -495,7 +585,7 @@ Barker MCMC міг відхилити крок до області вищої й
 
 <a id="case-codingame"></a>
 
-## 16. CodinGame - Mad Pod Racing
+## 19. CodinGame - Mad Pod Racing
 
 **2026-10-21 (Europe/Helsinki) · Датований зріз арени · UTC 2026-10-20T22:06:15.975Z · 86/1657 (Legend League)**
 
@@ -523,7 +613,7 @@ V79 зупинено після 2 перемог у восьми заверше�
 
 <a id="case-zoria"></a>
 
-## 17. Zoria 2026 / UA SKILLS
+## 20. Zoria 2026 / UA SKILLS
 
 **2026-10-19 (Europe/Helsinki) · Історичний попередній результат · UTC 2026-10-20T22:06:05.463Z · 5/9 (загальний попередній підсумок учасників другого етапу)**
 

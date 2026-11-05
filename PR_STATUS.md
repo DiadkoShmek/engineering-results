@@ -1,8 +1,8 @@
 # Стан зовнішніх PR
 
-<!-- generated; pr-status-sha256:44941cfd85d7964e37323bbd0017d2600e85379c19c7836a6a8f877b1bd6b45f -->
+<!-- generated; pr-status-sha256:6cf76b0331c7751ed6b38b31ea7bb4b5800e5b141777137a1863ab267eb56d11 -->
 
-Публічні PR у чужих репозиторіях: 134 подано; 10 злитих, 116 відкритих, 8 закритих без merge. Зріз GitHub: 2026-11-05 19:07 UTC. Власна та приватна активність виключені.
+Публічні PR у чужих репозиторіях: 134 подано; 13 злитих, 113 відкритих, 8 закритих без merge. Зріз GitHub: 2026-11-05 21:47 UTC. Власна та приватна активність виключені.
 
 Закритий без merge PR не обов’язково відхилений: 4 пропозиції відзначено у злитих рішеннях мейнтейнерів. Схвалення не є merge. Повнота цього зрізу стосується переліку PR, а не всіх CI чи рев’ю.
 
@@ -12,11 +12,11 @@
 
 - [Instructor #2899 / our #2866](https://github.com/567-labs/instructor/pull/2899): Наш #2866 включений у merged #2899 із прямим посиланням; співавторський рядок є у PR head, але відсутній у фінальному squash-коміті. 2026-11-05T19:10:06.066Z
 
-- [OTT-JAX #716](https://github.com/ott-jax/ott/pull/716): michalk8 оновив гілку та скоротив тест; Lint і Tests на head 60222b1 очікують дозволу запуску (ACTION_REQUIRED), merge немає. 2026-11-05T19:10:06.066Z
+- [OTT-JAX #716](https://github.com/ott-jax/ott/pull/716): Прямий merge 05.11.2026 о 21:21:59 UTC; michalk8 скоротив регресію, production dispatch fix збережений; 9 hosted check runs SUCCESS на 60222b14. 2026-11-05T21:47:16.160957+00:00
 
-- [ONNX IR #533](https://github.com/onnx/ir-py/pull/533): justinchuby схвалив із коментарем; просить пояснити зміну тесту та ризик нестабільності. PR відкритий. 2026-11-05T19:10:06.066Z
+- [ONNX IR #533](https://github.com/onnx/ir-py/pull/533): Прямий merge 05.11.2026 о 21:15:56 UTC через justinchuby; структурна регресія збережена, thread-pool helper edits прибрані. 2026-11-05T21:47:16.160957+00:00
 
-- [ONNX IR #531](https://github.com/onnx/ir-py/pull/531): justinchuby запросив зміни: ставить під сумнів практичну потребу розрізняти signed zero. Потрібна предметна відповідь; merge немає. 2026-11-05T19:10:06.066Z
+- [ONNX IR #531](https://github.com/onnx/ir-py/pull/531): Числову регресію Div/Sigmoid і відповідь опубліковано в dc50b7a; CHANGES_REQUESTED залишається, PR відкритий без merge. 2026-11-05T22:06:16.314Z
 
 - [Docling Core #953](https://github.com/docling-project/docling-core/pull/953): Відкритий; GitHub показує REVIEW_REQUIRED. Поточні CI та всі правила merge цим зрізом не засвідчуються. 2026-11-05T19:10:06.066Z
 
@@ -30,10 +30,19 @@
 
 - [PyLops #837](https://github.com/PyLops/pylops/pull/837): Прямий merge підтверджено; адаптація тесту мейнтейнером збережена в історії кейсу. 2026-11-05T19:10:06.066Z
 
-## Злиті PR (10)
+- [ONNX IR #529](https://github.com/onnx/ir-py/pull/529): Прямий merge 05.11.2026 о 21:21:07 UTC через justinchuby; iterator graph I/O slice fix. 2026-11-05T21:47:16.160957+00:00
+
+- [NumPyro #2405](https://github.com/pyro-ppl/numpyro/pull/2405): OPEN, APPROVED; head 1e6058a після відповіді на рев’ю. CI/Benchmark очікують дозволу запуску (ACTION_REQUIRED), не виконаний job failure. 2026-11-05T21:47:16.160957+00:00
+
+- [NumPyro #2410](https://github.com/pyro-ppl/numpyro/pull/2410): OPEN; head b014be8 містить review follow-up і mean batch-shape repair. Aggregate CHANGES_REQUESTED ще збережений; CI/Benchmark ACTION_REQUIRED. 2026-11-05T21:47:16.160957+00:00
+
+## Злиті PR (13)
 
 | Проєкт / PR | Зміна | Дата merge або оновлення UTC |
 |---|---|---|
+| [ott-jax/ott #716](https://github.com/ott-jax/ott/pull/716) | Fix custom implicit differentiation solver dispatch | 2026-11-05T21:21:59Z |
+| [onnx/ir-py #529](https://github.com/onnx/ir-py/pull/529) | &#91;graph&#93; preserve iterator graph input/output slice replacements | 2026-11-05T21:21:07Z |
+| [onnx/ir-py #533](https://github.com/onnx/ir-py/pull/533) | &#91;passes&#93; Preserve independent Dropout evaluations during CSE | 2026-11-05T21:15:56Z |
 | [PyLops/pylops #837](https://github.com/PyLops/pylops/pull/837) | Fix: dense nonstationary convolution matrix orientation | 2026-11-04T21:34:47Z |
 | [redis/redis-py #4550](https://github.com/redis/redis-py/pull/4550) | Fix connection cleanup when MONITOR context entry fails | 2026-11-04T15:44:00Z |
 | [microsoft/semantic-kernel #14701](https://github.com/microsoft/semantic-kernel/pull/14701) | Python: close native generators when stream invocations end | 2026-11-04T14:46:53Z |
@@ -45,14 +54,14 @@
 | [braintrustdata/braintrust-sdk-javascript #2701](https://github.com/braintrustdata/braintrust-sdk-javascript/pull/2701) | fix: preserve UTF-8 in logged ReadableStream byte chunks | 2026-11-02T11:37:30Z |
 | [AndreyBegma/FilesDrop #32](https://github.com/AndreyBegma/FilesDrop/pull/32) | fix(api): retry expired cleanup and enforce URL timeout during DNS | 2026-10-21T08:49:27Z |
 
-## Відкриті PR (116)
+## Відкриті PR (113)
 
 | Проєкт / PR | Зміна | Дата merge або оновлення UTC |
 |---|---|---|
-| [onnx/ir-py #531](https://github.com/onnx/ir-py/pull/531) | &#91;passes&#93; Preserve signed zero in floating CSE attribute keys | 2026-11-05T19:05:14Z |
-| [onnx/ir-py #533](https://github.com/onnx/ir-py/pull/533) | &#91;passes&#93; Preserve independent Dropout evaluations during CSE | 2026-11-05T19:04:12Z |
-| [ott-jax/ott #716](https://github.com/ott-jax/ott/pull/716) | Fix custom implicit differentiation solver dispatch | 2026-11-05T18:11:43Z |
-| [pyro-ppl/numpyro #2410](https://github.com/pyro-ppl/numpyro/pull/2410) | fix(distributions): infer RecursiveLinearTransform parameter batches | 2026-11-05T08:27:44Z |
+| [pyro-ppl/numpyro #2410](https://github.com/pyro-ppl/numpyro/pull/2410) | fix(distributions): infer RecursiveLinearTransform parameter batches | 2026-11-05T21:46:14Z |
+| [pyro-ppl/numpyro #2405](https://github.com/pyro-ppl/numpyro/pull/2405) | fix(distributions): preserve GaussianStateSpace variance batch axes | 2026-11-05T21:29:58Z |
+| [HIPS/autograd #840](https://github.com/HIPS/autograd/pull/840) | Fix normalization in real FFT reverse-mode gradients | 2026-11-05T21:01:04Z |
+| [onnx/ir-py #531](https://github.com/onnx/ir-py/pull/531) | &#91;passes&#93; Preserve signed zero in floating CSE attribute keys | 2026-11-05T19:55:48Z |
 | [cornellius-gp/gpytorch #2842](https://github.com/cornellius-gp/gpytorch/pull/2842) | Fix multitask covariance ordering during arithmetic | 2026-11-05T07:34:03Z |
 | [milvus-io/pymilvus #3903](https://github.com/milvus-io/pymilvus/pull/3903) | fix: return no query rows for an empty ID selection | 2026-11-05T07:22:46Z |
 | [meta-pytorch/botorch #3546](https://github.com/meta-pytorch/botorch/pull/3546) | Compute Gaussian mixture variance from centered means | 2026-11-05T07:18:39Z |
@@ -75,7 +84,6 @@
 | [google-deepmind/optax #1854](https://github.com/google-deepmind/optax/pull/1854) | Reset Lookahead at synchronized fast parameters | 2026-11-04T21:38:40Z |
 | [pyro-ppl/numpyro #2406](https://github.com/pyro-ppl/numpyro/pull/2406) | fix(distributions): preserve ordered logistic tail masses | 2026-11-04T21:05:31Z |
 | [pyro-ppl/numpyro #2401](https://github.com/pyro-ppl/numpyro/pull/2401) | Keep bounded DirichletMultinomial counts in pytree data | 2026-11-04T20:50:46Z |
-| [pyro-ppl/numpyro #2405](https://github.com/pyro-ppl/numpyro/pull/2405) | fix(distributions): preserve GaussianStateSpace variance batch axes | 2026-11-04T20:50:44Z |
 | [pyro-ppl/numpyro #2404](https://github.com/pyro-ppl/numpyro/pull/2404) | fix(distributions): align Cat constraint event masks | 2026-11-04T20:43:46Z |
 | [blackjax-devs/blackjax #1072](https://github.com/blackjax-devs/blackjax/pull/1072) | Preserve the previous target during partial-posterior mutation | 2026-11-04T20:23:22Z |
 | [meta-pytorch/botorch #3545](https://github.com/meta-pytorch/botorch/pull/3545) | Refresh IndexSampler when ensemble probabilities change | 2026-11-04T19:59:56Z |
@@ -103,14 +111,12 @@
 | [pbrod/numdifftools #79](https://github.com/pbrod/numdifftools/pull/79) | fix: correct bicomplex expm1 and mixed Hessians | 2026-11-04T08:40:40Z |
 | [triton-lang/triton #12619](https://github.com/triton-lang/triton/pull/12619) | &#91;TritonGPU&#93; Preserve mutable loop-bound reads during nested-loop fusion | 2026-11-04T08:38:43Z |
 | [yt-project/unyt #706](https://github.com/yt-project/unyt/pull/706) | BUG: give least-squares residuals squared RHS units | 2026-11-04T08:34:57Z |
-| [HIPS/autograd #840](https://github.com/HIPS/autograd/pull/840) | Fix normalization in real FFT reverse-mode gradients | 2026-11-04T08:21:59Z |
 | [data-apis/array-api-extra #1081](https://github.com/data-apis/array-api-extra/pull/1081) | BUG: cov: preserve singleton batch dimensions | 2026-11-04T08:06:41Z |
 | [pymc-devs/pytensor #2602](https://github.com/pymc-devs/pytensor/pull/2602) | Fix default L2 norms for vector axes and empty batches | 2026-11-04T07:49:36Z |
 | [pydata/sparse #1024](https://github.com/pydata/sparse/pull/1024) | fix: keep Kronecker-product coordinate arithmetic integral | 2026-11-04T07:36:41Z |
 | [patrick-kidger/diffrax #798](https://github.com/patrick-kidger/diffrax/pull/798) | Reset LeapfrogMidpoint history after a vector-field jump | 2026-11-04T07:01:26Z |
 | [triton-lang/triton #12611](https://github.com/triton-lang/triton/pull/12611) | &#91;TritonGPU&#93; Increase the rematerialization cost of full CUDA trig | 2026-11-03T17:11:56Z |
 | [docling-project/docling-core #953](https://github.com/docling-project/docling-core/pull/953) | fix: remap copied document comment references | 2026-11-03T16:35:29Z |
-| [onnx/ir-py #529](https://github.com/onnx/ir-py/pull/529) | &#91;graph&#93; preserve iterator graph input/output slice replacements | 2026-11-03T16:26:28Z |
 | [pyro-ppl/pyro #3510](https://github.com/pyro-ppl/pyro/pull/3510) | Preserve cached parameters when expanding zero-inflated distributions | 2026-11-03T10:47:00Z |
 | [NVIDIA/nccl #2551](https://github.com/NVIDIA/nccl/pull/2551) | Propagate ring metadata exchange failures | 2026-11-02T23:14:08Z |
 | [deepset-ai/haystack #13520](https://github.com/deepset-ai/haystack/pull/13520) | fix: attempt remaining pipeline cleanup after component errors | 2026-11-02T20:52:46Z |

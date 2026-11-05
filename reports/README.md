@@ -6,6 +6,9 @@
 
 | Кейс | Зовнішній наслідок | Звіт |
 |---|---|---|
+| ONNX IR #529 | Власний graph I/O iterator-slice fix merged | [Українською](onnx-ir-iterator-2026-11.md) · [English](onnx-ir-iterator-2026-11.md#english-summary) |
+| ONNX IR #533 | Власний independent Dropout CSE fix merged | [Українською](onnx-ir-dropout-2026-11.md) · [English](onnx-ir-dropout-2026-11.md#english-summary) |
+| OTT-JAX | Власний custom implicit-solver dispatch fix merged; regression скоротив мейнтейнер | [Українською](ott-2026-11.md) · [English](ott-2026-11.md#english-summary) |
 | Instructor | Наш #2866 superseded; maintainer #2899 merged із явним reference, не direct merge | [Українською](instructor-2026-11.md) · [English](instructor-2026-11.md#english-summary) |
 | PyLops | Власний dense-convolution fix merged; тест адаптував мейнтейнер | [Українською](pylops-2026-11.md) · [English](pylops-2026-11.md#english-summary) |
 | ONNX IR | Власний fix публічних output aliases merged | [Українською](onnx-ir-2026-11.md) · [English](onnx-ir-2026-11.md#english-summary) |

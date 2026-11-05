@@ -378,6 +378,70 @@
         "successor_state": "OPEN",
         "successor_head": "723629d57c05edb996db411e93e7b37ae5c95a8b"
       }
+    },
+    {
+      "id": "ott-custom-implicit-solver-dispatch-2026-11-05",
+      "category": "upstream_contribution",
+      "project": "OTT-JAX",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-05",
+      "merged_at": "2026-11-05T21:21:59Z",
+      "checked_at": "2026-11-05T21:46:10.662Z",
+      "source_url": "https://github.com/ott-jax/ott/pull/716",
+      "contribution_merged": true,
+      "merge_commit_sha": "8683e37d162db8b1fbb746afc28825c938f6e833",
+      "merged_by": "michalk8",
+      "reviewed_head": "60222b14ad8d460b75e951ff75d14a6a705ba783",
+      "implementation_by": "Author-directed AI-assisted dispatch fix; regression pruned by maintainer michalk8",
+      "report_path": "reports/ott-2026-11.md",
+      "evidence": {
+        "path": "evidence/ott-2026-11-05.json",
+        "sha256": "61510c4ebee6c6d1660d5a58e1fbbdb840813d34284b94b8bec9ae267379c15f"
+      },
+      "boundary": "Direct merge of our PR with maintainer-pruned regression. Nine hosted check runs succeed on reviewed 60222b14. Current regression covers one public regularized-cost gradient path, n<=m and default LSE; it does not establish arbitrary custom-solver correctness. Wider local tests are historical, not rerun for this journal update. No universal GPU/higherAD/performance, production adoption, employment or payment claim."
+    },
+    {
+      "id": "onnx-ir-iterator-graph-io-slices-2026-11-05",
+      "category": "upstream_contribution",
+      "project": "ONNX IR",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-05",
+      "merged_at": "2026-11-05T21:21:07Z",
+      "source_url": "https://github.com/onnx/ir-py/pull/529",
+      "contribution_merged": true,
+      "merge_commit_sha": "045f02a0dad7c8135305e4f5022784d4550d40e7",
+      "merged_by": "justinchuby",
+      "reviewed_head": "bbd36f8c808d55a1647d39bc2ab235c3b0b722de",
+      "implementation_by": "Author-directed AI-assisted contribution, merged by maintainer justinchuby",
+      "report_path": "reports/onnx-ir-iterator-2026-11.md",
+      "evidence": {
+        "path": "evidence/onnx-ir-529-2026-11-05.json",
+        "sha256": "900d9cb4e56054c1cdee549654768ce2d12e2b3791d215d7db7969fa1e96db4d"
+      },
+      "boundary": "Direct merge; finite supported iterable slice assignments. General rollback for invalid slice operations is unchanged. All runtime/test counts are historical PR reports, not new execution during book maintenance; no full repository/platform or deployment claim."
+    },
+    {
+      "id": "onnx-ir-independent-dropout-cse-2026-11-05",
+      "category": "upstream_contribution",
+      "project": "ONNX IR",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-05",
+      "merged_at": "2026-11-05T21:15:56Z",
+      "source_url": "https://github.com/onnx/ir-py/pull/533",
+      "contribution_merged": true,
+      "merge_commit_sha": "4b0302491a601f445e9035097d0b9f6f0f7f90fe",
+      "merged_by": "justinchuby",
+      "reviewed_head": "ab1253c9249eef26f48deb844e92ea66e9cebe31",
+      "implementation_by": "Author-directed AI-assisted contribution, merged by maintainer justinchuby",
+      "report_path": "reports/onnx-ir-dropout-2026-11.md",
+      "evidence": {
+        "path": "evidence/onnx-ir-533-2026-11-05.json",
+        "sha256": "ca3a28f3a6c2e52ff3965c3b65e124ed51f565ec170a72ba9630ce084db9624f"
+      },
+      "boundary": "Direct merge of our PR. Seeded and inference-mode Dropout remain conservatively excluded too. Final regression is structural, not an empirical random-mask inequality or universal stochastic-op proof. Latest 12-test execution is previously documented, not rerun for this book update; no full platform/performance claim."
     }
   ]
 }

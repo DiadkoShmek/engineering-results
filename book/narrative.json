@@ -3,6 +3,75 @@
   "author": "DiadkoShmek",
   "chapters": [
     {
+      "key": "ott-implicit-diff",
+      "title": "OTT-JAX",
+      "record_ids": [
+        "ott-custom-implicit-solver-dispatch-2026-11-05"
+      ],
+      "report": "reports/ott-2026-11.md",
+      "uk": {
+        "problem": "Документований ImplicitDiff(solver=...) приймав користувацький callback, але differentiation падала з UnboundLocalError до його виклику. Локальний solver отримував значення лише у default-гілці.",
+        "decision": "Внесок ініціалізує локальний solver перед існуючим explicit-None fallback. Типова схема, Schur/transpose logic і kwargs forwarding збережені. Мейнтейнер michalk8 скоротив регресію до одного public Sinkhorn cost-gradient порівняння.",
+        "proof": "Наш #716 злитий через michalk8 05.11.2026 о 21:21:59 UTC, commit 8683e37d162db8b1fbb746afc28825c938f6e833. На reviewed head 60222b14 підтверджені дев’ять hosted check runs SUCCESS, включно з Lint і Tests. Поточний тест використовує use_danskin=False, порівнює custom/default x-gradients і перевіряє рівно один виклик із потрібними kwargs. Ширші попередні локальні перевірки збережені як історичні; під час оновлення книги їх не повторювали.",
+        "lesson": "Ремонт extension-point має відновлювати виклик callback у реальному споживачі. Після maintainer pruning треба описувати фактичний фінальний тест і CI, не переносити на нього ширше історичне покриття.",
+        "boundaries": {
+          "ott-custom-implicit-solver-dispatch-2026-11-05": "Прямий merge із maintainer-pruned тестом. Поточна регресія перевіряє n<=m/default-LSE dispatch path, не довільний solver. Дев’ять check runs прив’язані до reviewed head; локального повного runtime re-audit, GPU/higherAD/performance або production adoption не заявлено."
+        }
+      },
+      "en": {
+        "problem": "The documented ImplicitDiff(solver=...) extension point accepted a custom callback, but differentiation raised UnboundLocalError before calling it. The local solver was assigned only in the default branch.",
+        "decision": "The contribution initializes the local solver before retaining the explicit-None fallback. The default algorithm, Schur/transpose logic and kwargs forwarding stay unchanged. Maintainer michalk8 pruned the regression to one public Sinkhorn cost-gradient comparison.",
+        "proof": "Our #716 merged through michalk8 at 21:21:59 UTC on 5 November 2026, commit 8683e37d162db8b1fbb746afc28825c938f6e833. Nine hosted check runs succeed on reviewed head 60222b14, including Lint and Tests. The current test uses use_danskin=False, compares custom/default x-gradients and verifies exactly one call with the intended kwargs. Wider prior local checks remain historical and were not rerun for this journal update.",
+        "lesson": "Repair an extension point through its real callback consumer. After maintainer pruning, describe the actual final regression and CI rather than transferring wider historical coverage to it."
+      }
+    },
+    {
+      "key": "onnx-ir-iterator",
+      "title": "ONNX IR · graph iterator",
+      "record_ids": [
+        "onnx-ir-iterator-graph-io-slices-2026-11-05"
+      ],
+      "report": "reports/onnx-ir-iterator-2026-11.md",
+      "uk": {
+        "problem": "Присвоєння finite iterator/generator у graph.inputs[:] або graph.outputs[:] спочатку витрачало його на ownership tracking, а потім передавало порожній iterable у list assignment. Clone міг втратити graph I/O, а extended slices - помилково відхиляти коректну довжину.",
+        "decision": "Заміна матеріалізується в tuple один раз до обох споживачів. Це узгоджено з constructor/extend pattern; ownership і Python slice semantics лишаються в наявному власнику.",
+        "proof": "Наш #529 злитий через justinchuby 05.11.2026 о 21:21:07 UTC, commit 045f02a0dad7c8135305e4f5022784d4550d40e7. Фінальні два файли зберігають tuple snapshot і graph/model regressions. Історичний PR report має 760 tests/104 subtests та окремий 239/96 review; це не прогін під час цього оновлення книги.",
+        "lesson": "Одноразовий iterable треба зафіксувати перед кількома споживачами. Перевірка серіалізації та повного ONNX model checking показує наслідок втрати graph I/O за межами контейнера.",
+        "boundaries": {
+          "onnx-ir-iterator-graph-io-slices-2026-11-05": "Прямий merge нашого PR. Finite iterable slices; rollback некоректних операцій не розширений. Runtime counts - датований PR report, не повторний прогін."
+        }
+      },
+      "en": {
+        "problem": "Assigning a finite iterator or generator to graph.inputs[:] or graph.outputs[:] consumed it for ownership tracking, then passed the exhausted iterable to list assignment. A clone could lose graph I/O, while valid extended slices could report a wrong size mismatch.",
+        "decision": "Materialize the replacement as a tuple once before either consumer, matching the existing constructor/extend pattern. Ownership and Python slice behavior remain in the existing container.",
+        "proof": "Our #529 merged through justinchuby at 21:21:07 UTC on 5 November 2026, commit 045f02a0dad7c8135305e4f5022784d4550d40e7. The final two-file patch retains the tuple snapshot and graph/model regressions. Historical PR reports list 760 tests/104 subtests and a separate 239/96 review; these were not rerun for this journal update.",
+        "lesson": "Snapshot a one-shot iterable before multiple consumers. Serialization and full ONNX checking reveal the consumer consequence of losing graph I/O."
+      }
+    },
+    {
+      "key": "onnx-ir-dropout",
+      "title": "ONNX IR · Dropout CSE",
+      "record_ids": [
+        "onnx-ir-independent-dropout-cse-2026-11-05"
+      ],
+      "report": "reports/onnx-ir-dropout-2026-11.md",
+      "uk": {
+        "problem": "CSE об’єднував незалежні standard-domain Dropout evaluations з однаковими входами. Їхні sampled masks ставали одним значенням, і downstream Xor перетворювався на Xor(v,v), тотожно false.",
+        "decision": "Dropout додано до наявного переліку nondeterministic exclusions. Регресія структурно зберігає два вузли й різні Xor operands, без вимоги, щоб дві випадкові маски обов’язково відрізнялися. Зайві thread-pool зміни тестового helper прибрані.",
+        "proof": "Наш #533 злитий через justinchuby 05.11.2026 о 21:15:56 UTC, commit 4b0302491a601f445e9035097d0b9f6f0f7f90fe. Exact final head ab1253c9 містить лише exclusion і структурний test. Останній amendment документує 12 passing CSE methods; source/runtime proof вже виконаний раніше, під час підтримки книги його не повторювали.",
+        "lesson": "CSE має враховувати семантику випадкового evaluation, а не лише тотожність входів. Структурна регресія перевіряє незалежність вузлів без flaky припущення про конкретні random samples.",
+        "boundaries": {
+          "onnx-ir-independent-dropout-cse-2026-11-05": "Прямий merge нашого PR. Структурний Dropout test не вимагає нерівності випадкових масок. Seeded/inference paths теж conservatively excluded; 12 тестів - попередній amendment proof, не новий прогін."
+        }
+      },
+      "en": {
+        "problem": "CSE merged independent standard-domain Dropout evaluations with identical inputs. Their sampled masks became one value, turning downstream Xor into Xor(v,v), identically false.",
+        "decision": "Add Dropout to the existing nondeterministic exclusion. The regression structurally preserves two nodes and distinct Xor operands without requiring two random masks to differ. Unrelated thread-pool helper edits were removed.",
+        "proof": "Our #533 merged through justinchuby at 21:15:56 UTC on 5 November 2026, commit 4b0302491a601f445e9035097d0b9f6f0f7f90fe. Exact final head ab1253c9 contains only the exclusion and structural regression. The latest amendment documents 12 passing CSE methods; its previously executed source/runtime proof was not repeated during book maintenance.",
+        "lesson": "CSE must account for stochastic evaluation semantics, not only identical inputs. A structural regression preserves independent nodes without a flaky assertion about particular random samples."
+      }
+    },
+    {
       "key": "instructor",
       "title": "Instructor",
       "record_ids": [

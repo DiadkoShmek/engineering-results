@@ -1,13 +1,13 @@
 # External results
 
-<!-- generated; ledger-sha256:c28a069b22b49e30cfcaf845733b0343f5cbb9e41680f977ebbe723440bbb60a; narrative-sha256:67b52d20ff53a725d7394fa27e3d4a1f3f7b3278503d9d981f515da6877bc9ea; pr-status-sha256:44941cfd85d7964e37323bbd0017d2600e85379c19c7836a6a8f877b1bd6b45f -->
+<!-- generated; ledger-sha256:01e1c97b07fc337e3b63a7e70911afad55c63a88a0c7a43b67c664eeb218abd4; narrative-sha256:d2dd325e8e8ab4f4a6b9a81fdb55e325b1b93f482a6ea60b3a1324dbf27e4cbe; pr-status-sha256:6cf76b0331c7751ed6b38b31ea7bb4b5800e5b141777137a1863ab267eb56d11 -->
 
 
 **2026-11-05 UTC**
 
-10 directly merged PRs; 4 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+13 directly merged PRs; 4 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
 
-Public PRs in other owners' repositories: 134 submitted; 10 merged, 116 open, 8 closed without merge. GitHub snapshot: 2026-11-05 19:07 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 134 submitted; 13 merged, 113 open, 8 closed without merge. GitHub snapshot: 2026-11-05 21:47 UTC. Own-repository and private activity is excluded.
 
 [Complete PR status](PR_STATUS.en.md)
 
@@ -15,6 +15,9 @@ Public PRs in other owners' repositories: 134 submitted; 10 merged, 116 open, 8 
 
 | Record date / source basis | Case | Outcome | Source |
 |---|---|---|---|
+| 2026-11-05 | [OTT-JAX](reports/ott-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/ott-jax/ott/pull/716) |
+| 2026-11-05 | [ONNX IR · graph iterator](reports/onnx-ir-iterator-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/onnx/ir-py/pull/529) |
+| 2026-11-05 | [ONNX IR · Dropout CSE](reports/onnx-ir-dropout-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/onnx/ir-py/pull/533) |
 | 2026-11-05 | [Instructor](reports/instructor-2026-11.md#english-summary) | Incorporated into a merged maintainer fix | [Public source](https://github.com/567-labs/instructor/pull/2899) |
 | 2026-11-04 | [PyLops](reports/pylops-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/PyLops/pylops/pull/837) |
 | 2026-11-04 | [Redis Python client](reports/redis-monitor-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/redis/redis-py/pull/4550) |

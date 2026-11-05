@@ -4,6 +4,12 @@ AI-assisted engineering: проблема, рішення, перевірка т
 
 ## Прийняті виправлення
 
+- **[ONNX IR #533](reports/onnx-ir-dropout-2026-11.md):** CSE зберігає незалежні Dropout evaluations; merged 05.11.2026.
+
+- **[ONNX IR #529](reports/onnx-ir-iterator-2026-11.md):** finite iterator заміни graph I/O slices зберігають declarations і ownership; merged 05.11.2026.
+
+- **[OTT-JAX](reports/ott-2026-11.md):** custom implicit-differentiation solver дістає керування; #716 merged 05.11.2026 після maintainer pruning тесту та 9 hosted SUCCESS checks.
+
 - **[PyLops](reports/pylops-2026-11.md):** орієнтація dense nonstationary convolution узгоджена з forward/adjoint дією оператора; наш #837 merged 04.11.2026.
 
 - **[Microsoft Semantic Kernel](reports/semantic-kernel-2026-11.md):** завершення sync/async native generators після закриття streaming invocation; #14701 merged 04.11.2026.

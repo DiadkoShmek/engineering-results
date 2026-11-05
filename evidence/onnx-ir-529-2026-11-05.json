@@ -1,0 +1,25 @@
+{
+  "url": "https://github.com/onnx/ir-py/pull/529",
+  "author": "DiadkoShmek",
+  "merged": true,
+  "merged_at": "2026-11-05T21:21:07Z",
+  "merged_by": "justinchuby",
+  "reviewed_head": "bbd36f8c808d55a1647d39bc2ab235c3b0b722de",
+  "merge_commit_sha": "045f02a0dad7c8135305e4f5022784d4550d40e7",
+  "final_files": [
+    {
+      "path": "src/onnx_ir/_graph_containers.py",
+      "git_blob_sha": "bee3ef3a184eb118e1f7030127bf8c40a269d70e",
+      "additions": 2,
+      "deletions": 0
+    },
+    {
+      "path": "src/onnx_ir/_graph_containers_test.py",
+      "git_blob_sha": "4b493d6a791f7b7143b776b220391de35f38d046",
+      "additions": 98,
+      "deletions": 0
+    }
+  ],
+  "runtime_basis": "Historical PR/amendment reports only; no product test rerun during this book maintenance",
+  "boundary": "Direct merge; finite supported iterable slice assignments. General rollback for invalid slice operations is unchanged. All runtime/test counts are historical PR reports, not new execution during book maintenance; no full repository/platform or deployment claim."
+}

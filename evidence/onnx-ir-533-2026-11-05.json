@@ -1,0 +1,25 @@
+{
+  "url": "https://github.com/onnx/ir-py/pull/533",
+  "author": "DiadkoShmek",
+  "merged": true,
+  "merged_at": "2026-11-05T21:15:56Z",
+  "merged_by": "justinchuby",
+  "reviewed_head": "ab1253c9249eef26f48deb844e92ea66e9cebe31",
+  "merge_commit_sha": "4b0302491a601f445e9035097d0b9f6f0f7f90fe",
+  "final_files": [
+    {
+      "path": "src/onnx_ir/passes/common/common_subexpression_elimination.py",
+      "git_blob_sha": "3c360330c452862d0cd03c354206c2d961adb7b1",
+      "additions": 1,
+      "deletions": 0
+    },
+    {
+      "path": "src/onnx_ir/passes/common/common_subexpression_elimination_test.py",
+      "git_blob_sha": "6e250cd33be524920963e37bfb0215b63f6bc28a",
+      "additions": 20,
+      "deletions": 0
+    }
+  ],
+  "runtime_basis": "Historical PR/amendment reports only; no product test rerun during this book maintenance",
+  "boundary": "Direct merge of our PR. Seeded and inference-mode Dropout remain conservatively excluded too. Final regression is structural, not an empirical random-mask inequality or universal stochastic-op proof. Latest12-test execution is previously documented, not rerun for this book update; no full platform/performance claim."
+}

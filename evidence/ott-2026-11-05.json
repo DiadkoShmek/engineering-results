@@ -1,0 +1,81 @@
+{
+  "url": "https://github.com/ott-jax/ott/pull/716",
+  "author": "DiadkoShmek",
+  "merged": true,
+  "merged_at": "2026-11-05T21:21:59Z",
+  "merged_by": "michalk8",
+  "merge_commit_sha": "8683e37d162db8b1fbb746afc28825c938f6e833",
+  "reviewed_head": "60222b14ad8d460b75e951ff75d14a6a705ba783",
+  "checked_at": "2026-11-05T21:46:10.662Z",
+  "check_runs": [
+    {
+      "name": "codecov/project",
+      "head_sha": "60222b14ad8d460b75e951ff75d14a6a705ba783",
+      "conclusion": "success",
+      "url": "https://github.com/ott-jax/ott/runs/127535633041",
+      "completed_at": "2026-11-05T21:10:54Z"
+    },
+    {
+      "name": "Python 3.12 on ubuntu-latest",
+      "head_sha": "60222b14ad8d460b75e951ff75d14a6a705ba783",
+      "conclusion": "success",
+      "url": "https://github.com/ott-jax/ott/actions/runs/42081890767/job/127494009164",
+      "completed_at": "2026-11-05T21:09:49Z"
+    },
+    {
+      "name": "Python 3.13 on ubuntu-latest",
+      "head_sha": "60222b14ad8d460b75e951ff75d14a6a705ba783",
+      "conclusion": "success",
+      "url": "https://github.com/ott-jax/ott/actions/runs/42081890767/job/127494008900",
+      "completed_at": "2026-11-05T21:00:21Z"
+    },
+    {
+      "name": "Python 3.14 on ubuntu-latest",
+      "head_sha": "60222b14ad8d460b75e951ff75d14a6a705ba783",
+      "conclusion": "success",
+      "url": "https://github.com/ott-jax/ott/actions/runs/42081890767/job/127494008769",
+      "completed_at": "2026-11-05T20:46:27Z"
+    },
+    {
+      "name": "Python 3.12 on macos-15",
+      "head_sha": "60222b14ad8d460b75e951ff75d14a6a705ba783",
+      "conclusion": "success",
+      "url": "https://github.com/ott-jax/ott/actions/runs/42081890767/job/127494008716",
+      "completed_at": "2026-11-05T21:00:40Z"
+    },
+    {
+      "name": "Python 3.12 jax-default (fast)",
+      "head_sha": "60222b14ad8d460b75e951ff75d14a6a705ba783",
+      "conclusion": "success",
+      "url": "https://github.com/ott-jax/ott/actions/runs/42081890767/job/127494008450",
+      "completed_at": "2026-11-05T20:17:20Z"
+    },
+    {
+      "name": "Python 3.12 jax-latest (fast)",
+      "head_sha": "60222b14ad8d460b75e951ff75d14a6a705ba783",
+      "conclusion": "success",
+      "url": "https://github.com/ott-jax/ott/actions/runs/42081890767/job/127494008076",
+      "completed_at": "2026-11-05T20:18:23Z"
+    },
+    {
+      "name": "docs",
+      "head_sha": "60222b14ad8d460b75e951ff75d14a6a705ba783",
+      "conclusion": "success",
+      "url": "https://github.com/ott-jax/ott/actions/runs/42081890883/job/127494007307",
+      "completed_at": "2026-11-05T19:57:03Z"
+    },
+    {
+      "name": "code",
+      "head_sha": "60222b14ad8d460b75e951ff75d14a6a705ba783",
+      "conclusion": "success",
+      "url": "https://github.com/ott-jax/ott/actions/runs/42081890883/job/127494006898",
+      "completed_at": "2026-11-05T19:54:51Z"
+    }
+  ],
+  "source_git_blobs": {
+    "src/ott/solvers/linear/implicit_differentiation.py": "0c12f3ac606b36a89073cbc7708d41d5ec00e9d2",
+    "tests/solvers/linear/sinkhorn_diff_test.py": "2708d5710c7e7eb84af64eeb4635937f5dd8c72b"
+  },
+  "source_review": "Maintainer-pruned public Sinkhorn cost-gradient regression with use_danskin=False; custom/default gradient equality and exactly one kwargs call; n<=m branch and default LSE mode.",
+  "boundary": "Source/metadata maintenance only; no product test rerun. Wider local both-Schur/mode/falsey/analytic-potential checks are historical, not the final pruned regression. Hosted checks are only for the named exact head."
+}

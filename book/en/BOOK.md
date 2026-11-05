@@ -1,6 +1,6 @@
 # External results
 
-<!-- generated; ledger-sha256:c28a069b22b49e30cfcaf845733b0343f5cbb9e41680f977ebbe723440bbb60a; narrative-sha256:67b52d20ff53a725d7394fa27e3d4a1f3f7b3278503d9d981f515da6877bc9ea; pr-status-sha256:44941cfd85d7964e37323bbd0017d2600e85379c19c7836a6a8f877b1bd6b45f -->
+<!-- generated; ledger-sha256:01e1c97b07fc337e3b63a7e70911afad55c63a88a0c7a43b67c664eeb218abd4; narrative-sha256:d2dd325e8e8ab4f4a6b9a81fdb55e325b1b93f482a6ea60b3a1324dbf27e4cbe; pr-status-sha256:6cf76b0331c7751ed6b38b31ea7bb4b5800e5b141777137a1863ab267eb56d11 -->
 
 
 DiadkoShmek · 2026-11-05 UTC
@@ -9,9 +9,9 @@ DiadkoShmek · 2026-11-05 UTC
 
 I investigate failures, define contracts and verify consequences. AI tools assist research, implementation and checking; I set direction, take responsibility for engineering decisions and authorize external actions. This book does not measure autonomy percentages or rank AI models.
 
-10 directly merged PRs; 4 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+13 directly merged PRs; 4 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
 
-Public PRs in other owners' repositories: 134 submitted; 10 merged, 116 open, 8 closed without merge. GitHub snapshot: 2026-11-05 19:07 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 134 submitted; 13 merged, 113 open, 8 closed without merge. GitHub snapshot: 2026-11-05 21:47 UTC. Own-repository and private activity is excluded.
 
 [Complete PR status](../../PR_STATUS.en.md)
 
@@ -19,43 +19,133 @@ Every status and date below comes from results.json. A local PASS, external cred
 
 ## Contents
 
-1. [Instructor](#case-instructor)
+1. [OTT-JAX](#case-ott-implicit-diff)
 
-2. [PyLops](#case-pylops)
+2. [ONNX IR · graph iterator](#case-onnx-ir-iterator)
 
-3. [Redis Python client](#case-redis-monitor)
+3. [ONNX IR · Dropout CSE](#case-onnx-ir-dropout)
 
-4. [Microsoft Semantic Kernel](#case-semantic-kernel)
+4. [Instructor](#case-instructor)
 
-5. [ONNX Range](#case-onnx-range)
+5. [PyLops](#case-pylops)
 
-6. [ONNX IR](#case-onnx-ir)
+6. [Redis Python client](#case-redis-monitor)
 
-7. [FilesDrop](#case-filesdrop)
+7. [Microsoft Semantic Kernel](#case-semantic-kernel)
 
-8. [Prime Intellect](#case-prime)
+8. [ONNX Range](#case-onnx-range)
 
-9. [M7 MCP](#case-m7)
+9. [ONNX IR](#case-onnx-ir)
 
-10. [Braintrust SDK JavaScript](#case-braintrust)
+10. [FilesDrop](#case-filesdrop)
 
-11. [Kraft](#case-kraft)
+11. [Prime Intellect](#case-prime)
 
-12. [PyTorch TensorDict](#case-tensordict)
+12. [M7 MCP](#case-m7)
 
-13. [BlackJAX](#case-blackjax)
+13. [Braintrust SDK JavaScript](#case-braintrust)
 
-14. [TensorLy](#case-tensorly)
+14. [Kraft](#case-kraft)
 
-15. [Apache TVM-FFI](#case-tvm)
+15. [PyTorch TensorDict](#case-tensordict)
 
-16. [CodinGame - Mad Pod Racing](#case-codingame)
+16. [BlackJAX](#case-blackjax)
 
-17. [Zoria 2026 / UA SKILLS](#case-zoria)
+17. [TensorLy](#case-tensorly)
+
+18. [Apache TVM-FFI](#case-tvm)
+
+19. [CodinGame - Mad Pod Racing](#case-codingame)
+
+20. [Zoria 2026 / UA SKILLS](#case-zoria)
+
+<a id="case-ott-implicit-diff"></a>
+
+## 01. OTT-JAX
+
+**2026-11-05 · Direct PR merged · UTC 2026-11-05T21:46:10.662Z · 2026-11-05T21:21:59Z**
+
+Direct merge of our PR with maintainer-pruned regression. Nine hosted check runs succeed on reviewed 60222b14. Current regression covers one public regularized-cost gradient path, n<=m and default LSE; it does not establish arbitrary custom-solver correctness. Wider local tests are historical, not rerun for this journal update. No universal GPU/higherAD/performance, production adoption, employment or payment claim.
+
+### Problem
+
+The documented ImplicitDiff(solver=...) extension point accepted a custom callback, but differentiation raised UnboundLocalError before calling it. The local solver was assigned only in the default branch.
+
+### My decision and the external choice
+
+The contribution initializes the local solver before retaining the explicit-None fallback. The default algorithm, Schur/transpose logic and kwargs forwarding stay unchanged. Maintainer michalk8 pruned the regression to one public Sinkhorn cost-gradient comparison.
+
+### Validation and limits
+
+Our #716 merged through michalk8 at 21:21:59 UTC on 5 November 2026, commit 8683e37d162db8b1fbb746afc28825c938f6e833. Nine hosted check runs succeed on reviewed head 60222b14, including Lint and Tests. The current test uses use_danskin=False, compares custom/default x-gradients and verifies exactly one call with the intended kwargs. Wider prior local checks remain historical and were not rerun for this journal update.
+
+### What I carry forward
+
+Repair an extension point through its real callback consumer. After maintainer pruning, describe the actual final regression and CI rather than transferring wider historical coverage to it.
+
+- [Primary source](https://github.com/ott-jax/ott/pull/716)
+
+[Повний кейс / Full report](../../reports/ott-2026-11.md)
+
+<a id="case-onnx-ir-iterator"></a>
+
+## 02. ONNX IR · graph iterator
+
+**2026-11-05 · Direct PR merged · 2026-11-05T21:21:07Z**
+
+Direct merge; finite supported iterable slice assignments. General rollback for invalid slice operations is unchanged. All runtime/test counts are historical PR reports, not new execution during book maintenance; no full repository/platform or deployment claim.
+
+### Problem
+
+Assigning a finite iterator or generator to graph.inputs[:] or graph.outputs[:] consumed it for ownership tracking, then passed the exhausted iterable to list assignment. A clone could lose graph I/O, while valid extended slices could report a wrong size mismatch.
+
+### My decision and the external choice
+
+Materialize the replacement as a tuple once before either consumer, matching the existing constructor/extend pattern. Ownership and Python slice behavior remain in the existing container.
+
+### Validation and limits
+
+Our #529 merged through justinchuby at 21:21:07 UTC on 5 November 2026, commit 045f02a0dad7c8135305e4f5022784d4550d40e7. The final two-file patch retains the tuple snapshot and graph/model regressions. Historical PR reports list 760 tests/104 subtests and a separate 239/96 review; these were not rerun for this journal update.
+
+### What I carry forward
+
+Snapshot a one-shot iterable before multiple consumers. Serialization and full ONNX checking reveal the consumer consequence of losing graph I/O.
+
+- [Primary source](https://github.com/onnx/ir-py/pull/529)
+
+[Повний кейс / Full report](../../reports/onnx-ir-iterator-2026-11.md)
+
+<a id="case-onnx-ir-dropout"></a>
+
+## 03. ONNX IR · Dropout CSE
+
+**2026-11-05 · Direct PR merged · 2026-11-05T21:15:56Z**
+
+Direct merge of our PR. Seeded and inference-mode Dropout remain conservatively excluded too. Final regression is structural, not an empirical random-mask inequality or universal stochastic-op proof. Latest 12-test execution is previously documented, not rerun for this book update; no full platform/performance claim.
+
+### Problem
+
+CSE merged independent standard-domain Dropout evaluations with identical inputs. Their sampled masks became one value, turning downstream Xor into Xor(v,v), identically false.
+
+### My decision and the external choice
+
+Add Dropout to the existing nondeterministic exclusion. The regression structurally preserves two nodes and distinct Xor operands without requiring two random masks to differ. Unrelated thread-pool helper edits were removed.
+
+### Validation and limits
+
+Our #533 merged through justinchuby at 21:15:56 UTC on 5 November 2026, commit 4b0302491a601f445e9035097d0b9f6f0f7f90fe. Exact final head ab1253c9 contains only the exclusion and structural regression. The latest amendment documents 12 passing CSE methods; its previously executed source/runtime proof was not repeated during book maintenance.
+
+### What I carry forward
+
+CSE must account for stochastic evaluation semantics, not only identical inputs. A structural regression preserves independent nodes without a flaky assertion about particular random samples.
+
+- [Primary source](https://github.com/onnx/ir-py/pull/533)
+
+[Повний кейс / Full report](../../reports/onnx-ir-dropout-2026-11.md)
 
 <a id="case-instructor"></a>
 
-## 01. Instructor
+## 04. Instructor
 
 **2026-11-05 · Incorporated into a merged maintainer fix**
 
@@ -87,7 +177,7 @@ An original PR and a merged maintainer consolidation are distinct outcomes. Chec
 
 <a id="case-pylops"></a>
 
-## 02. PyLops
+## 05. PyLops
 
 **2026-11-04 · Direct PR merged · UTC 2026-11-04T21:44:06.308045+00:00 · 2026-11-04T21:34:47Z**
 
@@ -115,7 +205,7 @@ An operator matrix must reproduce its action on coordinate impulses. Testing bot
 
 <a id="case-redis-monitor"></a>
 
-## 03. Redis Python client
+## 06. Redis Python client
 
 **2026-11-04 · Direct PR merged · UTC 2026-11-04T16:20:18.445505Z · 2026-11-04T15:44:00Z**
 
@@ -143,7 +233,7 @@ Failed context entry does not automatically invoke exit. The owner of a borrowed
 
 <a id="case-semantic-kernel"></a>
 
-## 04. Microsoft Semantic Kernel
+## 07. Microsoft Semantic Kernel
 
 **2026-11-04 · Direct PR merged · UTC 2026-11-04T16:20:18.445505Z · 2026-11-04T14:46:53Z**
 
@@ -171,7 +261,7 @@ The layer that owns a created stream must finalize it. Retaining the source in t
 
 <a id="case-onnx-range"></a>
 
-## 05. ONNX Range
+## 08. ONNX Range
 
 **2026-11-04 · Direct PR merged · 2026-11-04T01:09:20Z**
 
@@ -199,7 +289,7 @@ For a discrete element count, exact integer arithmetic with a safely represented
 
 <a id="case-onnx-ir"></a>
 
-## 06. ONNX IR
+## 09. ONNX IR
 
 **2026-11-03 · Direct PR merged · UTC 2026-11-03T17:33:18.542858Z · 2026-11-03T16:40:54Z**
 
@@ -227,7 +317,7 @@ Graph optimization must preserve public names and value ownership as well as num
 
 <a id="case-filesdrop"></a>
 
-## 07. FilesDrop
+## 10. FilesDrop
 
 **2026-10-21 · Direct PR merged**
 
@@ -255,7 +345,7 @@ Cleanup must preserve retryability. Cancelling a wait does not imply stopping th
 
 <a id="case-prime"></a>
 
-## 08. Prime Intellect
+## 11. Prime Intellect
 
 **2026-10-24 · Incorporated into a merged maintainer fix**
 
@@ -289,7 +379,7 @@ A contribution can shape a maintainer decision even when the proposed patch is n
 
 <a id="case-m7"></a>
 
-## 09. M7 MCP
+## 12. M7 MCP
 
 **2026-10-29 · Audit credited in release**
 
@@ -317,7 +407,7 @@ An audit should leave a checkable route to each failure and retain what a later 
 
 <a id="case-braintrust"></a>
 
-## 10. Braintrust SDK JavaScript
+## 13. Braintrust SDK JavaScript
 
 **2026-11-02 · Direct PR merged · 2026-11-02T11:37:30Z**
 
@@ -345,7 +435,7 @@ Chunk boundaries belong to the transport. Decoder state must belong to the compl
 
 <a id="case-kraft"></a>
 
-## 11. Kraft
+## 14. Kraft
 
 **2026-11-02 · Direct PR merged · 2026-11-02T12:08:30Z**
 
@@ -373,7 +463,7 @@ Repeated initialization should repeat useful work rather than mistake an idempot
 
 <a id="case-tensordict"></a>
 
-## 12. PyTorch TensorDict
+## 15. PyTorch TensorDict
 
 **2026-11-01 · Incorporated into a merged maintainer fix**
 
@@ -405,7 +495,7 @@ When a lower layer already owns the contract, delegation can be stronger than a 
 
 <a id="case-blackjax"></a>
 
-## 13. BlackJAX
+## 16. BlackJAX
 
 **2026-11-02 · Direct PR merged · 2026-11-02T14:43:52Z**
 
@@ -433,7 +523,7 @@ Stabilize the intermediate computation while preserving the mathematical quantit
 
 <a id="case-tensorly"></a>
 
-## 14. TensorLy
+## 17. TensorLy
 
 **2026-11-03 · Direct PR merged · 2026-11-02T23:54:45Z**
 
@@ -463,7 +553,7 @@ One carefully chosen example can cover both required multipliers without a grid 
 
 <a id="case-tvm"></a>
 
-## 15. Apache TVM-FFI
+## 18. Apache TVM-FFI
 
 **2026-11-03 · Incorporated into a merged maintainer fix**
 
@@ -495,7 +585,7 @@ A reproduction can lead to another repair. Superseded and merged are different e
 
 <a id="case-codingame"></a>
 
-## 16. CodinGame - Mad Pod Racing
+## 19. CodinGame - Mad Pod Racing
 
 **2026-10-21 (Europe/Helsinki) · Dated arena snapshot · UTC 2026-10-20T22:06:15.975Z · 86/1657 (Legend League)**
 
@@ -523,7 +613,7 @@ A stopping rule protects against proving a desired outcome. Local experiments an
 
 <a id="case-zoria"></a>
 
-## 17. Zoria 2026 / UA SKILLS
+## 20. Zoria 2026 / UA SKILLS
 
 **2026-10-19 (Europe/Helsinki) · Historical preliminary result · UTC 2026-10-20T22:06:05.463Z · 5/9 (overall preliminary score of second-stage participants)**
 
