@@ -180,22 +180,54 @@ def markdowns(ledger, narrative):
                  ('Для нового результату я зберігаю дату спостереження UTC, свою роль, первинне джерело й точний зовнішній статус. Старе відтворення лишається датованим; повторну перевірку не видаю за повний аудит. Додаю запис до results.json, розбір до book/narrative.json і запускаю збірку та офлайн-перевірку.' if lang=='uk' else
                   'For each new result I retain the UTC observation date, my role, primary source and exact external disposition. Old reproductions remain dated; a follow-up is not a complete reaudit. I append results.json, add narrative to book/narrative.json and run the build and offline check.')]
         (ROOT/f'book/{lang}/BOOK.md').write_text('\n\n'.join(text)+'\n')
-        readme = [f'# {title}',stamp, ('Інженерні результати, які можна перевірити за зовнішнім джерелом. Окрема книга про код, дослідження, аудит і арени - без підміни одного виду результату іншим.' if lang=='uk' else
-                     'Engineering outcomes tied to external evidence. A separate casebook for code, investigation, audits and arenas, keeping each kind of result distinct.'),summary(records,lang),pr_summary(lang),
-                  f"[{'Усі PR і поточні статуси' if lang=='uk' else 'All PRs and current dispositions'}](PR_STATUS{suffix}.md)",
-                  f"**{date} UTC** · [Українська](README.md) · [English](README.en.md)",
-                  '## '+('Книга' if lang=='uk' else 'The book'),
-                  '[Українська PDF](book/pdf/external-results-uk.pdf) · [English PDF](book/pdf/external-results-en.pdf)',
-                  '[Українська Markdown](book/uk/BOOK.md) · [English Markdown](book/en/BOOK.md)',
-                  (('[Журнал результатів](RESULTS.md) · [Детальні двомовні кейси](reports/README.md) · [Інженерні кейси](ENGINEERING.md)') if lang=='uk' else '[Results](RESULTS.en.md) · [Detailed bilingual cases](reports/README.md) · [Engineering](ENGINEERING.md)'),
-                  '## '+('Що означають статуси' if lang=='uk' else 'What the statuses mean'),
-                  ('Merged означає злиття власного PR. Incorporated означає внесок у прийняте рішення мейнтейнера, не merge власного patch. Відкриті мейнтейнерські заміни обліковуються як незавершені. Аудит і змагання обліковуються окремо; три competition records описують дві події.' if lang=='uk' else
-                   'Merged means our PR was merged. Incorporated means a contribution to an accepted maintainer solution, not a merge of our patch. Open maintainer replacements are recorded as pending. Audits and competitions are separate; three competition records describe two events.'),
-                  '## '+('Як додати результат' if lang=='uk' else 'How to append a result'),
-                  ('1. Додайте датований запис і первинне публічне джерело до [results.json](results.json).\n2. Додайте двомовний кейс у reports/ та розділ у [book/narrative.json](book/narrative.json).\n3. Запустіть `python tools/build.py` (потрібні requirements.txt і шрифти DejaVu).\n4. Запустіть `python tools/check.py` офлайн; перед публікацією огляньте нові сторінки PDF.' if lang=='uk' else '1. Add a dated record and primary public source to [results.json](results.json).\n2. Add a bilingual case in reports/ and a chapter in [book/narrative.json](book/narrative.json).\n3. Run `python tools/build.py` (requires requirements.txt and DejaVu fonts).\n4. Run `python tools/check.py` offline; inspect newly rendered PDF pages before publishing.'),
-                  ('[Схема журналу та правила доповнення](SCHEMA.md)' if lang=='uk' else '[Ledger schema and append contract](SCHEMA.md)'), '## '+('Джерела та відтворюваність' if lang=='uk' else 'Sources and reproducibility'),
-                  ('`results.json` містить підтверджені результати, `book/narrative.json` - авторський текст, `pr-status.json` - датований перелік усіх зовнішніх PR. Згенеровані індекси й книги прив’язані до трьох джерел. Детальні звіти зберігають часові межі; оригінальний PDF аудиту M7 додано без переписування.' if lang=='uk' else '`results.json` owns confirmed outcomes, `book/narrative.json` authored narrative, and `pr-status.json` the dated inventory of all external PRs. Generated indices and books bind all three sources. Detailed reports retain dated scope; the original M7 audit PDF is attached unchanged.'),
-                  ('Перевірка працює офлайн й не засвідчує upstream CI, поточний рейтинг чи кожне твердження історичного аудиту. AI-допомогу розкрито; приватні робочі журнали, модельні виклики й особиста біографія не публікуються.' if lang=='uk' else 'The check is offline and does not certify upstream CI, current live rankings or every claim in an attached historical audit. AI assistance is disclosed; no private work logs, model calls or personal biography are published.')]
+        uk = lang == 'uk'
+        other = '[English](README.en.md)' if uk else '[Українська](README.md)'
+        report_suffix = '' if uk else '#english-summary'
+        cases = (
+            ('BlackJAX / NumPyro', 'blackjax-numpyro-2026-11-11.md',
+             'Три злиті виправлення для MCMC, SMC і розподілів.',
+             'Three merged fixes for MCMC, SMC and distributions.'),
+            ('ONNX IR', 'onnx-ir-dropout-2026-11.md',
+             'Оптимізація графа зберігає незалежні виклики Dropout.',
+             'Graph optimization preserves independent Dropout evaluations.'),
+            ('OTT-JAX', 'ott-2026-11.md',
+             'Користувацький солвер працює під час неявного диференціювання.',
+             'Custom solvers work during implicit differentiation.'),
+        )
+        readme = [
+            f'# {title}',
+            stamp,
+            ('Книга інженерних кейсів. Кожен кейс веде до публічного джерела й пояснює, що перевірили.'
+             if uk else 'An engineering casebook with public sources and an account of what was verified.'),
+            other,
+            f'## {"Вибрані кейси" if uk else "Selected cases"}',
+            '\n'.join(f'- **[{name}](reports/{report}{report_suffix})** · {uk_text if uk else en_text}'
+                      for name, report, uk_text, en_text in cases),
+            ('[Усі кейси](reports/README.md) · [Журнал результатів](RESULTS.md)' if uk else
+             '[All case reports](reports/README.md) · [Results ledger](RESULTS.en.md)'),
+            f'## {"Читати книгу" if uk else "Read the book"}',
+            ('- **Українська** · [Читати](book/uk/BOOK.md) · [PDF](book/pdf/external-results-uk.pdf)\n'
+             '- **English** · [Read](book/en/BOOK.md) · [PDF](book/pdf/external-results-en.pdf)'),
+            f'## {"Стан внесків" if uk else "Contribution status"}',
+            summary(records, lang),
+            pr_summary(lang),
+            f'[{"Переглянути всі PR" if uk else "Browse all PRs"}](PR_STATUS{suffix}.md)',
+            ('Merged означає злиття власного PR. Incorporated фіксує внесок у злитий PR мейнтейнера. '
+             'Аудити й змагання обліковуються окремо.' if uk else
+             'Merged records a merge of our PR. Incorporated records a contribution to a merged maintainer PR. '
+             'Audits and competitions have separate records.'),
+            ('<details>\n<summary>Джерела та відтворення</summary>' if uk else
+             '<details>\n<summary>Sources and reproduction</summary>'),
+            ('[Дані результатів](results.json) · [Дані PR](pr-status.json) · '
+             '[Як додати кейс](SCHEMA.md) · [Метод роботи](ENGINEERING.md)' if uk else
+             '[Results data](results.json) · [PR data](pr-status.json) · '
+             '[How to append a case](SCHEMA.md) · [Engineering method](ENGINEERING.md)'),
+            ('Збірка використовує requirements.txt і шрифти DejaVu. '
+             'Виконайте `python tools/build.py`, потім `python tools/check.py`.' if uk else
+             'The build uses requirements.txt and DejaVu fonts. '
+             'Run `python tools/build.py`, then `python tools/check.py`.'),
+            '</details>',
+        ]
         (ROOT/f'README{suffix}.md').write_text('\n\n'.join(readme)+'\n')
 
 
