@@ -417,6 +417,75 @@
       }
     },
     {
+      "key": "torchode-adjoint",
+      "title": "torchode · backsolve adjoint",
+      "record_ids": [
+        "torchode-adjoint-2026-11-06"
+      ],
+      "report": "reports/numerical-merges-2026-11.md",
+      "uk": {
+        "problem": "Backsolve adjoint зупинявся на першій точці спостереження. Якщо вона лежала після початкового часу вздовж інтегрування, градієнт втрачав внесок початкового інтервалу.",
+        "decision": "Додали зворотне інтегрування від першої точки до початкового часу. Для елементів батчу, які вже на початковому часі, збережено їхній стан.",
+        "proof": "Власний PR #56 злитий. Публічний опис містить аналітичний приклад і шість варіантів регресії. Власник підтвердив включення в 1.1.0, доступну на PyPI.",
+        "lesson": "Правильне значення розв’язку може супроводжуватися помилковим градієнтом. Для adjoint потрібно перевіряти весь часовий інтервал.",
+        "boundaries": {
+          "torchode-adjoint-2026-11-06": "Злиття і реліз підтверджено. Локальні прогони описані в PR і датовані роботою над виправленням."
+        }
+      },
+      "en": {
+        "problem": "The backsolve adjoint stopped at the first evaluation and omitted the interval to the initial time when it lay earlier along the integration path.",
+        "decision": "Integrate back from the first evaluation to the initial time and preserve the augmented state for already-aligned batch members.",
+        "proof": "PR #56 merged. The PR documents an analytic example and six regression cases. The owner confirmed inclusion in 1.1.0, published on PyPI.",
+        "lesson": "Forward values can agree while the adjoint is wrong. Check the complete integration interval in gradient tests."
+      }
+    },
+    {
+      "key": "lineax-reshape",
+      "title": "Lineax · reshaping identities",
+      "record_ids": [
+        "lineax-reshape-2026-11-09"
+      ],
+      "report": "reports/numerical-merges-2026-11.md",
+      "uk": {
+        "problem": "Матеріалізація композиції могла викинути тотожний оператор, що змінює структуру PyTree, хоча кількість елементів збігається.",
+        "decision": "Скорочуємо тотожний оператор лише зі збіжними вхідною й вихідною структурами. Те саме обмеження діє для згортання до структурованої форми.",
+        "proof": "Власний PR #268 злитий. Рев’юер зафіксував додаткові крайові випадки для окремого продовження.",
+        "lesson": "Розмірність і структура PyTree задають різні вимоги до взаємозамінності операторів.",
+        "boundaries": {
+          "lineax-reshape-2026-11-09": "Прямий merge для описаного класу композицій. Подальші випадки матеріалізації залишаються предметом окремого виправлення."
+        }
+      },
+      "en": {
+        "problem": "Materializing a composition could erase an identity that reshaped the PyTree despite preserving the number of elements.",
+        "decision": "Only eliminate identities with matching input and output structures. Require structure compatibility before folding to a structured operator.",
+        "proof": "PR #268 merged. The reviewer identified further edge cases for a separate follow-up.",
+        "lesson": "Matching dimensions alone do not make operators interchangeable when their PyTree structures differ."
+      }
+    },
+    {
+      "key": "numpyro-gss-variance",
+      "title": "NumPyro · GaussianStateSpace variance",
+      "record_ids": [
+        "numpyro-gss-variance-2026-11-09"
+      ],
+      "report": "reports/numerical-merges-2026-11.md",
+      "uk": {
+        "problem": "Відновлення осі часу через swapaxes переставляло батч-осі дисперсії. Для прямокутного батчу це могло викликати помилку broadcasting.",
+        "decision": "Перенесли вісь часу через moveaxis зі збереженням порядку решти осей. Додали батч (2, 3) із нетривіальною матрицею переходу до наявного набору тестів.",
+        "proof": "Власний PR #2405 злитий у master. Регресія перевіряється через наявні тести дисперсії та вибірок.",
+        "lesson": "Нерівні розміри батч-осей і різні параметри допомагають помітити як помилку форми, так і тиху перестановку значень.",
+        "boundaries": {
+          "numpyro-gss-variance-2026-11-09": "Прямий merge виправлення дисперсії. Зміни параметричних батчів RecursiveLinearTransform обговорюються окремо."
+        }
+      },
+      "en": {
+        "problem": "Using swapaxes to restore the variance time axis reordered batch axes and could trigger a broadcast error on a nonsquare batch.",
+        "decision": "Move only the time axis. Add a (2, 3) batch with a dense transition to the existing variance and Monte Carlo tests.",
+        "proof": "PR #2405 merged into master. The regression runs through the existing distribution tests.",
+        "lesson": "Unequal batch dimensions and nonuniform parameters expose both shape errors and silent value permutations."
+      }
+    },
+    {
       "key": "codingame",
       "title": "CodinGame - Mad Pod Racing",
       "record_ids": [

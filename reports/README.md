@@ -1,11 +1,12 @@
 # Інженерні кейси / Engineering cases
 
-> **Підтримка рев’ю · 05.11.2026, 20:01 UTC:** [ONNX IR #531/#533 та NumPyro #2410 опрацьовані](lezo50-2026-11.md). Включно з обома non-blocking nits NumPyro; нові ONNX CI успішні, NumPyro CI чекає дозволу.
+> **6–9 листопада 2026.** [Три нові мерджі у torchode, Lineax і NumPyro](numerical-merges-2026-11.md). [Поточні статуси PR](../PR_STATUS.md).
 
 Короткий результат, роль і зовнішній доказ — на початку. Методика й межі — далі. Кожен кейс має English summary.
 
 | Кейс | Зовнішній наслідок | Звіт |
 |---|---|---|
+| torchode #56, Lineax #268, NumPyro #2405 | Градієнт інтегратора, структури операторів і батч-осі дисперсії | [Українською](numerical-merges-2026-11.md) · [English](numerical-merges-2026-11.md#english-summary) |
 | ONNX IR #529 | Власний graph I/O iterator-slice fix merged | [Українською](onnx-ir-iterator-2026-11.md) · [English](onnx-ir-iterator-2026-11.md#english-summary) |
 | ONNX IR #533 | Власний independent Dropout CSE fix merged | [Українською](onnx-ir-dropout-2026-11.md) · [English](onnx-ir-dropout-2026-11.md#english-summary) |
 | OTT-JAX | Власний custom implicit-solver dispatch fix merged; regression скоротив мейнтейнер | [Українською](ott-2026-11.md) · [English](ott-2026-11.md#english-summary) |

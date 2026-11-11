@@ -1,0 +1,40 @@
+{
+  "checked_at": "2026-11-11T10:34:49.977255+00:00",
+  "pull_requests": [
+    {
+      "author": "DiadkoShmek",
+      "head_sha": "a7dc08848968dfb7c67309d3d5367baf2f47fb52",
+      "merge_commit_sha": "40894a21a9f7a51133f79ea2bbdb4bccd5a29162",
+      "merged": true,
+      "merged_at": "2026-11-06T10:56:19Z",
+      "merged_by": "martenlienen",
+      "title": "Backpropagate from the first evaluation to the initial time",
+      "url": "https://github.com/martenlienen/torchode/pull/56"
+    },
+    {
+      "author": "DiadkoShmek",
+      "head_sha": "63fdbe0e5da14b2b5011cfcdc2abb6f60e14e580",
+      "merge_commit_sha": "316b6913025f451e5d5518d4ff09d156d99a5634",
+      "merged": true,
+      "merged_at": "2026-11-09T21:40:44Z",
+      "merged_by": "jpbrodrick89",
+      "title": "Preserve reshaping identities during materialisation",
+      "url": "https://github.com/patrick-kidger/lineax/pull/268"
+    },
+    {
+      "author": "DiadkoShmek",
+      "head_sha": "1e6058a4824d4153746433f0515834f07b5d6219",
+      "merge_commit_sha": "be7c78f254713f6cb7612d064604cd911f1efe80",
+      "merged": true,
+      "merged_at": "2026-11-09T10:13:37Z",
+      "merged_by": "juanitorduz",
+      "title": "fix(distributions): preserve GaussianStateSpace variance batch axes",
+      "url": "https://github.com/pyro-ppl/numpyro/pull/2405"
+    }
+  ],
+  "torchode_release": {
+    "version": "1.1.0",
+    "package_url": "https://pypi.org/project/torchode/1.1.0/",
+    "maintainer_confirmation": "https://github.com/martenlienen/torchode/pull/56#issuecomment-6721646009"
+  }
+}

@@ -1,17 +1,17 @@
 # External results
 
-<!-- generated; ledger-sha256:01e1c97b07fc337e3b63a7e70911afad55c63a88a0c7a43b67c664eeb218abd4; narrative-sha256:d2dd325e8e8ab4f4a6b9a81fdb55e325b1b93f482a6ea60b3a1324dbf27e4cbe; pr-status-sha256:6cf76b0331c7751ed6b38b31ea7bb4b5800e5b141777137a1863ab267eb56d11 -->
+<!-- generated; ledger-sha256:c80354a0d57e05e72de75e4eb34915742bbe64e390295094195ddcd620b68d44; narrative-sha256:5cd9d11df17f0c585d84be7760e1c40decad8d5539e46406954e3861689134db; pr-status-sha256:f6584f2c99261bf8f036c34c09ef6858b7952c8e0f90b692bc39939ae2add7c1 -->
 
 
-DiadkoShmek · 2026-11-05 UTC
+DiadkoShmek · 2026-11-09 UTC
 
 ## Role and evidence
 
 I investigate failures, define contracts and verify consequences. AI tools assist research, implementation and checking; I set direction, take responsibility for engineering decisions and authorize external actions. This book does not measure autonomy percentages or rank AI models.
 
-13 directly merged PRs; 4 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+16 directly merged PRs; 4 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
 
-Public PRs in other owners' repositories: 134 submitted; 13 merged, 113 open, 8 closed without merge. GitHub snapshot: 2026-11-05 21:47 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 134 submitted; 16 merged, 108 open, 10 closed without merge. GitHub snapshot: 2026-11-11 10:34 UTC. Own-repository and private activity is excluded.
 
 [Complete PR status](../../PR_STATUS.en.md)
 
@@ -55,9 +55,15 @@ Every status and date below comes from results.json. A local PASS, external cred
 
 18. [Apache TVM-FFI](#case-tvm)
 
-19. [CodinGame - Mad Pod Racing](#case-codingame)
+19. [torchode · backsolve adjoint](#case-torchode-adjoint)
 
-20. [Zoria 2026 / UA SKILLS](#case-zoria)
+20. [Lineax · reshaping identities](#case-lineax-reshape)
+
+21. [NumPyro · GaussianStateSpace variance](#case-numpyro-gss-variance)
+
+22. [CodinGame - Mad Pod Racing](#case-codingame)
+
+23. [Zoria 2026 / UA SKILLS](#case-zoria)
 
 <a id="case-ott-implicit-diff"></a>
 
@@ -583,9 +589,93 @@ A reproduction can lead to another repair. Superseded and merged are different e
 
 [Повний кейс / Full report](../../reports/tvm-ffi-2026-11.md)
 
+<a id="case-torchode-adjoint"></a>
+
+## 19. torchode · backsolve adjoint
+
+**2026-11-06 · Direct PR merged · 2026-11-06T10:56:19Z**
+
+The merge and release are verified. The PR reports historical CPU checks for first-order state and shared-parameter gradients.
+
+### Problem
+
+The backsolve adjoint stopped at the first evaluation and omitted the interval to the initial time when it lay earlier along the integration path.
+
+### My decision and the external choice
+
+Integrate back from the first evaluation to the initial time and preserve the augmented state for already-aligned batch members.
+
+### Validation and limits
+
+PR #56 merged. The PR documents an analytic example and six regression cases. The owner confirmed inclusion in 1.1.0, published on PyPI.
+
+### What I carry forward
+
+Forward values can agree while the adjoint is wrong. Check the complete integration interval in gradient tests.
+
+- [Primary source](https://github.com/martenlienen/torchode/pull/56)
+
+[Повний кейс / Full report](../../reports/numerical-merges-2026-11.md)
+
+<a id="case-lineax-reshape"></a>
+
+## 20. Lineax · reshaping identities
+
+**2026-11-09 · Direct PR merged · 2026-11-09T21:40:44Z**
+
+Direct merge for the described composition cases. Additional materialization cases are a separate follow-up.
+
+### Problem
+
+Materializing a composition could erase an identity that reshaped the PyTree despite preserving the number of elements.
+
+### My decision and the external choice
+
+Only eliminate identities with matching input and output structures. Require structure compatibility before folding to a structured operator.
+
+### Validation and limits
+
+PR #268 merged. The reviewer identified further edge cases for a separate follow-up.
+
+### What I carry forward
+
+Matching dimensions alone do not make operators interchangeable when their PyTree structures differ.
+
+- [Primary source](https://github.com/patrick-kidger/lineax/pull/268)
+
+[Повний кейс / Full report](../../reports/numerical-merges-2026-11.md)
+
+<a id="case-numpyro-gss-variance"></a>
+
+## 21. NumPyro · GaussianStateSpace variance
+
+**2026-11-09 · Direct PR merged · 2026-11-09T10:13:37Z**
+
+Direct merge of the variance fix. RecursiveLinearTransform parameter batching is a separate PR.
+
+### Problem
+
+Using swapaxes to restore the variance time axis reordered batch axes and could trigger a broadcast error on a nonsquare batch.
+
+### My decision and the external choice
+
+Move only the time axis. Add a (2, 3) batch with a dense transition to the existing variance and Monte Carlo tests.
+
+### Validation and limits
+
+PR #2405 merged into master. The regression runs through the existing distribution tests.
+
+### What I carry forward
+
+Unequal batch dimensions and nonuniform parameters expose both shape errors and silent value permutations.
+
+- [Primary source](https://github.com/pyro-ppl/numpyro/pull/2405)
+
+[Повний кейс / Full report](../../reports/numerical-merges-2026-11.md)
+
 <a id="case-codingame"></a>
 
-## 19. CodinGame - Mad Pod Racing
+## 22. CodinGame - Mad Pod Racing
 
 **2026-10-21 (Europe/Helsinki) · Dated arena snapshot · UTC 2026-10-20T22:06:15.975Z · 86/1657 (Legend League)**
 
@@ -613,7 +703,7 @@ A stopping rule protects against proving a desired outcome. Local experiments an
 
 <a id="case-zoria"></a>
 
-## 20. Zoria 2026 / UA SKILLS
+## 23. Zoria 2026 / UA SKILLS
 
 **2026-10-19 (Europe/Helsinki) · Historical preliminary result · UTC 2026-10-20T22:06:05.463Z · 5/9 (overall preliminary score of second-stage participants)**
 

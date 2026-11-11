@@ -442,6 +442,69 @@
         "sha256": "ca3a28f3a6c2e52ff3965c3b65e124ed51f565ec170a72ba9630ce084db9624f"
       },
       "boundary": "Direct merge of our PR. Seeded and inference-mode Dropout remain conservatively excluded too. Final regression is structural, not an empirical random-mask inequality or universal stochastic-op proof. Latest 12-test execution is previously documented, not rerun for this book update; no full platform/performance claim."
+    },
+    {
+      "id": "torchode-adjoint-2026-11-06",
+      "category": "upstream_contribution",
+      "project": "torchode",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-06",
+      "merged_at": "2026-11-06T10:56:19Z",
+      "source_url": "https://github.com/martenlienen/torchode/pull/56",
+      "contribution_merged": true,
+      "merge_commit_sha": "40894a21a9f7a51133f79ea2bbdb4bccd5a29162",
+      "merged_by": "martenlienen",
+      "reviewed_head": "a7dc08848968dfb7c67309d3d5367baf2f47fb52",
+      "implementation_by": "Author-directed contribution with AI assistance",
+      "report_path": "reports/numerical-merges-2026-11.md",
+      "evidence": {
+        "path": "evidence/numerical-merges-2026-11.json",
+        "sha256": "1ae158284fb7ca7c5dd21848bbc1b1feddbbe3493bd1e73a8171bfac6975b1db"
+      },
+      "boundary": "The merge and release are verified. The PR reports historical CPU checks for first-order state and shared-parameter gradients."
+    },
+    {
+      "id": "lineax-reshape-2026-11-09",
+      "category": "upstream_contribution",
+      "project": "Lineax",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-09",
+      "merged_at": "2026-11-09T21:40:44Z",
+      "source_url": "https://github.com/patrick-kidger/lineax/pull/268",
+      "contribution_merged": true,
+      "merge_commit_sha": "316b6913025f451e5d5518d4ff09d156d99a5634",
+      "merged_by": "jpbrodrick89",
+      "reviewed_head": "63fdbe0e5da14b2b5011cfcdc2abb6f60e14e580",
+      "implementation_by": "Author-directed contribution with AI assistance",
+      "report_path": "reports/numerical-merges-2026-11.md",
+      "evidence": {
+        "path": "evidence/numerical-merges-2026-11.json",
+        "sha256": "1ae158284fb7ca7c5dd21848bbc1b1feddbbe3493bd1e73a8171bfac6975b1db"
+      },
+      "boundary": "Direct merge for the described composition cases. Additional materialization cases are a separate follow-up."
+    },
+    {
+      "id": "numpyro-gss-variance-2026-11-09",
+      "category": "upstream_contribution",
+      "project": "NumPyro",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-09",
+      "merged_at": "2026-11-09T10:13:37Z",
+      "source_url": "https://github.com/pyro-ppl/numpyro/pull/2405",
+      "contribution_merged": true,
+      "merge_commit_sha": "be7c78f254713f6cb7612d064604cd911f1efe80",
+      "merged_by": "juanitorduz",
+      "reviewed_head": "1e6058a4824d4153746433f0515834f07b5d6219",
+      "implementation_by": "Author-directed contribution with AI assistance",
+      "report_path": "reports/numerical-merges-2026-11.md",
+      "evidence": {
+        "path": "evidence/numerical-merges-2026-11.json",
+        "sha256": "1ae158284fb7ca7c5dd21848bbc1b1feddbbe3493bd1e73a8171bfac6975b1db"
+      },
+      "boundary": "Direct merge of the variance fix. RecursiveLinearTransform parameter batching is a separate PR."
     }
   ]
 }

@@ -1,13 +1,13 @@
 # Зовнішні результати
 
-<!-- generated; ledger-sha256:01e1c97b07fc337e3b63a7e70911afad55c63a88a0c7a43b67c664eeb218abd4; narrative-sha256:d2dd325e8e8ab4f4a6b9a81fdb55e325b1b93f482a6ea60b3a1324dbf27e4cbe; pr-status-sha256:6cf76b0331c7751ed6b38b31ea7bb4b5800e5b141777137a1863ab267eb56d11 -->
+<!-- generated; ledger-sha256:c80354a0d57e05e72de75e4eb34915742bbe64e390295094195ddcd620b68d44; narrative-sha256:5cd9d11df17f0c585d84be7760e1c40decad8d5539e46406954e3861689134db; pr-status-sha256:f6584f2c99261bf8f036c34c09ef6858b7952c8e0f90b692bc39939ae2add7c1 -->
 
 
-**2026-11-05 UTC**
+**2026-11-09 UTC**
 
-Власні злиті PR: 13; внески у злиті рішення мейнтейнерів: 4; технічні аудити: 1. Змагання: часових записів 3, подій 2; Zoria враховано один раз.
+Власні злиті PR: 16; внески у злиті рішення мейнтейнерів: 4; технічні аудити: 1. Змагання: часових записів 3, подій 2; Zoria враховано один раз.
 
-Публічні PR у чужих репозиторіях: 134 подано; 13 злитих, 113 відкритих, 8 закритих без merge. Зріз GitHub: 2026-11-05 21:47 UTC. Власна та приватна активність виключені.
+Публічні PR у чужих репозиторіях: 134 подано; 16 злитих, 108 відкритих, 10 закритих без merge. Зріз GitHub: 2026-11-11 10:34 UTC. Власна та приватна активність виключені.
 
 [Повний стан PR](PR_STATUS.md)
 
@@ -33,6 +33,9 @@
 | 2026-11-02 | [BlackJAX](reports/blackjax-2026-11.md) | Власний PR merged | [Джерело](https://github.com/blackjax-devs/blackjax/pull/1068) |
 | 2026-11-03 | [TensorLy](reports/tensorly-2026-11.md) | Власний PR merged | [Джерело](https://github.com/tensorly/tensorly/pull/695) |
 | 2026-11-03 | [Apache TVM-FFI](reports/tvm-ffi-2026-11.md) | Внесок у merged fix мейнтейнера | [Джерело](https://github.com/apache/tvm-ffi/pull/898) |
+| 2026-11-06 | [torchode · backsolve adjoint](reports/numerical-merges-2026-11.md) | Власний PR merged | [Джерело](https://github.com/martenlienen/torchode/pull/56) |
+| 2026-11-09 | [Lineax · reshaping identities](reports/numerical-merges-2026-11.md) | Власний PR merged | [Джерело](https://github.com/patrick-kidger/lineax/pull/268) |
+| 2026-11-09 | [NumPyro · GaussianStateSpace variance](reports/numerical-merges-2026-11.md) | Власний PR merged | [Джерело](https://github.com/pyro-ppl/numpyro/pull/2405) |
 | 2026-10-21 | [CodinGame - Mad Pod Racing](RESULTS.md#zoria-2026--підсумок-ua-skills) | Датований зріз арени | [Джерело](https://www.codingame.com/multiplayer/bot-programming/mad-pod-racing) |
 | 2026-10-19 | [Zoria 2026 / UA SKILLS](RESULTS.md#zoria-2026--підсумок-ua-skills) | Історичний попередній результат | [Джерело](https://zoria.net/news/#19102026-попередній-підсумок-другого-етапу) |
 | 2026-10-27 | [Zoria 2026 / UA SKILLS](RESULTS.md#zoria-2026--підсумок-ua-skills) | Призер сезону; точне місце не встановлено | [Джерело](https://ua.linkedin.com/company/ua-skills) |
