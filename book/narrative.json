@@ -486,6 +486,75 @@
       }
     },
     {
+      "key": "numpyro-cat-event-mask",
+      "title": "NumPyro · Cat event masks",
+      "record_ids": [
+        "numpyro-cat-event-mask-2026-11-11"
+      ],
+      "report": "reports/blackjax-numpyro-2026-11-11.md",
+      "uk": {
+        "problem": "Компоненти Cat з різним рангом подій могли повертати маски неправильної форми, тож перевірений log_prob падав на допустимих значеннях.",
+        "decision": "Звели перевірки до спільного рангу. Частини батчу конкатенуються, а перевірки частин однієї події поєднуються логічним AND.",
+        "proof": "П’ять регресій у таблиці обмежень і одна наскрізна перевірка log_prob відтворюють дефект. Власний PR #2404 злитий після двох схвалень.",
+        "lesson": "Тестувати форму публічної маски й наслідок для log_prob разом.",
+        "boundaries": {
+          "numpyro-cat-event-mask-2026-11-11": "Злиття підтверджене GitHub. Тести наведені в описі PR і датовані роботою над виправленням."
+        }
+      },
+      "en": {
+        "problem": "Mixed event ranks in Cat could produce invalid mask shapes and prevent validated log_prob on valid values.",
+        "decision": "Reduce component checks to the common event rank. Concatenate batch slices and AND the checks for slices of one event.",
+        "proof": "Five constraint rows and one end-to-end validated log_prob regression reproduce the bug. PR #2404 merged after two approvals.",
+        "lesson": "Check both the public mask shape and the downstream log_prob behavior."
+      }
+    },
+    {
+      "key": "blackjax-sf-sample-axis",
+      "title": "BlackJAX · Schrödinger–Föllmer sample axis",
+      "record_ids": [
+        "blackjax-sf-sample-axis-2026-11-11"
+      ],
+      "report": "reports/blackjax-numpyro-2026-11-11.md",
+      "uk": {
+        "problem": "Оцінка дрейфу могла згортати вісь параметрів замість осі Монте-Карло. Матричний параметр міг дати інший дрейф за ту саму плоску модель.",
+        "decision": "Середнє береться явно за першою віссю вибірок. Регресії звіряють один крок і траєкторії в початкових та плоских координатах.",
+        "proof": "Власний PR #1071 схвалений і злитий. Публічний опис містить незалежний числовий еталон і датований CPU-прогін.",
+        "lesson": "Еквівалентність координатних представлень дає контроль і для випадків, коли помилкова форма мовчки проходить.",
+        "boundaries": {
+          "blackjax-sf-sample-axis-2026-11-11": "Злиття підтверджене GitHub. Тести наведені в описі PR і датовані роботою над виправленням."
+        }
+      },
+      "en": {
+        "problem": "The drift estimator could contract a parameter axis instead of the Monte Carlo axis. A matrix parameter could yield a different drift from equivalent flat coordinates.",
+        "decision": "Reduce explicitly over the leading sample axis. Compare single steps and trajectories against equivalent flattened coordinates.",
+        "proof": "PR #1071 was approved and merged. Its description records an independent numerical reference and dated CPU tests.",
+        "lesson": "Equivalent coordinate representations expose silent reductions along the wrong axis."
+      }
+    },
+    {
+      "key": "blackjax-smc-previous-target",
+      "title": "BlackJAX · SMC mutation target",
+      "record_ids": [
+        "blackjax-smc-previous-target-2026-11-11"
+      ],
+      "report": "reports/blackjax-numpyro-2026-11-11.md",
+      "uk": {
+        "problem": "У partial-posterior SMC мутація брала нову ціль до застосування відношення щільностей. На точному гаусовому прикладі це двічі враховувало нові дані.",
+        "decision": "Мутація зберігає попередній апостеріорний розподіл. Новий внесок надходить через наступне оновлення ваг.",
+        "proof": "Власний PR #1072 схвалений і злитий. Публічний тест зі штатним HMC звіряє частинки, ваги й приріст нормалізатора.",
+        "lesson": "Ціль переходу треба звіряти з порядком мутації й зважування через еталон розподілу.",
+        "boundaries": {
+          "blackjax-smc-previous-target-2026-11-11": "Злиття підтверджене GitHub. Тести наведені в описі PR і датовані роботою над виправленням."
+        }
+      },
+      "en": {
+        "problem": "Partial-posterior SMC mutated toward the new target before applying the density ratio. An exact Gaussian example double-counted new data.",
+        "decision": "Preserve the previous posterior during mutation and account for new data in the subsequent weight update.",
+        "proof": "PR #1072 was approved and merged. A stock HMC regression checks particles, weights and normalizer increments.",
+        "lesson": "Check the mutation target and reweighting order against a known distribution."
+      }
+    },
+    {
       "key": "codingame",
       "title": "CodinGame - Mad Pod Racing",
       "record_ids": [

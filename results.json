@@ -505,6 +505,69 @@
         "sha256": "1ae158284fb7ca7c5dd21848bbc1b1feddbbe3493bd1e73a8171bfac6975b1db"
       },
       "boundary": "Direct merge of the variance fix. RecursiveLinearTransform parameter batching is a separate PR."
+    },
+    {
+      "id": "numpyro-cat-event-mask-2026-11-11",
+      "category": "upstream_contribution",
+      "project": "NumPyro",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-11",
+      "merged_at": "2026-11-11T12:16:47Z",
+      "source_url": "https://github.com/pyro-ppl/numpyro/pull/2404",
+      "contribution_merged": true,
+      "merge_commit_sha": "c347fbe3bf6f0d45dff337d8c98a0c6fe63a0101",
+      "merged_by": "fehiepsi",
+      "reviewed_head": "cc3942a4bd2a9a9828b2ef63c20b30ec1708a014",
+      "implementation_by": "Author-directed contribution with AI assistance",
+      "report_path": "reports/blackjax-numpyro-2026-11-11.md",
+      "evidence": {
+        "path": "evidence/blackjax-numpyro-merges-2026-11-11.json",
+        "sha256": "5f372a14a3b81dc27b9937327989f0ea7858e79f239ff668a27c0fbdd42dfd0e"
+      },
+      "boundary": "GitHub confirms the merge. The PR describes its dated validation scope."
+    },
+    {
+      "id": "blackjax-sf-sample-axis-2026-11-11",
+      "category": "upstream_contribution",
+      "project": "BlackJAX",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-11",
+      "merged_at": "2026-11-11T10:36:19Z",
+      "source_url": "https://github.com/blackjax-devs/blackjax/pull/1071",
+      "contribution_merged": true,
+      "merge_commit_sha": "1d68458a521197fa8117f2bb85bad22e1f2372cd",
+      "merged_by": "junpenglao",
+      "reviewed_head": "a8ddbda356a4eabdd8e81881214bbd7c04d82ec9",
+      "implementation_by": "Author-directed contribution with AI assistance",
+      "report_path": "reports/blackjax-numpyro-2026-11-11.md",
+      "evidence": {
+        "path": "evidence/blackjax-numpyro-merges-2026-11-11.json",
+        "sha256": "5f372a14a3b81dc27b9937327989f0ea7858e79f239ff668a27c0fbdd42dfd0e"
+      },
+      "boundary": "GitHub confirms the merge. The PR describes its dated validation scope."
+    },
+    {
+      "id": "blackjax-smc-previous-target-2026-11-11",
+      "category": "upstream_contribution",
+      "project": "BlackJAX",
+      "format": "open_source",
+      "status": "merged",
+      "as_of": "2026-11-11",
+      "merged_at": "2026-11-11T10:37:23Z",
+      "source_url": "https://github.com/blackjax-devs/blackjax/pull/1072",
+      "contribution_merged": true,
+      "merge_commit_sha": "e8db80fa586a12fdca044fbdfd3f364fdeb58619",
+      "merged_by": "junpenglao",
+      "reviewed_head": "066c001a6ee61ec3fbee977f569fb0136dfda0a1",
+      "implementation_by": "Author-directed contribution with AI assistance",
+      "report_path": "reports/blackjax-numpyro-2026-11-11.md",
+      "evidence": {
+        "path": "evidence/blackjax-numpyro-merges-2026-11-11.json",
+        "sha256": "5f372a14a3b81dc27b9937327989f0ea7858e79f239ff668a27c0fbdd42dfd0e"
+      },
+      "boundary": "GitHub confirms the merge. The PR describes its dated validation scope."
     }
   ]
 }

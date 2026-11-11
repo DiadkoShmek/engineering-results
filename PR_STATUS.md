@@ -1,14 +1,20 @@
 # Стан зовнішніх PR
 
-<!-- generated; pr-status-sha256:f6584f2c99261bf8f036c34c09ef6858b7952c8e0f90b692bc39939ae2add7c1 -->
+<!-- generated; pr-status-sha256:dd1b4437ca07fed7c820fc2fdf75124252796c1890b4af44445eef4e24e23ce7 -->
 
-Публічні PR у чужих репозиторіях: 134 подано; 16 злитих, 108 відкритих, 10 закритих без merge. Зріз GitHub: 2026-11-11 10:34 UTC. Власна та приватна активність виключені.
+Публічні PR у чужих репозиторіях: 134 подано; 19 злитих, 105 відкритих, 10 закритих без merge. Зріз GitHub: 2026-11-11 15:36 UTC. Власна та приватна активність виключені.
 
 Закритий без merge PR не обов’язково відхилений: 4 пропозиції відзначено у злитих рішеннях мейнтейнерів. Схвалення не є merge. Повнота цього зрізу стосується переліку PR, а не всіх CI чи рев’ю.
 
 [Українська](PR_STATUS.md) · [English](PR_STATUS.en.md) · [JSON](pr-status.json) · [Results](RESULTS.md)
 
 ## Окремі сигнали рев’ю
+
+- [blackjax #1071](https://github.com/blackjax-devs/blackjax/pull/1071): Злито 11 листопада. Schrödinger–Föllmer: вісь вибірок. 2026-11-11T15:36:49.043569+00:00
+
+- [numpyro #2404](https://github.com/pyro-ppl/numpyro/pull/2404): Злито 11 листопада. Cat: змішані ранги подій і маски. 2026-11-11T15:36:49.043569+00:00
+
+- [blackjax #1072](https://github.com/blackjax-devs/blackjax/pull/1072): Злито 11 листопада. Partial-posterior SMC: ціль мутації. 2026-11-11T15:36:49.043569+00:00
 
 - [Instructor #2899 / our #2866](https://github.com/567-labs/instructor/pull/2899): Наш #2866 включений у merged #2899 із прямим посиланням; співавторський рядок є у PR head, але відсутній у фінальному squash-коміті. 2026-11-05T19:10:06.066Z
 
@@ -36,10 +42,13 @@
 
 - [NumPyro #2410](https://github.com/pyro-ppl/numpyro/pull/2410): Гілка 6e84563 містить виправлення #2405 з master, тест двовимірного батчу й опис змін форм. 2026-11-11T10:34:49.977255+00:00
 
-## Злиті PR (16)
+## Злиті PR (19)
 
 | Проєкт / PR | Зміна | Дата merge або оновлення UTC |
 |---|---|---|
+| [pyro-ppl/numpyro #2404](https://github.com/pyro-ppl/numpyro/pull/2404) | fix(distributions): align Cat constraint event masks | 2026-11-11T12:16:47Z |
+| [blackjax-devs/blackjax #1072](https://github.com/blackjax-devs/blackjax/pull/1072) | Preserve the previous target during partial-posterior mutation | 2026-11-11T10:37:23Z |
+| [blackjax-devs/blackjax #1071](https://github.com/blackjax-devs/blackjax/pull/1071) | Fix sample-axis reduction in Schrödinger–Föllmer drift | 2026-11-11T10:36:19Z |
 | [patrick-kidger/lineax #268](https://github.com/patrick-kidger/lineax/pull/268) | Preserve reshaping identities during materialisation | 2026-11-09T21:40:44Z |
 | [pyro-ppl/numpyro #2405](https://github.com/pyro-ppl/numpyro/pull/2405) | fix(distributions): preserve GaussianStateSpace variance batch axes | 2026-11-09T10:13:37Z |
 | [martenlienen/torchode #56](https://github.com/martenlienen/torchode/pull/56) | Backpropagate from the first evaluation to the initial time | 2026-11-06T10:56:19Z |
@@ -57,14 +66,13 @@
 | [braintrustdata/braintrust-sdk-javascript #2701](https://github.com/braintrustdata/braintrust-sdk-javascript/pull/2701) | fix: preserve UTF-8 in logged ReadableStream byte chunks | 2026-11-02T11:37:30Z |
 | [AndreyBegma/FilesDrop #32](https://github.com/AndreyBegma/FilesDrop/pull/32) | fix(api): retry expired cleanup and enforce URL timeout during DNS | 2026-10-21T08:49:27Z |
 
-## Відкриті PR (108)
+## Відкриті PR (105)
 
 | Проєкт / PR | Зміна | Дата merge або оновлення UTC |
 |---|---|---|
-| [pyro-ppl/numpyro #2404](https://github.com/pyro-ppl/numpyro/pull/2404) | fix(distributions): align Cat constraint event masks | 2026-11-11T10:28:33Z |
+| [pyro-ppl/numpyro #2410](https://github.com/pyro-ppl/numpyro/pull/2410) | fix(distributions): infer RecursiveLinearTransform parameter batches | 2026-11-11T10:46:24Z |
+| [pyro-ppl/numpyro #2401](https://github.com/pyro-ppl/numpyro/pull/2401) | Keep bounded DirichletMultinomial counts in pytree data | 2026-11-11T10:42:04Z |
 | [pyro-ppl/numpyro #2406](https://github.com/pyro-ppl/numpyro/pull/2406) | fix(distributions): preserve ordered logistic tail masses | 2026-11-11T10:28:11Z |
-| [pyro-ppl/numpyro #2410](https://github.com/pyro-ppl/numpyro/pull/2410) | fix(distributions): infer RecursiveLinearTransform parameter batches | 2026-11-11T10:25:31Z |
-| [pyro-ppl/numpyro #2401](https://github.com/pyro-ppl/numpyro/pull/2401) | Keep bounded DirichletMultinomial counts in pytree data | 2026-11-11T10:24:39Z |
 | [onnx/ir-py #531](https://github.com/onnx/ir-py/pull/531) | &#91;passes&#93; Preserve signed zero in floating CSE attribute keys | 2026-11-11T10:23:03Z |
 | [google-deepmind/optax #1852](https://github.com/google-deepmind/optax/pull/1852) | Keep zero learning rates from entering MADGRAD dual averages | 2026-11-11T05:44:13Z |
 | [google-deepmind/optax #1853](https://github.com/google-deepmind/optax/pull/1853) | Avoid gradient-product underflow in Rprop sign comparisons | 2026-11-11T05:43:21Z |
@@ -89,7 +97,6 @@
 | [patrick-kidger/equinox #1282](https://github.com/patrick-kidger/equinox/pull/1282) | Recognize NumPy bfloat16 and float8 leaves in filtered gradients | 2026-11-04T22:48:54Z |
 | [patrick-kidger/optimistix #248](https://github.com/patrick-kidger/optimistix/pull/248) | Use a descent fallback when the indirect damping root fails | 2026-11-04T21:46:40Z |
 | [google-deepmind/optax #1854](https://github.com/google-deepmind/optax/pull/1854) | Reset Lookahead at synchronized fast parameters | 2026-11-04T21:38:40Z |
-| [blackjax-devs/blackjax #1072](https://github.com/blackjax-devs/blackjax/pull/1072) | Preserve the previous target during partial-posterior mutation | 2026-11-04T20:23:22Z |
 | [meta-pytorch/botorch #3545](https://github.com/meta-pytorch/botorch/pull/3545) | Refresh IndexSampler when ensemble probabilities change | 2026-11-04T19:59:56Z |
 | [patrick-kidger/diffrax #799](https://github.com/patrick-kidger/diffrax/pull/799) | Preserve PyTrees in interpolation increments | 2026-11-04T18:54:35Z |
 | [cornellius-gp/gpytorch #2840](https://github.com/cornellius-gp/gpytorch/pull/2840) | Fix parameter batch axes in Hamming IMQ covariances | 2026-11-04T18:50:40Z |
@@ -105,7 +112,6 @@
 | [geoopt/geoopt #282](https://github.com/geoopt/geoopt/pull/282) | Preserve vector batch axes in Sphere subspace projections | 2026-11-04T11:37:35Z |
 | [pyro-ppl/pyro #3512](https://github.com/pyro-ppl/pyro/pull/3512) | Fix sample and batch dimensions in diagonal normal mixture sampling | 2026-11-04T11:07:59Z |
 | [google-deepmind/distrax #394](https://github.com/google-deepmind/distrax/pull/394) | Preserve straight-through gradients in combined sampling | 2026-11-04T10:57:46Z |
-| [blackjax-devs/blackjax #1071](https://github.com/blackjax-devs/blackjax/pull/1071) | Fix sample-axis reduction in Schrödinger–Föllmer drift | 2026-11-04T10:34:16Z |
 | [cornellius-gp/gpytorch #2839](https://github.com/cornellius-gp/gpytorch/pull/2839) | Fix rectangular covariance in RBFKernelGradGrad | 2026-11-04T10:29:21Z |
 | [tensorly/tensorly #696](https://github.com/tensorly/tensorly/pull/696) | Respect conjugate transpose in complex vector mode products | 2026-11-04T09:30:28Z |
 | [pbrod/numdifftools #79](https://github.com/pbrod/numdifftools/pull/79) | fix: correct bicomplex expm1 and mixed Hessians | 2026-11-04T08:40:40Z |

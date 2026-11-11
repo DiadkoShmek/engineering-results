@@ -1,13 +1,13 @@
 # External results
 
-<!-- generated; ledger-sha256:c80354a0d57e05e72de75e4eb34915742bbe64e390295094195ddcd620b68d44; narrative-sha256:5cd9d11df17f0c585d84be7760e1c40decad8d5539e46406954e3861689134db; pr-status-sha256:f6584f2c99261bf8f036c34c09ef6858b7952c8e0f90b692bc39939ae2add7c1 -->
+<!-- generated; ledger-sha256:a812e9e5799fc4ba9cb3507cd3c71a324a400131ffd0173844c042a457e34da9; narrative-sha256:c270698fb9f0feb268eb872b5017e82a94d3f80ca5f28d100a3a52e4b981412f; pr-status-sha256:dd1b4437ca07fed7c820fc2fdf75124252796c1890b4af44445eef4e24e23ce7 -->
 
 
-**2026-11-09 UTC**
+**2026-11-11 UTC**
 
-16 directly merged PRs; 4 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+19 directly merged PRs; 4 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
 
-Public PRs in other owners' repositories: 134 submitted; 16 merged, 108 open, 10 closed without merge. GitHub snapshot: 2026-11-11 10:34 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 134 submitted; 19 merged, 105 open, 10 closed without merge. GitHub snapshot: 2026-11-11 15:36 UTC. Own-repository and private activity is excluded.
 
 [Complete PR status](PR_STATUS.en.md)
 
@@ -36,6 +36,9 @@ Public PRs in other owners' repositories: 134 submitted; 16 merged, 108 open, 10
 | 2026-11-06 | [torchode · backsolve adjoint](reports/numerical-merges-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/martenlienen/torchode/pull/56) |
 | 2026-11-09 | [Lineax · reshaping identities](reports/numerical-merges-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/patrick-kidger/lineax/pull/268) |
 | 2026-11-09 | [NumPyro · GaussianStateSpace variance](reports/numerical-merges-2026-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/pyro-ppl/numpyro/pull/2405) |
+| 2026-11-11 | [NumPyro · Cat event masks](reports/blackjax-numpyro-2026-11-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/pyro-ppl/numpyro/pull/2404) |
+| 2026-11-11 | [BlackJAX · Schrödinger–Föllmer sample axis](reports/blackjax-numpyro-2026-11-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/blackjax-devs/blackjax/pull/1071) |
+| 2026-11-11 | [BlackJAX · SMC mutation target](reports/blackjax-numpyro-2026-11-11.md#english-summary) | Direct PR merged | [Public source](https://github.com/blackjax-devs/blackjax/pull/1072) |
 | 2026-10-21 | [CodinGame - Mad Pod Racing](RESULTS.en.md#zoria-2026--підсумок-ua-skills) | Dated arena snapshot | [Public source](https://www.codingame.com/multiplayer/bot-programming/mad-pod-racing) |
 | 2026-10-19 | [Zoria 2026 / UA SKILLS](RESULTS.en.md#zoria-2026--підсумок-ua-skills) | Historical preliminary result | [Public source](https://zoria.net/news/#19102026-попередній-підсумок-другого-етапу) |
 | 2026-10-27 | [Zoria 2026 / UA SKILLS](RESULTS.en.md#zoria-2026--підсумок-ua-skills) | Season prize winner; exact rank not established | [Public source](https://ua.linkedin.com/company/ua-skills) |

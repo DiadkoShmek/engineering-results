@@ -1,17 +1,17 @@
 # External results
 
-<!-- generated; ledger-sha256:c80354a0d57e05e72de75e4eb34915742bbe64e390295094195ddcd620b68d44; narrative-sha256:5cd9d11df17f0c585d84be7760e1c40decad8d5539e46406954e3861689134db; pr-status-sha256:f6584f2c99261bf8f036c34c09ef6858b7952c8e0f90b692bc39939ae2add7c1 -->
+<!-- generated; ledger-sha256:a812e9e5799fc4ba9cb3507cd3c71a324a400131ffd0173844c042a457e34da9; narrative-sha256:c270698fb9f0feb268eb872b5017e82a94d3f80ca5f28d100a3a52e4b981412f; pr-status-sha256:dd1b4437ca07fed7c820fc2fdf75124252796c1890b4af44445eef4e24e23ce7 -->
 
 
-DiadkoShmek · 2026-11-09 UTC
+DiadkoShmek · 2026-11-11 UTC
 
 ## Role and evidence
 
 I investigate failures, define contracts and verify consequences. AI tools assist research, implementation and checking; I set direction, take responsibility for engineering decisions and authorize external actions. This book does not measure autonomy percentages or rank AI models.
 
-16 directly merged PRs; 4 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
+19 directly merged PRs; 4 contributions incorporated into merged maintainer fixes; 1 audit. 3 observations across 2 arenas/events, with Zoria counted once.
 
-Public PRs in other owners' repositories: 134 submitted; 16 merged, 108 open, 10 closed without merge. GitHub snapshot: 2026-11-11 10:34 UTC. Own-repository and private activity is excluded.
+Public PRs in other owners' repositories: 134 submitted; 19 merged, 105 open, 10 closed without merge. GitHub snapshot: 2026-11-11 15:36 UTC. Own-repository and private activity is excluded.
 
 [Complete PR status](../../PR_STATUS.en.md)
 
@@ -61,9 +61,15 @@ Every status and date below comes from results.json. A local PASS, external cred
 
 21. [NumPyro · GaussianStateSpace variance](#case-numpyro-gss-variance)
 
-22. [CodinGame - Mad Pod Racing](#case-codingame)
+22. [NumPyro · Cat event masks](#case-numpyro-cat-event-mask)
 
-23. [Zoria 2026 / UA SKILLS](#case-zoria)
+23. [BlackJAX · Schrödinger–Föllmer sample axis](#case-blackjax-sf-sample-axis)
+
+24. [BlackJAX · SMC mutation target](#case-blackjax-smc-previous-target)
+
+25. [CodinGame - Mad Pod Racing](#case-codingame)
+
+26. [Zoria 2026 / UA SKILLS](#case-zoria)
 
 <a id="case-ott-implicit-diff"></a>
 
@@ -673,9 +679,93 @@ Unequal batch dimensions and nonuniform parameters expose both shape errors and 
 
 [Повний кейс / Full report](../../reports/numerical-merges-2026-11.md)
 
+<a id="case-numpyro-cat-event-mask"></a>
+
+## 22. NumPyro · Cat event masks
+
+**2026-11-11 · Direct PR merged · 2026-11-11T12:16:47Z**
+
+GitHub confirms the merge. The PR describes its dated validation scope.
+
+### Problem
+
+Mixed event ranks in Cat could produce invalid mask shapes and prevent validated log_prob on valid values.
+
+### My decision and the external choice
+
+Reduce component checks to the common event rank. Concatenate batch slices and AND the checks for slices of one event.
+
+### Validation and limits
+
+Five constraint rows and one end-to-end validated log_prob regression reproduce the bug. PR #2404 merged after two approvals.
+
+### What I carry forward
+
+Check both the public mask shape and the downstream log_prob behavior.
+
+- [Primary source](https://github.com/pyro-ppl/numpyro/pull/2404)
+
+[Повний кейс / Full report](../../reports/blackjax-numpyro-2026-11-11.md)
+
+<a id="case-blackjax-sf-sample-axis"></a>
+
+## 23. BlackJAX · Schrödinger–Föllmer sample axis
+
+**2026-11-11 · Direct PR merged · 2026-11-11T10:36:19Z**
+
+GitHub confirms the merge. The PR describes its dated validation scope.
+
+### Problem
+
+The drift estimator could contract a parameter axis instead of the Monte Carlo axis. A matrix parameter could yield a different drift from equivalent flat coordinates.
+
+### My decision and the external choice
+
+Reduce explicitly over the leading sample axis. Compare single steps and trajectories against equivalent flattened coordinates.
+
+### Validation and limits
+
+PR #1071 was approved and merged. Its description records an independent numerical reference and dated CPU tests.
+
+### What I carry forward
+
+Equivalent coordinate representations expose silent reductions along the wrong axis.
+
+- [Primary source](https://github.com/blackjax-devs/blackjax/pull/1071)
+
+[Повний кейс / Full report](../../reports/blackjax-numpyro-2026-11-11.md)
+
+<a id="case-blackjax-smc-previous-target"></a>
+
+## 24. BlackJAX · SMC mutation target
+
+**2026-11-11 · Direct PR merged · 2026-11-11T10:37:23Z**
+
+GitHub confirms the merge. The PR describes its dated validation scope.
+
+### Problem
+
+Partial-posterior SMC mutated toward the new target before applying the density ratio. An exact Gaussian example double-counted new data.
+
+### My decision and the external choice
+
+Preserve the previous posterior during mutation and account for new data in the subsequent weight update.
+
+### Validation and limits
+
+PR #1072 was approved and merged. A stock HMC regression checks particles, weights and normalizer increments.
+
+### What I carry forward
+
+Check the mutation target and reweighting order against a known distribution.
+
+- [Primary source](https://github.com/blackjax-devs/blackjax/pull/1072)
+
+[Повний кейс / Full report](../../reports/blackjax-numpyro-2026-11-11.md)
+
 <a id="case-codingame"></a>
 
-## 22. CodinGame - Mad Pod Racing
+## 25. CodinGame - Mad Pod Racing
 
 **2026-10-21 (Europe/Helsinki) · Dated arena snapshot · UTC 2026-10-20T22:06:15.975Z · 86/1657 (Legend League)**
 
@@ -703,7 +793,7 @@ A stopping rule protects against proving a desired outcome. Local experiments an
 
 <a id="case-zoria"></a>
 
-## 23. Zoria 2026 / UA SKILLS
+## 26. Zoria 2026 / UA SKILLS
 
 **2026-10-19 (Europe/Helsinki) · Historical preliminary result · UTC 2026-10-20T22:06:05.463Z · 5/9 (overall preliminary score of second-stage participants)**
 
